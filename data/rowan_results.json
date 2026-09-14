@@ -1,0 +1,5076 @@
+[
+  {
+    "acn": 1715405,
+    "event": "altitude_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.276166",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three conducted an ILS XXL approach, during which the controller issued a low altitude alert and the pilot initially failed to respond correctly, but eventually climbed to the instructed altitude. The outcome was a safe operation despite significant safety concerns. The aircraft was cleared for the approach and landed without further incident. The conversation involved multiple errors, including a missed position report and a semantic misunderstanding of the low altitude alert.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "approach",
+      "facility_type": "approach",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "altitude",
+          "raw_instruction": "turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach",
+          "key_values": {
+            "heading": "one nine zero",
+            "altitude": "three thousand feet"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "heading",
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 3,
+          "instruction_type": "report",
+          "raw_instruction": "report established on the localizer",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 6,
+          "instruction_type": "altitude",
+          "raw_instruction": "Low altitude alert, climb immediately to two thousand nine hundred feet",
+          "key_values": {
+            "altitude": "two thousand nine hundred feet"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 8,
+          "instruction_type": "altitude",
+          "raw_instruction": "Climb now to two thousand nine hundred feet, ZZZ is reported as IFR",
+          "key_values": {
+            "altitude": "two thousand nine hundred feet"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "altitude",
+          "pilot_text": "Turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach, Delta One Two Three",
+          "values_extracted": {
+            "heading": "one nine zero",
+            "altitude": "three thousand feet"
+          }
+        },
+        {
+          "turn_index": 4,
+          "readback_for_turn": 3,
+          "readback_for_type": "report",
+          "pilot_text": "Wilco, Delta One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 9,
+          "readback_for_turn": 8,
+          "readback_for_type": "altitude",
+          "pilot_text": "Climbing to two thousand nine hundred feet, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "two thousand nine hundred feet"
+          }
+        }
+      ],
+      "total_turns": 12,
+      "controller_turns": 5,
+      "pilot_turns": 7,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [
+        "ZZZ"
+      ],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 6,
+        "speaker": "controller",
+        "error_type": "missing_readback",
+        "severity": "high",
+        "expected_behavior": "Pilot readback of altitude",
+        "actual_behavior": "No matching readback found for this instruction.",
+        "explanation": "",
+        "related_turns": [
+          6
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "error_type": "missed_position_report",
+        "severity": "medium",
+        "expected_behavior": "Pilot reports 'established' as requested",
+        "actual_behavior": "No matching position report found in any pilot turn.",
+        "explanation": "",
+        "related_turns": [
+          3
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "error_type": "semantic_misunderstanding",
+        "severity": "critical",
+        "expected_behavior": "Pilot should acknowledge and follow the low altitude alert instruction",
+        "actual_behavior": "Pilot responds with 'We are in the clear', indicating a misunderstanding of the instruction",
+        "explanation": "The pilot's response suggests they do not understand the urgency of the low altitude alert and the need to climb immediately.",
+        "related_turns": [
+          6,
+          7,
+          8
+        ],
+        "safety_impact": "Failure to respond to a low altitude alert can result in controlled flight into terrain.",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 3,
+    "errors_by_source": {
+      "rule": 2,
+      "llm": 1
+    },
+    "critical_errors": [
+      "semantic_misunderstanding"
+    ],
+    "safety_risk_level": "critical",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Approach, Delta One Two Three, airport in sight, fourteen miles out, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Delta One Two Three, roger, report established on the localizer.",
+        "errors_in_turn": [
+          "missed_position_report"
+        ]
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Wilco, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "text": "Approach, Delta One Two Three, airport in sight, twelve miles out, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "controller",
+        "text": "Delta One Two Three, Low altitude alert, climb immediately to two thousand nine hundred feet.",
+        "errors_in_turn": [
+          "missing_readback"
+        ]
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "We are in the clear, Delta One Two Three",
+        "errors_in_turn": [
+          "semantic_misunderstanding"
+        ]
+      },
+      {
+        "turn_index": 8,
+        "speaker": "controller",
+        "text": "Delta One Two Three, Climb now to two thousand nine hundred feet, ZZZ is reported as IFR.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "text": "Climbing to two thousand nine hundred feet, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "controller",
+        "text": "Delta One Two Three, apologies for the confusion, it seems there was a mistake on our end.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "pilot",
+        "text": "Roger, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between the controller and Delta One Two Three during the ILS XXL approach revealed significant safety concerns due to multiple errors. A low altitude alert was issued, but the pilot initially failed to respond correctly, indicating a semantic misunderstanding of the instruction. Additionally, a missed position report and a missing readback were identified. Despite these errors, the pilot eventually climbed to the instructed altitude, and the operation concluded safely. The errors highlight the importance of clear communication and adherence to standard procedures in high-pressure situations. It is crucial for controllers and pilots to verify and acknowledge critical instructions to prevent potential accidents.",
+    "recommendations": [
+      "Controllers should ensure that pilots read back critical instructions, such as altitude changes and low altitude alerts, to confirm understanding and compliance.",
+      "Pilots should be vigilant in responding to low altitude alerts and report their actions clearly to avoid misunderstandings.",
+      "Regular training and drills should be conducted to emphasize the importance of clear communication, standard procedures, and timely responses to critical instructions in high-pressure situations."
+    ],
+    "error_statistics": {
+      "missing_readback": 1,
+      "missed_position_report": 1,
+      "semantic_misunderstanding": 1
+    }
+  },
+  {
+    "acn": 1721120,
+    "event": "altitude_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.277462",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "The SR22 Delta One Two Three aircraft experienced an altitude deviation and declared a Mayday emergency, but was able to recover and continue to its destination, ultimately canceling its IFR plan and landing safely.",
+    "context": {
+      "primary_callsign": "UNKNOWN",
+      "callsign_variations": [],
+      "callsign_mentions": [],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "other",
+      "facility_type": "unknown",
+      "critical_instructions": [],
+      "actual_readbacks": [],
+      "total_turns": 15,
+      "controller_turns": 7,
+      "pilot_turns": 8,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [],
+    "total_errors": 0,
+    "errors_by_source": {
+      "rule": 0,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "low",
+    "operational_status": "safe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "pilot",
+        "text": "Good morning, PHL Departure, SR22 Delta One Two Three, leveling at three thousand feet, requesting to maintain VFR on course, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend and maintain two thousand five hundred feet, cleared out of the Bravo airspace, verify familiar with the antenna north of the airport",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Descend and maintain two thousand five hundred feet, cleared out of the Bravo airspace, familiar with the antenna, roger, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Delta One Two Three, report passing the antenna",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Passing the antenna, currently at two thousand feet, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta One Two Three, that's below the MVA, say intentions",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Mayday, Mayday, SR22 Delta One Two Three, experiencing altitude deviation, climbing to two thousand five hundred feet, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "Delta One Two Three, roger, maintain two thousand five hundred feet, turn right heading two seven zero, vector for the destination airport",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Maintain two thousand five hundred feet, turn right heading two seven zero, vector for the destination airport, wilco, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "Delta One Two Three, contact destination approach on one two zero point five",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Contact destination approach on one two zero point five, roger, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "text": "Delta One Two Three, this is destination approach, say altitude and heading",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "text": "Currently at two thousand five hundred feet, heading two seven zero, requesting to cancel IFR, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 13,
+        "speaker": "controller",
+        "text": "Delta One Two Three, cancel IFR approved, descend and maintain one thousand five hundred feet, vector for the visual approach",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 14,
+        "speaker": "pilot",
+        "text": "Descend and maintain one thousand five hundred feet, vector for the visual approach, wilco, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The SR22 Delta One Two Three aircraft experienced an altitude deviation and declared a Mayday emergency, but was able to recover and continue to its destination. The aircraft was initially instructed to descend and maintain 2500 feet, but descended below the MVA, prompting the controller to ask for intentions. The pilot declared a Mayday and climbed back to 2500 feet. The aircraft was then vectored for the destination airport and ultimately canceled its IFR plan, landing safely. The conversation was conducted in a professional manner, with clear and concise communication between the pilot and controller. The outcome was successful, with no reported injuries or damage.",
+    "recommendations": [
+      "Pilots should be aware of their altitude and maintain the assigned altitude to avoid deviations.",
+      "Controllers should closely monitor aircraft altitude and prompt pilots to report any deviations.",
+      "Aircraft should be equipped with altitude alert systems to prevent deviations."
+    ],
+    "error_statistics": {}
+  },
+  {
+    "acn": 1721357,
+    "event": "altitude_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.277988",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta123 conducted an enroute conversation with a controller, receiving multiple altitude instructions and responding with readbacks, ultimately continuing descent to FL200 without incident.",
+    "context": {
+      "primary_callsign": "Delta123",
+      "callsign_variations": [
+        "Delta123"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "controller",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "pilot",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "controller",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "controller",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "pilot",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "controller",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "pilot",
+          "callsign_text": "Delta123"
+        },
+        {
+          "turn_index": 12,
+          "speaker": "controller",
+          "callsign_text": "Delta123"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "enroute",
+      "facility_type": "center",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend via the BAYYY3 arrival, maintain FL220",
+          "key_values": {
+            "arrival": "BAYYY3",
+            "altitude": "FL220"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "arrival",
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "altitude",
+          "raw_instruction": "maintain FL230",
+          "key_values": {
+            "altitude": "FL230"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 4,
+          "instruction_type": "altitude",
+          "raw_instruction": "maintain FL200",
+          "key_values": {
+            "altitude": "FL200"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 10,
+          "instruction_type": "altitude",
+          "raw_instruction": "disregard, continue descent to FL200",
+          "key_values": {
+            "altitude": "FL200"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend via the BAYYY3 arrival, maintain FL220, Delta123",
+          "values_extracted": {
+            "arrival": "BAYYY3",
+            "altitude": "FL220"
+          }
+        },
+        {
+          "turn_index": 3,
+          "readback_for_turn": 2,
+          "readback_for_type": "altitude",
+          "pilot_text": "Maintain FL230, Delta123",
+          "values_extracted": {
+            "altitude": "FL230"
+          }
+        },
+        {
+          "turn_index": 5,
+          "readback_for_turn": 4,
+          "readback_for_type": "altitude",
+          "pilot_text": "Maintain FL200, Delta123",
+          "values_extracted": {
+            "altitude": "FL200"
+          }
+        },
+        {
+          "turn_index": 7,
+          "readback_for_turn": 6,
+          "readback_for_type": "altitude",
+          "pilot_text": "FL200 as cleared, Delta123",
+          "values_extracted": {
+            "altitude": "FL200"
+          }
+        },
+        {
+          "turn_index": 9,
+          "readback_for_turn": 8,
+          "readback_for_type": "altitude",
+          "pilot_text": "We read back FL200, say again, Delta123",
+          "values_extracted": {
+            "altitude": "FL200"
+          }
+        },
+        {
+          "turn_index": 11,
+          "readback_for_turn": 10,
+          "readback_for_type": "altitude",
+          "pilot_text": "Continuing descent to FL200, Delta123",
+          "values_extracted": {
+            "altitude": "FL200"
+          }
+        }
+      ],
+      "total_turns": 13,
+      "controller_turns": 7,
+      "pilot_turns": 6,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [],
+    "total_errors": 0,
+    "errors_by_source": {
+      "rule": 0,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "none",
+    "operational_status": "safe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta123, descend via the BAYYY3 arrival, maintain FL220",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Descend via the BAYYY3 arrival, maintain FL220, Delta123",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "Delta123, maintain FL230",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Maintain FL230, Delta123",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "controller",
+        "text": "Delta123, maintain FL200",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "text": "Maintain FL200, Delta123",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "controller",
+        "text": "Delta123, where are you going?",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "FL200 as cleared, Delta123",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "controller",
+        "text": "Delta123, I only cleared you to FL230",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "text": "We read back FL200, say again, Delta123",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "controller",
+        "text": "Delta123, disregard, continue descent to FL200",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "pilot",
+        "text": "Continuing descent to FL200, Delta123",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 12,
+        "speaker": "controller",
+        "text": "Delta123, not an issue, I've taken care of it",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between Delta123 and the controller involved multiple altitude instructions and readbacks, with the pilot ultimately continuing descent to FL200 as instructed. The controller initially cleared the aircraft to FL230, but later corrected this to FL200. The pilot read back all instructions correctly. There were no errors or safety concerns identified in this conversation. The operational status of this conversation is safe operation. The safety risk level is none, as there were no errors that could have led to an accident. The conversation was conducted in a professional and safe manner.",
+    "recommendations": [
+      "Controllers should ensure that all altitude instructions are clear and concise to avoid any confusion.",
+      "Pilots should always read back altitude instructions to confirm understanding.",
+      "Controllers and pilots should maintain open communication to resolve any discrepancies or issues that may arise during the conversation."
+    ],
+    "error_statistics": {}
+  },
+  {
+    "acn": 1718453,
+    "event": "heading_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.278648",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three was instructed to change heading and altitude multiple times, with the pilot initially reading back an incorrect destination, but ultimately cleared to the correct destination SURNAM with a final heading of two nine zero.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "enroute",
+      "facility_type": "center",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "heading_and_altitude",
+          "raw_instruction": "turn left heading two seven zero, descend and maintain five thousand",
+          "key_values": {
+            "heading": "two seven zero",
+            "altitude": "five thousand"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "heading",
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "heading_and_destination",
+          "raw_instruction": "correction, turn right heading two eight zero to SURNAM",
+          "key_values": {
+            "heading": "two eight zero",
+            "destination": "SURNAM"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "heading",
+            "destination"
+          ]
+        },
+        {
+          "turn_index": 4,
+          "instruction_type": "request_destination",
+          "raw_instruction": "say again your destination",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": [
+            "destination"
+          ]
+        },
+        {
+          "turn_index": 6,
+          "instruction_type": "clearance_and_heading",
+          "raw_instruction": "you are cleared to SURNAM, Sierra Uniform Romeo November Alpha Mike, turn right heading two nine zero",
+          "key_values": {
+            "destination": "SURNAM",
+            "heading": "two nine zero"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "destination",
+            "heading"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "heading_and_altitude",
+          "pilot_text": "Turn left heading two seven zero, descend and maintain five thousand, Delta One Two Three",
+          "values_extracted": {
+            "heading": "two seven zero",
+            "altitude": "five thousand"
+          }
+        },
+        {
+          "turn_index": 3,
+          "readback_for_turn": 2,
+          "readback_for_type": "heading_and_destination",
+          "pilot_text": "Turn right heading two eight zero to SULOM, Delta One Two Three",
+          "values_extracted": {
+            "heading": "two eight zero",
+            "destination": "SULOM"
+          }
+        },
+        {
+          "turn_index": 5,
+          "readback_for_turn": 4,
+          "readback_for_type": "request_destination",
+          "pilot_text": "Destination is SULOM, you hear that as Sierra Uniform Lima Oscar Mike, Delta One Two Three",
+          "values_extracted": {
+            "destination": "SULOM"
+          }
+        },
+        {
+          "turn_index": 7,
+          "readback_for_turn": 6,
+          "readback_for_type": "clearance_and_heading",
+          "pilot_text": "Cleared to SURNAM, turn right heading two nine zero, Delta One Two Three",
+          "values_extracted": {
+            "destination": "SURNAM",
+            "heading": "two nine zero"
+          }
+        }
+      ],
+      "total_turns": 8,
+      "controller_turns": 4,
+      "pilot_turns": 4,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [],
+    "total_errors": 0,
+    "errors_by_source": {
+      "rule": 0,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "low",
+    "operational_status": "safe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, turn left heading two seven zero, descend and maintain five thousand, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Turn left heading two seven zero, descend and maintain five thousand, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "Delta One Two Three, correction, turn right heading two eight zero to SURNAM, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Turn right heading two eight zero to SULOM, Delta One Two Three",
+        "errors_in_turn": [
+          "incorrect_destination_readback"
+        ]
+      },
+      {
+        "turn_index": 4,
+        "speaker": "controller",
+        "text": "Delta One Two Three, say again your destination, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "text": "Destination is SULOM, you hear that as Sierra Uniform Lima Oscar Mike, Delta One Two Three",
+        "errors_in_turn": [
+          "incorrect_destination_readback"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "controller",
+        "text": "Delta One Two Three, roger, you are cleared to SURNAM, Sierra Uniform Romeo November Alpha Mike, turn right heading two nine zero, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "Cleared to SURNAM, turn right heading two nine zero, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between the controller and Delta One Two Three involved multiple heading and altitude changes, with an initial discrepancy in the destination read back by the pilot. The pilot initially read back the destination as SULOM instead of the correct SURNAM. However, the controller corrected this and ultimately cleared the aircraft to the correct destination. The safety risk level is considered low due to the correction of the error and the safe outcome. The operational status is safe operation, as the aircraft was able to complete its journey without incident. The turn analysis highlights the incorrect destination readback by the pilot in turns 3 and 5. Recommendations for improvement include verifying the accuracy of pilot readbacks, especially for critical instructions such as destination changes, and ensuring that controllers promptly correct any discrepancies.",
+    "recommendations": [
+      "Controllers should verify the accuracy of pilot readbacks, especially for critical instructions such as destination changes.",
+      "Pilots should ensure that they read back critical instructions accurately, including destination changes.",
+      "Controllers should promptly correct any discrepancies in pilot readbacks to prevent potential safety risks."
+    ],
+    "error_statistics": {}
+  },
+  {
+    "acn": 1725481,
+    "event": "heading_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.279288",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three conducted an approach via the WAPPL4 arrival, with the controller issuing multiple altitude and vector instructions. The pilot failed to provide complete readbacks for two critical instructions, which could have led to safety issues. However, the pilot eventually understood the instructions and continued safely. The outcome was a safe operation despite the errors.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "approach",
+      "facility_type": "approach",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend via the WAPPL4 arrival, maintain FL290 due to traffic below, over",
+          "key_values": {
+            "arrival": "WAPPL4",
+            "altitude": "FL290"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "arrival",
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend via the WAPPL4 arrival except maintain seven thousand at HUDZY, over",
+          "key_values": {
+            "arrival": "WAPPL4",
+            "altitude": "seven thousand",
+            "waypoint": "HUDZY"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "arrival",
+            "altitude",
+            "waypoint"
+          ]
+        },
+        {
+          "turn_index": 4,
+          "instruction_type": "report_level",
+          "raw_instruction": "report level seven thousand, over",
+          "key_values": {
+            "altitude": "seven thousand"
+          },
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 6,
+          "instruction_type": "altitude",
+          "raw_instruction": "you were supposed to descend via the WAPPL4 arrival, seven thousand at BUGZY, over",
+          "key_values": {
+            "arrival": "WAPPL4",
+            "altitude": "seven thousand",
+            "waypoint": "BUGZY"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "arrival",
+            "altitude",
+            "waypoint"
+          ]
+        },
+        {
+          "turn_index": 8,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend via the WAPPL4 arrival, seven thousand at BUGZY, HUDZY and BUGZY are different waypoints, over",
+          "key_values": {
+            "arrival": "WAPPL4",
+            "altitude": "seven thousand",
+            "waypoint": "BUGZY"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "arrival",
+            "altitude",
+            "waypoint"
+          ]
+        },
+        {
+          "turn_index": 10,
+          "instruction_type": "vector",
+          "raw_instruction": "cleared to continue, vector heading two seven zero, descend and maintain five thousand, over",
+          "key_values": {
+            "heading": "two seven zero",
+            "altitude": "five thousand"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "heading",
+            "altitude"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend via the WAPPL4 arrival, maintain FL290, Delta One Two Three",
+          "values_extracted": {
+            "arrival": "WAPPL4",
+            "altitude": "FL290"
+          }
+        },
+        {
+          "turn_index": 3,
+          "readback_for_turn": 2,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend via the WAPPL4 arrival except maintain seven thousand at HUDZY, Delta One Two Three",
+          "values_extracted": {
+            "arrival": "WAPPL4",
+            "altitude": "seven thousand",
+            "waypoint": "HUDZY"
+          }
+        },
+        {
+          "turn_index": 5,
+          "readback_for_turn": 4,
+          "readback_for_type": "report_level",
+          "pilot_text": "Level seven thousand, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "seven thousand"
+          }
+        },
+        {
+          "turn_index": 7,
+          "readback_for_turn": 6,
+          "readback_for_type": "altitude",
+          "pilot_text": "Say again, approach, Delta One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 9,
+          "readback_for_turn": 8,
+          "readback_for_type": "altitude",
+          "pilot_text": "Roger, understand now, significant deviation due to similar sounding waypoints, requesting clearance to continue, Delta One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 11,
+          "readback_for_turn": 10,
+          "readback_for_type": "vector",
+          "pilot_text": "Cleared to continue, vector heading two seven zero, descend and maintain five thousand, Delta One Two Three",
+          "values_extracted": {
+            "heading": "two seven zero",
+            "altitude": "five thousand"
+          }
+        }
+      ],
+      "total_turns": 12,
+      "controller_turns": 6,
+      "pilot_turns": 6,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [
+        "traffic below"
+      ],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['altitude', 'arrival', 'waypoint']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          6,
+          7
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "altitude,arrival,waypoint"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['altitude', 'arrival', 'waypoint']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          8,
+          9
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "altitude,arrival,waypoint"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 2,
+    "errors_by_source": {
+      "rule": 2,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "medium",
+    "operational_status": "minor_issues",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend via the WAPPL4 arrival, maintain FL290 due to traffic below, over",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Descend via the WAPPL4 arrival, maintain FL290, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend via the WAPPL4 arrival except maintain seven thousand at HUDZY, over",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Descend via the WAPPL4 arrival except maintain seven thousand at HUDZY, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "controller",
+        "text": "Delta One Two Three, report level seven thousand, over",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "text": "Level seven thousand, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "controller",
+        "text": "Delta One Two Three, you were supposed to descend via the WAPPL4 arrival, seven thousand at BUGZY, over",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "Say again, approach, Delta One Two Three",
+        "errors_in_turn": [
+          "partial_readback"
+        ]
+      },
+      {
+        "turn_index": 8,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend via the WAPPL4 arrival, seven thousand at BUGZY, HUDZY and BUGZY are different waypoints, over",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "text": "Roger, understand now, significant deviation due to similar sounding waypoints, requesting clearance to continue, Delta One Two Three",
+        "errors_in_turn": [
+          "partial_readback"
+        ]
+      },
+      {
+        "turn_index": 10,
+        "speaker": "controller",
+        "text": "Delta One Two Three, cleared to continue, vector heading two seven zero, descend and maintain five thousand, over",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "pilot",
+        "text": "Cleared to continue, vector heading two seven zero, descend and maintain five thousand, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between the controller and Delta One Two Three involved multiple altitude and vector instructions during an approach via the WAPPL4 arrival. The pilot failed to provide complete readbacks for two critical instructions, which could have led to safety issues. However, the pilot eventually understood the instructions and continued safely. The errors were related to partial readbacks, which are critical for ensuring safe operation. The controller's instructions were clear, but the pilot's failure to read back critical elements could have led to misunderstandings. The outcome was a safe operation despite the errors, but the incident highlights the importance of complete readbacks.",
+    "recommendations": [
+      "Pilots should ensure that they provide complete readbacks for all critical instructions, including altitude, arrival, and waypoint information.",
+      "Controllers should verify that pilots have provided complete readbacks for critical instructions before proceeding with further instructions.",
+      "Air traffic control should consider providing additional training to pilots and controllers on the importance of complete readbacks and the potential consequences of partial readbacks."
+    ],
+    "error_statistics": {
+      "partial_readback": 2
+    }
+  },
+  {
+    "acn": 1724859,
+    "event": "speed_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.280029",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three conducted an approach with the controller issuing multiple speed instructions, and the pilot ultimately read back the correct speed after some discussion, landing safely.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "approach",
+      "facility_type": "approach",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend and maintain two thousand, reduce speed to two five zero knots",
+          "key_values": {
+            "altitude": "two thousand",
+            "speed": "two five zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude",
+            "speed"
+          ]
+        },
+        {
+          "turn_index": 3,
+          "instruction_type": "speed",
+          "raw_instruction": "maintain two five zero knots",
+          "key_values": {
+            "speed": "two five zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed"
+          ]
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "speed",
+          "raw_instruction": "maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence",
+          "key_values": {
+            "speed": "two five zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed"
+          ]
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "speed",
+          "raw_instruction": "maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence",
+          "key_values": {
+            "speed": "two five zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed"
+          ]
+        },
+        {
+          "turn_index": 9,
+          "instruction_type": "speed_request",
+          "raw_instruction": "what speed are you maintaining?",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend and maintain two thousand, reduce speed to two five zero knots, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "two thousand",
+            "speed": "two five zero knots"
+          }
+        },
+        {
+          "turn_index": 8,
+          "readback_for_turn": 7,
+          "readback_for_type": "speed",
+          "pilot_text": "Wilco, maintaining two five zero knots, Delta One Two Three",
+          "values_extracted": {
+            "speed": "two five zero knots"
+          }
+        },
+        {
+          "turn_index": 10,
+          "readback_for_turn": 9,
+          "readback_for_type": "speed_request",
+          "pilot_text": "Maintaining two five zero knots, Delta One Two Three",
+          "values_extracted": {
+            "speed": "two five zero knots"
+          }
+        }
+      ],
+      "total_turns": 11,
+      "controller_turns": 5,
+      "pilot_turns": 6,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "error_type": "missing_readback",
+        "severity": "high",
+        "expected_behavior": "Pilot readback of speed",
+        "actual_behavior": "No matching readback found for this instruction.",
+        "explanation": "",
+        "related_turns": [
+          3
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "error_type": "missing_readback",
+        "severity": "high",
+        "expected_behavior": "Pilot readback of speed",
+        "actual_behavior": "No matching readback found for this instruction.",
+        "explanation": "",
+        "related_turns": [
+          5
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 2,
+    "errors_by_source": {
+      "rule": 2,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "high",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend and maintain two thousand, reduce speed to two five zero knots.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Descend and maintain two thousand, reduce speed to two five zero knots, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Approach, we're slowing to two zero zero knots for the Class B airspace, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Delta One Two Three, maintain two five zero knots.",
+        "errors_in_turn": [
+          "missing_readback"
+        ]
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "But, Approach, that would put us in excess of maximum speed, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta One Two Three, my authority supersedes that restriction, maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence.",
+        "errors_in_turn": [
+          "missing_readback"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Approach, we understand, but our First Officer notes that you don't have authority to waive that restriction, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "Delta One Two Three, I repeat, maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Wilco, maintaining two five zero knots, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "Delta One Two Three, what speed are you maintaining?",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Maintaining two five zero knots, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between Delta One Two Three and the controller involved multiple speed instructions, with the pilot questioning the controller's authority to waive certain restrictions. The controller repeated the instruction to maintain a speed of 250 knots, and the pilot eventually read back the correct speed. However, there were two instances where the pilot failed to provide a readback for the controller's speed instructions, which is a critical safety protocol. The outcome was safe, but the lack of readbacks poses a significant safety concern. The controller's repeated instructions and the pilot's eventual compliance suggest a breakdown in communication and a need for clarification on authority and procedures.",
+    "recommendations": [
+      "Controllers should ensure that pilots provide readbacks for all critical instructions, including speed changes.",
+      "Pilots should be aware of the importance of readbacks and provide them promptly, even if they question the instruction.",
+      "The controller and pilot should clarify any discrepancies or questions regarding authority and procedures to avoid confusion and ensure safe operation."
+    ],
+    "error_statistics": {
+      "missing_readback": 2
+    }
+  },
+  {
+    "acn": 1728661,
+    "event": "speed_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.282236",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three, a Boeing 737, was guided through an approach by air traffic control, with instructions including altitude and speed changes, as well as traffic advisories. However, the pilot failed to follow some instructions and provided incomplete readbacks, leading to concerns about safety and operational compliance. The conversation ultimately concluded with the pilot being instructed to contact New York Tower. The outcome of the flight was not explicitly stated, but the errors and deviations from standard procedures raise concerns about the safety of the operation.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 12,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 13,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": "Boeing seven three seven",
+      "conversation_phase": "approach",
+      "facility_type": "approach",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend and maintain eight thousand, reduce speed to two five zero knots",
+          "key_values": {
+            "altitude": "eight thousand",
+            "speed": "two five zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude",
+            "speed"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "report_position",
+          "raw_instruction": "report established on the localizer, good luck",
+          "key_values": {
+            "report_type": "established on the localizer"
+          },
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 4,
+          "instruction_type": "traffic_advisory",
+          "raw_instruction": "traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+          "key_values": {
+            "traffic_direction": "twelve o'clock",
+            "distance": "five miles",
+            "traffic_type": "Boeing seven three seven"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "traffic_direction",
+            "distance",
+            "traffic_type"
+          ]
+        },
+        {
+          "turn_index": 6,
+          "instruction_type": "speed",
+          "raw_instruction": "maintain two five zero knots or greater below the New York Class B shelf",
+          "key_values": {
+            "speed": "two five zero knots or greater",
+            "altitude": "below the New York Class B shelf"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed",
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 8,
+          "instruction_type": "request_reason",
+          "raw_instruction": "say reason for unable",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 10,
+          "instruction_type": "altitude",
+          "raw_instruction": "reduce speed to two one zero knots, descend and maintain five thousand",
+          "key_values": {
+            "speed": "two one zero knots",
+            "altitude": "five thousand"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed",
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 12,
+          "instruction_type": "frequency_change",
+          "raw_instruction": "contact New York Tower on one one niner point seven five",
+          "key_values": {
+            "frequency": "one one niner point seven five",
+            "facility": "New York Tower"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "frequency",
+            "facility"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend and maintain eight thousand, reduce speed to two five zero knots, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "eight thousand",
+            "speed": "two five zero knots"
+          }
+        },
+        {
+          "turn_index": 3,
+          "readback_for_turn": 2,
+          "readback_for_type": "report_position",
+          "pilot_text": "Wilco, Delta One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 5,
+          "readback_for_turn": 4,
+          "readback_for_type": "traffic_advisory",
+          "pilot_text": "Roger, Delta One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 7,
+          "readback_for_turn": 6,
+          "readback_for_type": "speed",
+          "pilot_text": "Unable to maintain two five zero knots, Delta One Two Three",
+          "values_extracted": {
+            "speed": "two five zero knots"
+          }
+        },
+        {
+          "turn_index": 9,
+          "readback_for_turn": 8,
+          "readback_for_type": "request_reason",
+          "pilot_text": "Due to speed restriction conflict with 14 CFR 91.117, Delta One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 11,
+          "readback_for_turn": 10,
+          "readback_for_type": "altitude",
+          "pilot_text": "Reduce speed to two one zero knots, descend and maintain five thousand, Delta One Two Three",
+          "values_extracted": {
+            "speed": "two one zero knots",
+            "altitude": "five thousand"
+          }
+        },
+        {
+          "turn_index": 13,
+          "readback_for_turn": 12,
+          "readback_for_type": "frequency_change",
+          "pilot_text": "Contact New York Tower on one one niner point seven five, Delta One Two Three",
+          "values_extracted": {
+            "frequency": "one one niner point seven five",
+            "facility": "New York Tower"
+          }
+        }
+      ],
+      "total_turns": 14,
+      "controller_turns": 7,
+      "pilot_turns": 7,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [
+        "Boeing seven three seven"
+      ],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['distance', 'traffic_direction', 'traffic_type']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          4,
+          5
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "distance,traffic_direction,traffic_type"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['altitude']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          6,
+          7
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "altitude"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "error_type": "missed_position_report",
+        "severity": "medium",
+        "expected_behavior": "Pilot reports 'established' as requested",
+        "actual_behavior": "No matching position report found in any pilot turn.",
+        "explanation": "",
+        "related_turns": [
+          2
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "error_type": "instruction_not_followed",
+        "severity": "critical",
+        "expected_behavior": "Pilot should maintain the instructed speed or explain the inability to do so",
+        "actual_behavior": "Pilot states inability to maintain speed without prior explanation or request for alternative instructions",
+        "explanation": "The pilot's response indicates a failure to follow the speed instruction without a valid reason or request for alternative instructions.",
+        "related_turns": [
+          6,
+          7
+        ],
+        "safety_impact": "Failure to follow speed instructions can lead to loss of separation or other safety issues.",
+        "values_involved": {
+          "speed": "two five zero knots"
+        },
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 4,
+    "errors_by_source": {
+      "rule": 3,
+      "llm": 1
+    },
+    "critical_errors": [
+      "instruction_not_followed"
+    ],
+    "safety_risk_level": "high",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend and maintain eight thousand, reduce speed to two five zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Descend and maintain eight thousand, reduce speed to two five zero knots, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "Delta One Two Three, report established on the localizer, good luck",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Wilco, Delta One Two Three",
+        "errors_in_turn": [
+          "missed_position_report"
+        ]
+      },
+      {
+        "turn_index": 4,
+        "speaker": "controller",
+        "text": "Delta One Two Three, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "text": "Roger, Delta One Two Three",
+        "errors_in_turn": [
+          "partial_readback"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "controller",
+        "text": "Delta One Two Three, maintain two five zero knots or greater below the New York Class B shelf",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "Unable to maintain two five zero knots, Delta One Two Three",
+        "errors_in_turn": [
+          "partial_readback",
+          "instruction_not_followed"
+        ]
+      },
+      {
+        "turn_index": 8,
+        "speaker": "controller",
+        "text": "Delta One Two Three, say reason for unable",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "text": "Due to speed restriction conflict with 14 CFR 91.117, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "controller",
+        "text": "Delta One Two Three, reduce speed to two one zero knots, descend and maintain five thousand",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "pilot",
+        "text": "Reduce speed to two one zero knots, descend and maintain five thousand, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 12,
+        "speaker": "controller",
+        "text": "Delta One Two Three, contact New York Tower on one one niner point seven five",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 13,
+        "speaker": "pilot",
+        "text": "Contact New York Tower on one one niner point seven five, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between Delta One Two Three and air traffic control during an approach raised significant concerns due to the pilot's failure to follow instructions and provide complete readbacks. Specifically, the pilot missed a position report, provided partial readbacks for traffic advisories and speed instructions, and failed to follow a speed instruction without a valid reason. These errors indicate a need for improved communication and adherence to standard procedures to ensure safe operations. The incident highlights the importance of clear and complete communication between pilots and controllers. It also underscores the need for pilots to follow instructions and provide timely and accurate readbacks. Further investigation and review of procedures are recommended to prevent similar incidents in the future.",
+    "recommendations": [
+      "Pilots should ensure they provide complete and accurate readbacks for all instructions, including traffic advisories and speed changes.",
+      "Controllers should verify that pilots have understood and will comply with instructions, especially when deviations from standard procedures are anticipated.",
+      "A review of the pilot's training and adherence to standard operating procedures should be conducted to address the failure to follow instructions and provide incomplete readbacks.",
+      "Air traffic control should emphasize the importance of clear and timely communication, including the provision of complete readbacks and the prompt reporting of any inability to comply with instructions.",
+      "The incident should be used as a training example to reinforce the importance of adherence to procedures and clear communication in ensuring safe operations."
+    ],
+    "error_statistics": {
+      "partial_readback": 2,
+      "missed_position_report": 1,
+      "instruction_not_followed": 1
+    }
+  },
+  {
+    "acn": 1740720,
+    "event": "speed_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.283642",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three, a Boeing 737, declared a medical emergency onboard and requested priority handling to the nearest airport. The aircraft was cleared for an expedited descent and landing at ZZZ airport. Despite some communication issues, the aircraft landed safely on runway two seven right. The medical emergency was handled with priority, but some critical safety protocols were not followed.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": "Boeing seven three seven",
+      "conversation_phase": "emergency",
+      "facility_type": "unknown",
+      "critical_instructions": [
+        {
+          "turn_index": 3,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend and maintain five thousand, turn left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots",
+          "key_values": {
+            "altitude": "five thousand",
+            "heading": "two seven zero",
+            "airport": "ZZZ airport",
+            "wind_direction": "two six zero",
+            "wind_speed": "one zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude",
+            "heading",
+            "airport",
+            "wind_direction",
+            "wind_speed"
+          ]
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "speed",
+          "raw_instruction": "be advised, you're cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite your descent to ZZZ airport, report established on the localizer",
+          "key_values": {
+            "speed": "250 knot",
+            "altitude": "10,000 feet",
+            "airport": "ZZZ airport"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed",
+            "altitude",
+            "airport"
+          ]
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "traffic",
+          "raw_instruction": "traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+          "key_values": {
+            "traffic_direction": "twelve o'clock",
+            "traffic_distance": "five miles",
+            "traffic_aircraft": "Boeing seven three seven"
+          },
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 9,
+          "instruction_type": "clearance_to_land",
+          "raw_instruction": "cleared to land runway two seven right, wind two six zero at one zero knots",
+          "key_values": {
+            "runway": "two seven right",
+            "wind_direction": "two six zero",
+            "wind_speed": "one zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "wind_direction",
+            "wind_speed"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 4,
+          "readback_for_turn": 3,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend and maintain five thousand, left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "five thousand",
+            "heading": "two seven zero",
+            "airport": "ZZZ airport",
+            "wind_direction": "two six zero",
+            "wind_speed": "one zero knots"
+          }
+        },
+        {
+          "turn_index": 6,
+          "readback_for_turn": 5,
+          "readback_for_type": "speed",
+          "pilot_text": "Cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite descent to ZZZ airport, wilco, Delta One Two Three",
+          "values_extracted": {
+            "speed": "250 knot",
+            "altitude": "10,000 feet",
+            "airport": "ZZZ airport"
+          }
+        },
+        {
+          "turn_index": 10,
+          "readback_for_turn": 9,
+          "readback_for_type": "clearance_to_land",
+          "pilot_text": "Cleared to land runway two seven right, wind two six zero at one zero knots, Delta One Two Three",
+          "values_extracted": {
+            "runway": "two seven right",
+            "wind_direction": "two six zero",
+            "wind_speed": "one zero knots"
+          }
+        }
+      ],
+      "total_turns": 11,
+      "controller_turns": 5,
+      "pilot_turns": 6,
+      "unknown_turns": 0,
+      "emergency_declared": true,
+      "emergency_type": "medical",
+      "key_events": [
+        "medical emergency"
+      ],
+      "traffic_mentioned": [
+        "Boeing seven three seven"
+      ],
+      "runway_in_use": "two seven right",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 10,
+        "speaker": "unknown",
+        "error_type": "wrong_emergency_squawk",
+        "severity": "high",
+        "expected_behavior": "Squawk 7700 mentioned during a declared emergency",
+        "actual_behavior": "No mention of squawk 7700 found anywhere in the conversation.",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "error_type": "emergency_nits_incomplete",
+        "severity": "medium",
+        "expected_behavior": "Nature / Intentions / Souls on board / Time-or-fuel remaining, all communicated",
+        "actual_behavior": "No mention found for: ['souls_on_board', 'time_or_fuel_remaining']",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {
+          "missing_nits_elements": "souls_on_board,time_or_fuel_remaining"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "error_type": "missed_position_report",
+        "severity": "medium",
+        "expected_behavior": "Pilot reports 'established' as requested",
+        "actual_behavior": "No matching position report found in any pilot turn.",
+        "explanation": "",
+        "related_turns": [
+          5
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 3,
+    "errors_by_source": {
+      "rule": 3,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "high",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "pilot",
+        "text": "Pan-Pan, Pan-Pan, Pan-Pan, Delta One Two Three, we have a medical emergency onboard, requesting priority handling to the nearest airport, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "controller",
+        "text": "Delta One Two Three, roger, what's the nature of the emergency",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "We have a passenger unconscious and unresponsive, medical personnel onboard are administering CPR, we need to land as soon as possible, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend and maintain five thousand, turn left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Descend and maintain five thousand, left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta One Two Three, be advised, you're cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite your descent to ZZZ airport, report established on the localizer",
+        "errors_in_turn": [
+          "missed_position_report"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite descent to ZZZ airport, wilco, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "Delta One Two Three, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Roger, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "Delta One Two Three, cleared to land runway two seven right, wind two six zero at one zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Cleared to land runway two seven right, wind two six zero at one zero knots, Delta One Two Three",
+        "errors_in_turn": [
+          "wrong_emergency_squawk",
+          "emergency_nits_incomplete"
+        ]
+      }
+    ],
+    "executive_summary": "Delta One Two Three, a Boeing 737, experienced a medical emergency onboard and declared a Pan-Pan situation. The aircraft was handled with priority and landed safely at ZZZ airport. However, several safety protocols were not followed, including the failure to squawk 7700 during the emergency and incomplete emergency NITS information. Additionally, the pilot failed to report established on the localizer as requested. These oversights pose significant safety concerns and highlight the need for improved communication and adherence to emergency procedures.",
+    "recommendations": [
+      "Pilots should ensure that they squawk 7700 during declared emergencies to alert air traffic control and other aircraft in the vicinity.",
+      "Pilots should provide complete emergency NITS information, including the nature of the emergency, intentions, souls on board, and time or fuel remaining.",
+      "Controllers should verify that pilots have reported established on the localizer as requested and take corrective action if necessary to ensure safe separation of aircraft."
+    ],
+    "error_statistics": {
+      "wrong_emergency_squawk": 1,
+      "emergency_nits_incomplete": 1,
+      "missed_position_report": 1
+    }
+  },
+  {
+    "acn": 1743683,
+    "event": "speed_deviation",
+    "analysis_timestamp": "2026-09-13T19:42:55.284388",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three conducted an approach with the controller issuing various instructions regarding altitude and speed. However, an incomplete clearance and a hearback failure occurred, potentially leading to safety issues. The aircraft ultimately received and acknowledged further instructions, but the errors could have led to unsafe operation. The outcome of the flight is not specified, but the errors identified pose significant concerns.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 12,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "approach",
+      "facility_type": "approach",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend and maintain eight thousand, reduce speed to two eight zero knots",
+          "key_values": {
+            "altitude": "eight thousand",
+            "speed": "two eight zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude",
+            "speed"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "speed",
+          "raw_instruction": "maintain three one zero knots or greater transition airspeed for spacing",
+          "key_values": {
+            "speed": "three one zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed"
+          ]
+        },
+        {
+          "turn_index": 4,
+          "instruction_type": "position_report",
+          "raw_instruction": "report passing one one thousand feet",
+          "key_values": {
+            "altitude": "one one thousand feet"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude"
+          ]
+        },
+        {
+          "turn_index": 6,
+          "instruction_type": "speed",
+          "raw_instruction": "keep up your speed",
+          "key_values": {},
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 9,
+          "instruction_type": "altitude",
+          "raw_instruction": "affirmative",
+          "key_values": {},
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 11,
+          "instruction_type": "speed",
+          "raw_instruction": "maintain two eight zero knots or greater until further advised",
+          "key_values": {
+            "speed": "two eight zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "speed"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend and maintain eight thousand, reduce speed to two eight zero knots, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "eight thousand",
+            "speed": "two eight zero knots"
+          }
+        },
+        {
+          "turn_index": 3,
+          "readback_for_turn": 2,
+          "readback_for_type": "speed",
+          "pilot_text": "Maintain three one zero knots or greater, Delta One Two Three",
+          "values_extracted": {
+            "speed": "three one zero knots"
+          }
+        },
+        {
+          "turn_index": 5,
+          "readback_for_turn": 4,
+          "readback_for_type": "position_report",
+          "pilot_text": "Passing one one thousand feet, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "one one thousand feet"
+          }
+        },
+        {
+          "turn_index": 7,
+          "readback_for_turn": 6,
+          "readback_for_type": "speed",
+          "pilot_text": "Roger, Delta One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 10,
+          "readback_for_turn": 9,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend below one zero thousand feet with more than two five zero knots, Delta One Two Three",
+          "values_extracted": {
+            "altitude": "one zero thousand feet",
+            "speed": "two five zero knots"
+          }
+        },
+        {
+          "turn_index": 12,
+          "readback_for_turn": 11,
+          "readback_for_type": "speed",
+          "pilot_text": "Maintain two eight zero knots or greater, Delta One Two Three",
+          "values_extracted": {
+            "speed": "two eight zero knots"
+          }
+        }
+      ],
+      "total_turns": 13,
+      "controller_turns": 6,
+      "pilot_turns": 7,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "error_type": "incomplete_clearance",
+        "severity": "high",
+        "expected_behavior": "Instruction should specify: ['altitude']",
+        "actual_behavior": "Not found in the instruction as extracted.",
+        "explanation": "",
+        "related_turns": [
+          9
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "altitude"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "error_type": "hearback_failure",
+        "severity": "critical",
+        "expected_behavior": "Controller should clarify or correct the pilot's misunderstanding of the speed and descent instructions",
+        "actual_behavior": "Controller responds with 'affirmative' without addressing the pilot's apparent confusion about the current speed and descent",
+        "explanation": "The controller's response does not address the pilot's question in a way that ensures the pilot understands the correct speed and descent instructions",
+        "related_turns": [
+          8,
+          9,
+          10
+        ],
+        "safety_impact": "Pilot may proceed with incorrect speed and descent, potentially leading to safety issues",
+        "values_involved": {
+          "speed": "two five zero knots",
+          "altitude": "one zero thousand feet"
+        },
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 2,
+    "errors_by_source": {
+      "rule": 1,
+      "llm": 1
+    },
+    "critical_errors": [
+      "hearback_failure"
+    ],
+    "safety_risk_level": "high",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, descend and maintain eight thousand, reduce speed to two eight zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Descend and maintain eight thousand, reduce speed to two eight zero knots, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "Delta One Two Three, maintain three one zero knots or greater transition airspeed for spacing",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Maintain three one zero knots or greater, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "controller",
+        "text": "Delta One Two Three, report passing one one thousand feet",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "text": "Passing one one thousand feet, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "controller",
+        "text": "Delta One Two Three, keep up your speed",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "Roger, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Approach, Delta One Two Three, can we descend below one zero thousand feet with more than two five zero knots?",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "Delta One Two Three, affirmative",
+        "errors_in_turn": [
+          "incomplete_clearance",
+          "hearback_failure"
+        ]
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Descend below one zero thousand feet with more than two five zero knots, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "text": "Delta One Two Three, maintain two eight zero knots or greater until further advised",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "text": "Maintain two eight zero knots or greater, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between the controller and Delta One Two Three during approach revealed significant safety concerns due to an incomplete clearance and a hearback failure. The controller's response to the pilot's query about descending below 10,000 feet with a speed greater than 250 knots was merely 'affirmative,' without clarifying the correct altitude and speed instructions. This could have led to the pilot proceeding with incorrect parameters, potentially resulting in safety issues. It is crucial for controllers to provide clear and complete instructions and to address any pilot misunderstandings promptly. The errors identified in this conversation highlight the need for improved communication and adherence to standard operating procedures.",
+    "recommendations": [
+      "Controllers should ensure that all clearances and instructions are complete and unambiguous, specifying all necessary parameters such as altitude and speed.",
+      "When pilots query instructions, controllers should provide clear and concise clarifications to prevent misunderstandings.",
+      "Controllers and pilots should be trained to recognize and address potential communication errors promptly, emphasizing the importance of clear and standard phraseology in ATC communications."
+    ],
+    "error_statistics": {
+      "incomplete_clearance": 1,
+      "hearback_failure": 1
+    }
+  },
+  {
+    "acn": 1717023,
+    "event": "incursions",
+    "analysis_timestamp": "2026-09-13T19:42:55.285096",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three was instructed to taxi to Runway 31C and hold short of Taxiway E2, but the pilot indicated going around an aircraft on Taxiway E1 without clearance, and failed to read back a phone number for contacting the tower. The conversation involved multiple errors, including a critical hold-short violation. The outcome was a potentially unsafe operation due to the pilot's actions and incomplete clearances from the controller.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "ground",
+      "facility_type": "ground",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "taxi",
+          "raw_instruction": "taxi to Runway 31C via Y; P; G; cross Runway 31R",
+          "key_values": {
+            "runway": "31C",
+            "taxiway": "Y; P; G",
+            "cross_runway": "31R"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "taxiway",
+            "cross_runway"
+          ]
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "hold_short",
+          "raw_instruction": "hold short of Taxiway E2",
+          "key_values": {
+            "taxiway": "E2"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "taxiway"
+          ]
+        },
+        {
+          "turn_index": 8,
+          "instruction_type": "contact_tower",
+          "raw_instruction": "contact tower on phone number 123-456-7890",
+          "key_values": {
+            "phone_number": "123-456-7890"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "phone_number"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "taxi",
+          "pilot_text": "Taxi to Runway 31C via Y; P; G; cross Runway 31R, Delta One Two Three",
+          "values_extracted": {
+            "runway": "31C",
+            "taxiway": "Y; P; G",
+            "cross_runway": "31R"
+          }
+        },
+        {
+          "turn_index": 6,
+          "readback_for_turn": 5,
+          "readback_for_type": "hold_short",
+          "pilot_text": "Hold short of Taxiway E2, Delta One Two Three",
+          "values_extracted": {
+            "taxiway": "E2"
+          }
+        },
+        {
+          "turn_index": 9,
+          "readback_for_turn": 8,
+          "readback_for_type": "contact_tower",
+          "pilot_text": "Wilco, Delta One Two Three",
+          "values_extracted": {}
+        }
+      ],
+      "total_turns": 10,
+      "controller_turns": 4,
+      "pilot_turns": 6,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [
+        "traffic_on_taxiway"
+      ],
+      "traffic_mentioned": [
+        "aircraft holding short on Taxiway E1",
+        "aircraft holding short on Taxiway E3"
+      ],
+      "runway_in_use": "31C",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['phone_number']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          8,
+          9
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "phone_number"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "error_type": "incomplete_clearance",
+        "severity": "high",
+        "expected_behavior": "Instruction should specify: ['runway']",
+        "actual_behavior": "Not found in the instruction as extracted.",
+        "explanation": "",
+        "related_turns": [
+          5
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "runway"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "error_type": "hold_short_violation",
+        "severity": "critical",
+        "expected_behavior": "Aircraft should hold short of Taxiway E2 as instructed",
+        "actual_behavior": "Pilot indicates going around an aircraft on E1, implying movement past a potential hold-short point without clearance",
+        "explanation": "The pilot's statement suggests they are proceeding past a point where they should be holding short, which could lead to a runway incursion or conflict with other aircraft.",
+        "related_turns": [
+          5,
+          6,
+          7
+        ],
+        "safety_impact": "Potential for runway incursion or conflict with other aircraft",
+        "values_involved": {
+          "taxiway": "E2"
+        },
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 3,
+    "errors_by_source": {
+      "rule": 2,
+      "llm": 1
+    },
+    "critical_errors": [
+      "hold_short_violation"
+    ],
+    "safety_risk_level": "critical",
+    "operational_status": "unsafe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, taxi to Runway 31C via Y; P; G; cross Runway 31R",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Taxi to Runway 31C via Y; P; G; cross Runway 31R, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Ground, Delta One Two Three, we have an aircraft holding short on Taxiway E1, request clarification",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Delta One Two Three, say again",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "We have an aircraft holding short on Taxiway E1 and another on E3, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta One Two Three, hold short of Taxiway E2",
+        "errors_in_turn": [
+          "incomplete_clearance"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Hold short of Taxiway E2, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "Ground, Delta One Two Three, we are going around the aircraft on E1, Delta One Two Three",
+        "errors_in_turn": [
+          "hold_short_violation"
+        ]
+      },
+      {
+        "turn_index": 8,
+        "speaker": "controller",
+        "text": "Delta One Two Three, contact tower on phone number 123-456-7890",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "text": "Wilco, Delta One Two Three",
+        "errors_in_turn": [
+          "partial_readback"
+        ]
+      }
+    ],
+    "executive_summary": "The conversation between the controller and Delta One Two Three involved several critical errors, including a hold-short violation and incomplete clearances. The pilot's decision to go around an aircraft on Taxiway E1 without clearance posed a significant safety risk. Furthermore, the controller's instruction to hold short of Taxiway E2 lacked specificity regarding the runway. The pilot also failed to read back the phone number for contacting the tower, which is a critical piece of information. These errors cumulatively led to an unsafe operation. It is essential to address these issues to prevent future incidents. The investigation highlights the need for clear and complete instructions from controllers and accurate readbacks from pilots.",
+    "recommendations": [
+      "Controllers should ensure that all clearances and instructions are complete and specific, including runway designations where applicable.",
+      "Pilots must adhere strictly to hold-short instructions and not proceed without clearance, even if it means delaying their taxi or seeking further clarification.",
+      "Pilots should always read back critical information, such as phone numbers for contacting the tower, to ensure understanding and compliance with instructions.",
+      "Regular training and drills should be conducted to emphasize the importance of clear communication, adherence to instructions, and safety protocols in ground operations."
+    ],
+    "error_statistics": {
+      "partial_readback": 1,
+      "incomplete_clearance": 1,
+      "hold_short_violation": 1
+    }
+  },
+  {
+    "acn": 1718444,
+    "event": "incursions",
+    "analysis_timestamp": "2026-09-13T19:42:55.285784",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three experienced a runway incursion on runway two four left, declared a Mayday, and was instructed to hold short and later cleared to cross the runway. The aircraft ultimately taxied to the gate via taxiway bravo, charlie. The outcome was safe, but several safety issues were identified during the conversation.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 12,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "taxi",
+      "facility_type": "ground",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "taxi_to_gate",
+          "raw_instruction": "taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left",
+          "key_values": {
+            "taxiway": "alpha, alpha bravo",
+            "runway": "two four left"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "taxiway",
+            "runway"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "cross_runway",
+          "raw_instruction": "cross runway two four left at taxiway alpha",
+          "key_values": {
+            "runway": "two four left",
+            "taxiway": "alpha"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "taxiway"
+          ]
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "hold_position",
+          "raw_instruction": "hold position, say intentions",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "hold_short",
+          "raw_instruction": "be advised aircraft is departing runway two four left, you are to hold short until further instructions",
+          "key_values": {
+            "runway": "two four left"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway"
+          ]
+        },
+        {
+          "turn_index": 9,
+          "instruction_type": "cross_runway",
+          "raw_instruction": "cleared to cross runway two four left at taxiway alpha",
+          "key_values": {
+            "runway": "two four left",
+            "taxiway": "alpha"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "taxiway"
+          ]
+        },
+        {
+          "turn_index": 11,
+          "instruction_type": "taxi_to_gate",
+          "raw_instruction": "taxi to gate via taxiway bravo, charlie",
+          "key_values": {
+            "taxiway": "bravo, charlie"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "taxiway"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "taxi_to_gate",
+          "pilot_text": "Taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left, Delta One Two Three",
+          "values_extracted": {
+            "taxiway": "alpha, alpha bravo",
+            "runway": "two four left"
+          }
+        },
+        {
+          "turn_index": 3,
+          "readback_for_turn": 2,
+          "readback_for_type": "cross_runway",
+          "pilot_text": "Cross runway two four left at taxiway alpha, Delta One Two Three",
+          "values_extracted": {
+            "runway": "two four left",
+            "taxiway": "alpha"
+          }
+        },
+        {
+          "turn_index": 6,
+          "readback_for_turn": 5,
+          "readback_for_type": "hold_position",
+          "pilot_text": "We are holding short of runway two four left, Delta One Two Three",
+          "values_extracted": {
+            "runway": "two four left"
+          }
+        },
+        {
+          "turn_index": 8,
+          "readback_for_turn": 7,
+          "readback_for_type": "hold_short",
+          "pilot_text": "Roger, holding short of runway two four left, Delta One Two Three",
+          "values_extracted": {
+            "runway": "two four left"
+          }
+        },
+        {
+          "turn_index": 10,
+          "readback_for_turn": 9,
+          "readback_for_type": "cross_runway",
+          "pilot_text": "Cleared to cross runway two four left at taxiway alpha, Delta One Two Three",
+          "values_extracted": {
+            "runway": "two four left",
+            "taxiway": "alpha"
+          }
+        },
+        {
+          "turn_index": 12,
+          "readback_for_turn": 11,
+          "readback_for_type": "taxi_to_gate",
+          "pilot_text": "Taxi to gate via taxiway bravo, charlie, Delta One Two Three",
+          "values_extracted": {
+            "taxiway": "bravo, charlie"
+          }
+        }
+      ],
+      "total_turns": 13,
+      "controller_turns": 6,
+      "pilot_turns": 7,
+      "unknown_turns": 0,
+      "emergency_declared": true,
+      "emergency_type": "runway incursion",
+      "key_events": [
+        "runway incursion"
+      ],
+      "traffic_mentioned": [
+        "aircraft departing runway two four left"
+      ],
+      "runway_in_use": "two four left",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 12,
+        "speaker": "unknown",
+        "error_type": "wrong_emergency_squawk",
+        "severity": "high",
+        "expected_behavior": "Squawk 7700 mentioned during a declared emergency",
+        "actual_behavior": "No mention of squawk 7700 found anywhere in the conversation.",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "error_type": "emergency_nits_incomplete",
+        "severity": "medium",
+        "expected_behavior": "Nature / Intentions / Souls on board / Time-or-fuel remaining, all communicated",
+        "actual_behavior": "No mention found for: ['nature_of_emergency', 'intentions', 'souls_on_board', 'time_or_fuel_remaining']",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {
+          "missing_nits_elements": "nature_of_emergency,intentions,souls_on_board,time_or_fuel_remaining"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "error_type": "emergency_not_declared",
+        "severity": "critical",
+        "expected_behavior": "Pilot should declare an emergency and follow established procedures",
+        "actual_behavior": "Pilot reports a runway incursion but does not follow the standard emergency declaration procedure",
+        "explanation": "The pilot reported a critical safety issue but did not declare an emergency as required by standard procedures",
+        "related_turns": [
+          4
+        ],
+        "safety_impact": "Failure to declare an emergency may delay or prevent the implementation of emergency response procedures",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 3,
+    "errors_by_source": {
+      "rule": 2,
+      "llm": 1
+    },
+    "critical_errors": [
+      "emergency_not_declared"
+    ],
+    "safety_risk_level": "critical",
+    "operational_status": "unsafe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta One Two Three, taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "Delta One Two Three, cross runway two four left at taxiway alpha.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Cross runway two four left at taxiway alpha, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Mayday Mayday, Delta One Two Three, we have a runway incursion, red lights are illuminated on runway two four left.",
+        "errors_in_turn": [
+          "emergency_not_declared"
+        ]
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta One Two Three, hold position, say intentions.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "We are holding short of runway two four left, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "Delta One Two Three, be advised aircraft is departing runway two four left, you are to hold short until further instructions.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Roger, holding short of runway two four left, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "Delta One Two Three, cleared to cross runway two four left at taxiway alpha.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Cleared to cross runway two four left at taxiway alpha, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "text": "Delta One Two Three, taxi to gate via taxiway bravo, charlie.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "text": "Taxi to gate via taxiway bravo, charlie, Delta One Two Three",
+        "errors_in_turn": [
+          "wrong_emergency_squawk",
+          "emergency_nits_incomplete"
+        ]
+      }
+    ],
+    "executive_summary": "The conversation between Delta One Two Three and the controller involved a critical safety issue - a runway incursion on runway two four left. The pilot declared a Mayday but did not follow standard emergency procedures. Several errors were identified, including the pilot's failure to declare an emergency properly, incomplete emergency information, and the lack of a squawk 7700 mention during the declared emergency. The outcome was safe, but the conversation highlights significant safety concerns that need to be addressed. The controller's instructions and the pilot's responses were mostly clear, but the emergency handling procedures were not followed correctly.",
+    "recommendations": [
+      "Pilots should be reminded to follow standard emergency declaration procedures, including declaring the nature of the emergency, intentions, souls on board, and time or fuel remaining.",
+      "Controllers should verify that pilots have declared an emergency correctly and have provided all necessary information before issuing further instructions.",
+      "A review of emergency procedures should be conducted to ensure that all personnel understand the importance of following established protocols during critical safety incidents."
+    ],
+    "error_statistics": {
+      "wrong_emergency_squawk": 1,
+      "emergency_nits_incomplete": 1,
+      "emergency_not_declared": 1
+    }
+  },
+  {
+    "acn": 1721320,
+    "event": "incursions",
+    "analysis_timestamp": "2026-09-13T19:42:55.286461",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three, a Boeing 737, was involved in a ground conversation where the pilot failed to obtain pushback clearance before entering an active taxiway. The controller instructed the pilot to taxi to runway 2-7 via alpha bravo, and the pilot complied. The conversation concluded with the controller providing wind and traffic information. The outcome was a safe operation despite the initial mistake.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": "Boeing seven three seven",
+      "conversation_phase": "ground",
+      "facility_type": "ground",
+      "critical_instructions": [
+        {
+          "turn_index": 1,
+          "instruction_type": "pushback_clearance",
+          "raw_instruction": "you should have called for pushback clearance",
+          "key_values": {},
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 3,
+          "instruction_type": "taxi",
+          "raw_instruction": "taxi to runway two seven via alpha bravo, hold short runway two seven",
+          "key_values": {
+            "runway": "two seven",
+            "taxiway": "alpha bravo"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "taxiway"
+          ]
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "traffic",
+          "raw_instruction": "wind two six zero at one zero knots, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+          "key_values": {
+            "wind_direction": "two six zero",
+            "wind_speed": "one zero knots",
+            "traffic_direction": "twelve o'clock",
+            "traffic_distance": "five miles",
+            "traffic_type": "Boeing seven three seven"
+          },
+          "requires_readback": false,
+          "readback_must_include": []
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 4,
+          "readback_for_turn": 3,
+          "readback_for_type": "taxi",
+          "pilot_text": "Taxi to runway two seven via alpha bravo, hold short runway two seven, Delta One Two Three",
+          "values_extracted": {
+            "runway": "two seven",
+            "taxiway": "alpha bravo"
+          }
+        }
+      ],
+      "total_turns": 7,
+      "controller_turns": 3,
+      "pilot_turns": 4,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [
+        "Boeing seven three seven"
+      ],
+      "runway_in_use": "two seven",
+      "void_time": null
+    },
+    "errors_detected": [],
+    "total_errors": 0,
+    "errors_by_source": {
+      "rule": 0,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "low",
+    "operational_status": "minor_issues",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "pilot",
+        "text": "Ground, Delta One Two Three, pushing off Gate XX, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "controller",
+        "text": "Delta One Two Three, you have been pushed onto an active taxiway, you should have called for pushback clearance",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Apologize for the mistake, Ground, we read in our company notes that clearance was not required from Gate XX, but we understand it's still our responsibility, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Delta One Two Three, roger, the ramp crew should have known, taxi to runway two seven via alpha bravo, hold short runway two seven",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Taxi to runway two seven via alpha bravo, hold short runway two seven, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta One Two Three, wind two six zero at one zero knots, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Roger, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between Delta One Two Three and ground control involved a minor deviation from standard procedure when the pilot failed to obtain pushback clearance before entering an active taxiway. The controller addressed the issue and provided further instructions, which the pilot followed. The conversation concluded without any major issues. The safety risk level was assessed as low due to the prompt correction of the mistake. The operational status was deemed as having minor issues due to the initial error. Recommendations for improvement include ensuring that pilots are aware of the requirement for pushback clearance and that controllers verify compliance with this procedure.",
+    "recommendations": [
+      "Pilots should be reminded of the importance of obtaining pushback clearance before entering active taxiways.",
+      "Controllers should verify that pilots have obtained pushback clearance before issuing further instructions.",
+      "Airlines should review their company notes to ensure they are accurate and up-to-date regarding pushback clearance requirements."
+    ],
+    "error_statistics": {}
+  },
+  {
+    "acn": 1725227,
+    "event": "incursions",
+    "analysis_timestamp": "2026-09-13T19:42:55.287043",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta ABC was instructed to taxi to the runway via alpha bravo and hold short of N3, but reported difficulty finding N3 and was later told to proceed with caution without confirmation of its position, resulting in a potential safety risk.",
+    "context": {
+      "primary_callsign": "Delta ABC",
+      "callsign_variations": [
+        "Delta ABC"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "Delta ABC"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "Delta ABC"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "ground",
+      "facility_type": "ground",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "taxi_and_hold_short",
+          "raw_instruction": "taxi to runway via alpha bravo, hold short of N3",
+          "key_values": {
+            "taxiway": "alpha bravo",
+            "hold_short": "N3"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "taxiway",
+            "hold_short"
+          ]
+        },
+        {
+          "turn_index": 3,
+          "instruction_type": "check_position",
+          "raw_instruction": "you've passed N3, check your position",
+          "key_values": {},
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "proceed_with_caution",
+          "raw_instruction": "please proceed with caution and follow taxiway signs",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": []
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "taxi_and_hold_short",
+          "pilot_text": "Taxi to runway via alpha bravo, hold short of N3, Delta ABC",
+          "values_extracted": {
+            "taxiway": "alpha bravo",
+            "hold_short": "N3"
+          }
+        },
+        {
+          "turn_index": 8,
+          "readback_for_turn": 7,
+          "readback_for_type": "proceed_with_caution",
+          "pilot_text": "Wilco, Ground, proceeding with caution, Delta ABC",
+          "values_extracted": {}
+        }
+      ],
+      "total_turns": 9,
+      "controller_turns": 4,
+      "pilot_turns": 5,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [],
+      "runway_in_use": null,
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "error_type": "hold_short_violation",
+        "severity": "critical",
+        "expected_behavior": "Controller should ensure the aircraft has not proceeded past the hold-short point before issuing further instructions.",
+        "actual_behavior": "Controller instructs the aircraft to proceed with caution without confirming it has not passed N3 or ensuring it will stop before reaching the runway.",
+        "explanation": "The aircraft had been instructed to hold short of N3 but reported difficulty in finding it, suggesting it may have proceeded past the intended hold-short point.",
+        "related_turns": [
+          0,
+          2,
+          3,
+          7
+        ],
+        "safety_impact": "Proceeding past a hold-short point without clearance can lead to serious safety risks, including runway incursions.",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 1,
+    "errors_by_source": {
+      "rule": 0,
+      "llm": 1
+    },
+    "critical_errors": [
+      "hold_short_violation"
+    ],
+    "safety_risk_level": "critical",
+    "operational_status": "unsafe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Delta ABC, taxi to runway via alpha bravo, hold short of N3.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Taxi to runway via alpha bravo, hold short of N3, Delta ABC",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Ground, Delta ABC, we're looking for N3 but can't seem to find it, Delta ABC",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Delta ABC, you've passed N3, check your position.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Roger, Ground, but we never saw N3, can you confirm its location, Delta ABC",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta ABC, most pilots know where N3 was, it's not marked but you should be aware of its location.",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Understand, Ground, but we've not taxied in this area for months and can't see any signs of N3, Delta ABC",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "Delta ABC, I apologize for the confusion, please proceed with caution and follow taxiway signs.",
+        "errors_in_turn": [
+          "hold_short_violation"
+        ]
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Wilco, Ground, proceeding with caution, Delta ABC",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between Delta ABC and the ground controller revealed a critical safety risk due to a potential hold-short violation, where the aircraft was instructed to proceed with caution without confirmation of its position relative to the hold-short point N3. The controller initially instructed the aircraft to taxi to the runway and hold short of N3, but the pilot reported difficulty finding N3. Despite this, the controller later told the aircraft to proceed with caution without ensuring it had not passed the hold-short point. This oversight could have led to a serious safety incident, including a potential runway incursion. The incident highlights the importance of clear communication and adherence to safety protocols in air traffic control. It is essential for controllers to verify an aircraft's position before issuing further instructions, especially when there is uncertainty about the aircraft's location. Recommendations for improvement include providing clear and concise instructions, verifying an aircraft's position before issuing further instructions, and ensuring that pilots are aware of their location and any potential hazards.",
+    "recommendations": [
+      "Controllers should verify an aircraft's position before issuing further instructions, especially when there is uncertainty about the aircraft's location.",
+      "Pilots should be provided with clear and concise instructions, including information about hold-short points and any potential hazards.",
+      "Air traffic control should ensure that pilots are aware of their location and any potential hazards, and take steps to mitigate any potential safety risks."
+    ],
+    "error_statistics": {
+      "hold_short_violation": 1
+    }
+  },
+  {
+    "acn": 1728976,
+    "event": "incursions",
+    "analysis_timestamp": "2026-09-13T19:42:55.287634",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Delta One Two Three was taxiing to runway two seven at intersection alpha when it failed to hold short as instructed, and there were also callsign format errors from the controller. The aircraft ultimately stopped at intersection alpha. The outcome was a potential risk of collision with other aircraft or vehicles on the runway.",
+    "context": {
+      "primary_callsign": "Delta One Two Three",
+      "callsign_variations": [
+        "Delta One Two Three",
+        "Delta Four Five Six"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Delta Four Five Six"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "controller",
+          "callsign_text": "Delta Four Five Six"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "pilot",
+          "callsign_text": "Delta One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "taxi",
+      "facility_type": "tower",
+      "critical_instructions": [
+        {
+          "turn_index": 1,
+          "instruction_type": "hold_short",
+          "raw_instruction": "taxi to runway two seven at intersection alpha, hold short runway two seven",
+          "key_values": {
+            "runway": "two seven",
+            "intersection": "alpha"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "intersection"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 2,
+          "readback_for_turn": 1,
+          "readback_for_type": "hold_short",
+          "pilot_text": "Taxi to runway two seven at intersection alpha, hold short runway two seven, Delta One Two Three",
+          "values_extracted": {
+            "runway": "two seven",
+            "intersection": "alpha"
+          }
+        }
+      ],
+      "total_turns": 10,
+      "controller_turns": 3,
+      "pilot_turns": 7,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [],
+      "traffic_mentioned": [
+        "Delta Four Five Six"
+      ],
+      "runway_in_use": "two seven",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 5,
+        "speaker": "unknown",
+        "error_type": "callsign_format_error",
+        "severity": "high",
+        "expected_behavior": "Use established callsign 'Delta One Two Three'",
+        "actual_behavior": "Callsign digits/format did not match the established callsign",
+        "explanation": "",
+        "related_turns": [
+          5
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "expected": "Delta One Two Three"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 8,
+        "speaker": "unknown",
+        "error_type": "callsign_format_error",
+        "severity": "high",
+        "expected_behavior": "Use established callsign 'Delta One Two Three'",
+        "actual_behavior": "Callsign digits/format did not match the established callsign",
+        "explanation": "",
+        "related_turns": [
+          8
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "expected": "Delta One Two Three"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "error_type": "hold_short_violation",
+        "severity": "critical",
+        "expected_behavior": "Aircraft should hold short of runway two seven at intersection alpha",
+        "actual_behavior": "Aircraft departs from intersection alpha, indicating it proceeded past the hold-short point",
+        "explanation": "The pilot read back the hold-short instruction correctly but then proceeded as if cleared for departure, violating the hold-short clearance.",
+        "related_turns": [
+          1,
+          2,
+          3
+        ],
+        "safety_impact": "Risk of collision with other aircraft or vehicles on the runway",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 3,
+    "errors_by_source": {
+      "rule": 2,
+      "llm": 1
+    },
+    "critical_errors": [
+      "hold_short_violation"
+    ],
+    "safety_risk_level": "critical",
+    "operational_status": "unsafe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "pilot",
+        "text": "Taxiing to runway two seven at intersection alpha, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "controller",
+        "text": "Delta One Two Three, taxi to runway two seven at intersection alpha, hold short runway two seven",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Taxi to runway two seven at intersection alpha, hold short runway two seven, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Departing from intersection alpha, runway two seven, Delta One Two Three",
+        "errors_in_turn": [
+          "hold_short_violation"
+        ]
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Looking for traffic on short final, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Delta One Two Three, landing aircraft on short final, be advised, Delta Four Five Six on final",
+        "errors_in_turn": [
+          "callsign_format_error"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Roger, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "text": "Stopping at intersection alpha, runway two seven, Delta One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "controller",
+        "text": "Delta One Two Three, landing aircraft passing over intersection alpha, runway two seven, Delta Four Five Six",
+        "errors_in_turn": [
+          "callsign_format_error"
+        ]
+      },
+      {
+        "turn_index": 9,
+        "speaker": "pilot",
+        "text": "Roger, Delta One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between Delta One Two Three and the controller revealed a critical safety risk due to the aircraft's failure to hold short of runway two seven at intersection alpha as instructed. Additionally, the controller made callsign format errors on two occasions. The pilot correctly read back the hold-short instruction but then proceeded as if cleared for departure, violating the hold-short clearance. This could have resulted in a collision with other aircraft or vehicles on the runway. The controller's callsign format errors could have led to confusion and miscommunication. It is essential to address these issues to prevent similar incidents in the future.",
+    "recommendations": [
+      "Pilots should strictly adhere to hold-short clearances to prevent potential collisions",
+      "Controllers should verify callsign accuracy before issuing further instructions after any discrepancy is noticed",
+      "Controllers should be trained to consistently use established callsigns to avoid confusion and miscommunication"
+    ],
+    "error_statistics": {
+      "callsign_format_error": 2,
+      "hold_short_violation": 1
+    }
+  },
+  {
+    "acn": 450024,
+    "event": "birdstrikes",
+    "analysis_timestamp": "2026-09-13T19:42:55.288426",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "American One Two Three was cleared for takeoff on runway 9L despite reports of birds on the runway, which posed a significant safety risk. The controller also cleared another aircraft, United Four Five Six, for takeoff on the same runway without resolving the bird hazard. American One Two Three eventually took off after the issue was addressed. The outcome could have been severe if not for the pilot's vigilance and the controller's eventual correction of the situation.",
+    "context": {
+      "primary_callsign": "American One Two Three",
+      "callsign_variations": [
+        "American One Two Three",
+        "United Four Five Six"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "controller",
+          "callsign_text": "United Four Five Six"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "controller",
+          "callsign_text": "United Four Five Six"
+        },
+        {
+          "turn_index": 12,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 13,
+          "speaker": "controller",
+          "callsign_text": "United Four Five Six"
+        },
+        {
+          "turn_index": 14,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 15,
+          "speaker": "controller",
+          "callsign_text": "American One Two Three"
+        },
+        {
+          "turn_index": 16,
+          "speaker": "pilot",
+          "callsign_text": "American One Two Three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "takeoff",
+      "facility_type": "tower",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "hold_short",
+          "raw_instruction": "cleared into position and hold on runway 9L, wind two seven zero at one zero knots",
+          "key_values": {
+            "runway": "9L",
+            "wind_direction": "two seven zero",
+            "wind_speed": "one zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "wind_direction",
+            "wind_speed"
+          ]
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "takeoff_clearance",
+          "raw_instruction": "cleared for takeoff runway 9L",
+          "key_values": {
+            "runway": "9L"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway"
+          ]
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "exit_runway",
+          "raw_instruction": "exit the runway, we'll have a city vehicle come out to inspect, it'll be a long delay",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 11,
+          "instruction_type": "takeoff_clearance",
+          "raw_instruction": "cleared for takeoff runway 9L",
+          "key_values": {
+            "runway": "9L"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway"
+          ]
+        },
+        {
+          "turn_index": 15,
+          "instruction_type": "takeoff_clearance",
+          "raw_instruction": "cleared for takeoff runway 9L, wind two seven zero at one zero knots",
+          "key_values": {
+            "runway": "9L",
+            "wind_direction": "two seven zero",
+            "wind_speed": "one zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway",
+            "wind_direction",
+            "wind_speed"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "hold_short",
+          "pilot_text": "Cleared into position and hold on runway 9L, wind two seven zero at one zero knots, American One Two Three",
+          "values_extracted": {
+            "runway": "9L",
+            "wind_direction": "two seven zero",
+            "wind_speed": "one zero knots"
+          }
+        },
+        {
+          "turn_index": 6,
+          "readback_for_turn": 5,
+          "readback_for_type": "takeoff_clearance",
+          "pilot_text": "Tower, we can't take off with birds reported on the runway, American One Two Three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 8,
+          "readback_for_turn": 7,
+          "readback_for_type": "exit_runway",
+          "pilot_text": "Okay, exiting runway 9L, American One Two Three",
+          "values_extracted": {
+            "runway": "9L"
+          }
+        },
+        {
+          "turn_index": 16,
+          "readback_for_turn": 15,
+          "readback_for_type": "takeoff_clearance",
+          "pilot_text": "Cleared for takeoff runway 9L, wind two seven zero at one zero knots, American One Two Three",
+          "values_extracted": {
+            "runway": "9L",
+            "wind_direction": "two seven zero",
+            "wind_speed": "one zero knots"
+          }
+        }
+      ],
+      "total_turns": 17,
+      "controller_turns": 8,
+      "pilot_turns": 9,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [
+        "birds on the runway"
+      ],
+      "traffic_mentioned": [
+        "another aircraft"
+      ],
+      "runway_in_use": "9L",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 9,
+        "speaker": "unknown",
+        "error_type": "callsign_format_error",
+        "severity": "high",
+        "expected_behavior": "Use established callsign 'American One Two Three'",
+        "actual_behavior": "Callsign digits/format did not match the established callsign",
+        "explanation": "",
+        "related_turns": [
+          9
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "expected": "American One Two Three"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 11,
+        "speaker": "unknown",
+        "error_type": "callsign_format_error",
+        "severity": "high",
+        "expected_behavior": "Use established callsign 'American One Two Three'",
+        "actual_behavior": "Callsign digits/format did not match the established callsign",
+        "explanation": "",
+        "related_turns": [
+          11
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "expected": "American One Two Three"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 13,
+        "speaker": "unknown",
+        "error_type": "callsign_format_error",
+        "severity": "high",
+        "expected_behavior": "Use established callsign 'American One Two Three'",
+        "actual_behavior": "Callsign digits/format did not match the established callsign",
+        "explanation": "",
+        "related_turns": [
+          13
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "expected": "American One Two Three"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['runway']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          5,
+          6
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "runway"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "error_type": "missing_readback",
+        "severity": "high",
+        "expected_behavior": "Pilot readback of takeoff_clearance",
+        "actual_behavior": "No matching readback found for this instruction.",
+        "explanation": "",
+        "related_turns": [
+          11
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "error_type": "missing_wind_in_clearance",
+        "severity": "low",
+        "expected_behavior": "Wind information included per FAA AIM 4-3-9",
+        "actual_behavior": "No wind information found in this clearance.",
+        "explanation": "",
+        "related_turns": [
+          5
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "error_type": "missing_wind_in_clearance",
+        "severity": "low",
+        "expected_behavior": "Wind information included per FAA AIM 4-3-9",
+        "actual_behavior": "No wind information found in this clearance.",
+        "explanation": "",
+        "related_turns": [
+          11
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "error_type": "instruction_not_followed",
+        "severity": "critical",
+        "expected_behavior": "Controller should not clear an aircraft for takeoff with reported birds on the runway.",
+        "actual_behavior": "Controller clears American One Two Three for takeoff despite reported birds on the runway.",
+        "explanation": "The controller issued a takeoff clearance despite the pilot's earlier report of birds on the runway, which poses a safety risk.",
+        "related_turns": [
+          4,
+          5
+        ],
+        "safety_impact": "Risk of bird strike and potential accident.",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "error_type": "instruction_not_followed",
+        "severity": "critical",
+        "expected_behavior": "Controller should not clear another aircraft for takeoff with reported birds on the runway.",
+        "actual_behavior": "Controller clears United Four Five Six for takeoff despite reported birds on the runway.",
+        "explanation": "The controller issued a takeoff clearance to another aircraft despite the earlier report of birds on the runway, which poses a safety risk.",
+        "related_turns": [
+          4,
+          11
+        ],
+        "safety_impact": "Risk of bird strike and potential accident.",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 14,
+        "speaker": "pilot",
+        "error_type": "instruction_not_followed",
+        "severity": "critical",
+        "expected_behavior": "Pilot should not plan to take off behind another aircraft without clearance.",
+        "actual_behavior": "Pilot plans to take off behind United Four Five Six without clearance.",
+        "explanation": "The pilot indicated an intention to take off behind another aircraft without receiving clearance to do so, which could lead to a safety incident.",
+        "related_turns": [
+          11,
+          14
+        ],
+        "safety_impact": "Risk of collision or other safety incident.",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 10,
+    "errors_by_source": {
+      "rule": 7,
+      "llm": 3
+    },
+    "critical_errors": [
+      "instruction_not_followed"
+    ],
+    "safety_risk_level": "critical",
+    "operational_status": "unsafe_operation",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "American One Two Three, cleared into position and hold on runway 9L, wind two seven zero at one zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Cleared into position and hold on runway 9L, wind two seven zero at one zero knots, American One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "American One Two Three, another aircraft is starting its takeoff roll, be advised",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Roger, American One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Tower, American One Two Three, we're holding short of runway 9L, another aircraft just reported birds on the runway midfield",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "American One Two Three, cleared for takeoff runway 9L",
+        "errors_in_turn": [
+          "missing_wind_in_clearance",
+          "instruction_not_followed"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Tower, we can't take off with birds reported on the runway, American One Two Three",
+        "errors_in_turn": [
+          "partial_readback"
+        ]
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "American One Two Three, exit the runway, we'll have a city vehicle come out to inspect, it'll be a long delay",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Okay, exiting runway 9L, American One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "United Four Five Six, be advised of reported birds in the vicinity of runway 9L",
+        "errors_in_turn": [
+          "callsign_format_error"
+        ]
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Tower, are you going to let them take off or wait for the city vehicle, American One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "text": "United Four Five Six, cleared for takeoff runway 9L",
+        "errors_in_turn": [
+          "callsign_format_error",
+          "missing_readback",
+          "missing_wind_in_clearance",
+          "instruction_not_followed"
+        ]
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "text": "Tower, you just told us there were birds on the runway, American One Two Three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 13,
+        "speaker": "controller",
+        "text": "United Four Five Six, roger, takeoff clearance acknowledged",
+        "errors_in_turn": [
+          "callsign_format_error"
+        ]
+      },
+      {
+        "turn_index": 14,
+        "speaker": "pilot",
+        "text": "American One Two Three, we're going to take off behind them, American One Two Three",
+        "errors_in_turn": [
+          "instruction_not_followed"
+        ]
+      },
+      {
+        "turn_index": 15,
+        "speaker": "controller",
+        "text": "American One Two Three, cleared for takeoff runway 9L, wind two seven zero at one zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 16,
+        "speaker": "pilot",
+        "text": "Cleared for takeoff runway 9L, wind two seven zero at one zero knots, American One Two Three",
+        "errors_in_turn": []
+      }
+    ],
+    "executive_summary": "The conversation between American One Two Three and the tower controller revealed significant safety concerns due to the controller's decision to clear the aircraft for takeoff despite reports of birds on the runway. The controller also cleared another aircraft, United Four Five Six, for takeoff on the same runway without resolving the bird hazard, further increasing the risk. The pilot of American One Two Three demonstrated good situational awareness by refusing to take off with the reported bird hazard. However, the pilot later indicated an intention to take off behind another aircraft without clearance, which could have led to a safety incident. The controller's actions and the pilot's intentions both contributed to an unsafe operation. It is crucial for controllers to prioritize safety and follow established protocols, especially when hazards like birds on the runway are reported.",
+    "recommendations": [
+      "Controllers should verify that all reported hazards, such as birds on the runway, are resolved before clearing any aircraft for takeoff.",
+      "Pilots should always follow established protocols and not intend to take off behind another aircraft without explicit clearance from the controller.",
+      "Controllers should ensure that they use the correct callsign for each aircraft and avoid using unestablished callsigns to prevent confusion and ensure safety.",
+      "Controllers should include wind information in takeoff clearances as per FAA guidelines to ensure pilots have all necessary information for safe takeoff.",
+      "Air traffic control should review their procedures for handling reported hazards on the runway to prevent similar situations in the future."
+    ],
+    "error_statistics": {
+      "callsign_format_error": 3,
+      "partial_readback": 1,
+      "missing_readback": 1,
+      "missing_wind_in_clearance": 2,
+      "instruction_not_followed": 3
+    }
+  },
+  {
+    "acn": 1729988,
+    "event": "NMAC",
+    "analysis_timestamp": "2026-09-13T19:42:55.289508",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Beech One Nine Zero was cleared for takeoff on runway 27R, encountered another aircraft on the downwind, and was eventually cleared to land on the same runway. The conversation involved several errors, including incomplete clearances and partial readbacks. The outcome was a safe landing, but with significant concerns regarding communication and safety protocols. The presence of another aircraft on the downwind added complexity to the situation.",
+    "context": {
+      "primary_callsign": "Beech One Nine Zero",
+      "callsign_variations": [
+        "Beech One Nine Zero"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "controller",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "pilot",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "controller",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "pilot",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "controller",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "pilot",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "controller",
+          "callsign_text": "Beech One Nine Zero"
+        },
+        {
+          "turn_index": 12,
+          "speaker": "pilot",
+          "callsign_text": "Beech One Nine Zero"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": "Beech",
+      "conversation_phase": "takeoff",
+      "facility_type": "tower",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "takeoff_clearance",
+          "raw_instruction": "cleared for takeoff runway two seven right, wind two six zero at one zero knots",
+          "key_values": {
+            "runway": "two seven right",
+            "wind_direction": "two six zero",
+            "wind_speed": "one zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway"
+          ]
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "closed_traffic",
+          "raw_instruction": "right closed traffic approved",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "landing_clearance",
+          "raw_instruction": "left three sixty, Piper Cherokee will land first",
+          "key_values": {
+            "heading": "three sixty",
+            "preceding_aircraft": "Piper Cherokee"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "heading",
+            "preceding_aircraft"
+          ]
+        },
+        {
+          "turn_index": 9,
+          "instruction_type": "report_position",
+          "raw_instruction": "report downwind",
+          "key_values": {
+            "position": "downwind"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "position"
+          ]
+        },
+        {
+          "turn_index": 11,
+          "instruction_type": "landing_clearance",
+          "raw_instruction": "clear to land runway two seven right, wind two six zero at one zero knots",
+          "key_values": {
+            "runway": "two seven right",
+            "wind_direction": "two six zero",
+            "wind_speed": "one zero knots"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for_turn": 0,
+          "readback_for_type": "takeoff_clearance",
+          "pilot_text": "Cleared for takeoff runway two seven right, Beech One Nine Zero",
+          "values_extracted": {
+            "runway": "two seven right"
+          }
+        },
+        {
+          "turn_index": 3,
+          "readback_for_turn": 2,
+          "readback_for_type": "closed_traffic",
+          "pilot_text": "Right closed traffic approved, Beech One Nine Zero",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 8,
+          "readback_for_turn": 7,
+          "readback_for_type": "landing_clearance",
+          "pilot_text": "Left three sixty, Piper Cherokee will land first, Beech One Nine Zero",
+          "values_extracted": {
+            "heading": "three sixty",
+            "preceding_aircraft": "Piper Cherokee"
+          }
+        },
+        {
+          "turn_index": 10,
+          "readback_for_turn": 9,
+          "readback_for_type": "report_position",
+          "pilot_text": "Downwind, Beech One Nine Zero",
+          "values_extracted": {
+            "position": "downwind"
+          }
+        },
+        {
+          "turn_index": 12,
+          "readback_for_turn": 11,
+          "readback_for_type": "landing_clearance",
+          "pilot_text": "Cleared to land runway two seven right, Beech One Nine Zero",
+          "values_extracted": {
+            "runway": "two seven right"
+          }
+        }
+      ],
+      "total_turns": 13,
+      "controller_turns": 6,
+      "pilot_turns": 7,
+      "unknown_turns": 0,
+      "emergency_declared": false,
+      "emergency_type": null,
+      "key_events": [
+        "traffic_conflict"
+      ],
+      "traffic_mentioned": [
+        "Piper Cherokee"
+      ],
+      "runway_in_use": "two seven right",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['wind_direction', 'wind_speed']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          0,
+          1
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "wind_direction,wind_speed"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['wind_direction', 'wind_speed']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          11,
+          12
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "wind_direction,wind_speed"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "error_type": "incomplete_clearance",
+        "severity": "high",
+        "expected_behavior": "Instruction should specify: ['runway']",
+        "actual_behavior": "Not found in the instruction as extracted.",
+        "explanation": "",
+        "related_turns": [
+          7
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "runway"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "error_type": "missing_wind_in_clearance",
+        "severity": "low",
+        "expected_behavior": "Wind information included per FAA AIM 4-3-9",
+        "actual_behavior": "No wind information found in this clearance.",
+        "explanation": "",
+        "related_turns": [
+          7
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 4,
+    "errors_by_source": {
+      "rule": 4,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "high",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "Beech One Nine Zero, cleared for takeoff runway two seven right, wind two six zero at one zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "Cleared for takeoff runway two seven right, Beech One Nine Zero",
+        "errors_in_turn": [
+          "partial_readback"
+        ]
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "Beech One Nine Zero, right closed traffic approved",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "Right closed traffic approved, Beech One Nine Zero",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Tower, Beech One Nine Zero, we have another aircraft on the downwind, Beech One Nine Zero",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Oh yeah, that guy is definitely not supposed to be there",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "We were cleared for right closed traffic, Beech One Nine Zero",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "Beech One Nine Zero, left three sixty, Piper Cherokee will land first",
+        "errors_in_turn": [
+          "incomplete_clearance",
+          "missing_wind_in_clearance"
+        ]
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Left three sixty, Piper Cherokee will land first, Beech One Nine Zero",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "Beech One Nine Zero, report downwind",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Downwind, Beech One Nine Zero",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "text": "Beech One Nine Zero, clear to land runway two seven right, wind two six zero at one zero knots",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "text": "Cleared to land runway two seven right, Beech One Nine Zero",
+        "errors_in_turn": [
+          "partial_readback"
+        ]
+      }
+    ],
+    "executive_summary": "The conversation between the controller and Beech One Nine Zero involved several critical communication errors, including incomplete clearances and partial readbacks. These errors could have led to significant safety risks, particularly given the presence of another aircraft on the downwind. Fortunately, the situation was managed without incident, but the errors highlight the need for improved communication protocols and adherence to standard operating procedures. The controller's failure to include essential information in clearances and the pilot's incomplete readbacks are areas of concern that require attention. The presence of another aircraft on the downwind added an extra layer of complexity to the situation, underscoring the importance of clear and complete communication.",
+    "recommendations": [
+      "Controllers should ensure that all clearances include the required elements, such as runway and wind information, to prevent incomplete clearances.",
+      "Pilots should provide complete readbacks of all clearances, including wind direction and speed, to ensure that they have understood the instructions correctly.",
+      "Air traffic control should review and refine their communication protocols to minimize the risk of errors and ensure that all instructions are clear, complete, and understood by pilots.",
+      "Additional training should be provided to controllers and pilots on the importance of clear and complete communication, particularly in complex situations involving multiple aircraft."
+    ],
+    "error_statistics": {
+      "partial_readback": 2,
+      "incomplete_clearance": 1,
+      "missing_wind_in_clearance": 1
+    }
+  }
+]

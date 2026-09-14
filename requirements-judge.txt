@@ -1,0 +1,11 @@
+# Extra dependencies for scripts/01_run_pipeline.py, which needs a CUDA
+# GPU host. Install on top of requirements.txt:
+#   pip install -r requirements.txt -r requirements-judge.txt
+#
+# Same versions pinned in FAA_CxER/requirements-judge.txt — proven to run
+# a 4-GPU tensor-parallel Llama-3.3-70B-Instruct judge workload (see
+# ../FAA_CxER/data or its README for how that pin was chosen).
+vllm==0.11.2
+torch==2.9.0
+huggingface_hub==0.36.0
+python-dotenv==1.2.1

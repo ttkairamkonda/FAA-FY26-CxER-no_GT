@@ -1,0 +1,167 @@
+[
+    {
+        "ACN": 2235439,
+        "event": "bird strike",
+        "conversation": [
+            "pilot : Mayday Mayday Mayday, this is Cessna one two three, we've had a bird strike, request emergency assistance, Cessna one two three",
+            "controller : Cessna one two three, report nature of emergency and souls on board",
+            "pilot : We've had a vulture strike the right wing tip, it's torn off and damaged the aileron, two souls on board, Cessna one two three",
+            "controller : Cessna one two three, roger, emergency services alerted, continue approach, report established on final",
+            "pilot : Roger, established on final, Cessna one two three",
+            "controller : Cessna one two three, wind two seven zero at one zero knots, cleared to land Runway 9R",
+            "pilot : Cleared to land Runway 9R, wind two seven zero at one zero knots, Cessna one two three",
+            "controller : Cessna one two three, be advised Aircraft Y is on short final, one mile ahead, follow him to landing",
+            "pilot : Following Aircraft Y to landing, Cessna one two three"
+        ]
+    },
+    {
+        "ACN": 2231630,
+        "event": "bird strike",
+        "conversation": [
+            "pilot : Mayday Mayday Mayday, United One Seven Two, we've had a bird strike on takeoff from Runway 31, experiencing a burning smell, requesting emergency assistance United One Seven Two",
+            "controller : United One Seven Two, turn heading three four zero, contact Departure on one two one point five, report any further issues",
+            "pilot : Negative, United One Seven Two, we're staying with you, flying runway heading, request ARFF to be on standby United One Seven Two",
+            "controller : United One Seven Two, roger, ARFF is rolling, report your intentions",
+            "pilot : We're turning left downwind, coming back to the field, will run checklists and assess systems, request priority handling United One Seven Two",
+            "controller : United One Seven Two, descend and maintain one thousand feet, heading one eight zero, report established on the downwind",
+            "pilot : Descend and maintain one thousand feet, heading one eight zero, wilco United One Seven Two",
+            "controller : United One Seven Two, wind two seven zero at one zero knots, report turning base",
+            "pilot : Roger, United One Seven Two",
+            "controller : United One Seven Two, cleared to land Runway 31, report touchdown",
+            "pilot : Cleared to land Runway 31, United One Seven Two",
+            "controller : United One Seven Two, exit taxiway bravo, contact ground point eight",
+            "pilot : Exit taxiway bravo, contact ground point eight, United One Seven Two",
+            "controller : United One Seven Two, good job, ARFF will inspect the aircraft before you taxi to the gate",
+            "pilot : Roger, thanks, United One Seven Two"
+        ]
+    },
+    {
+        "ACN": 2251388,
+        "event": "runway incursion",
+        "conversation": [
+            "controller : N12345, taxi to the end of runway 9 via taxiway alpha, construction on taxiway, use caution",
+            "pilot : Taxi to the end of runway 9 via taxiway alpha, construction on taxiway, use caution, N12345",
+            "controller : N12345, turn right on taxiway alpha, hold short of runway 9",
+            "pilot : Turn right on taxiway alpha, hold short of runway 9, N12345",
+            "controller : N12345, can you take off from taxiway A4, runway 9, distance available three thousand feet",
+            "pilot : Affirm, take off from taxiway A4, runway 9, distance available three thousand feet, N12345",
+            "controller : N12345, contact tower on one two one point seven, good luck",
+            "pilot : Contact tower on one two one point seven, N12345",
+            "controller : N12345, tower, cleared for takeoff, runway 9, wind two seven zero at one zero knots",
+            "pilot : Cleared for takeoff, runway 9, wind two seven zero at one zero knots, N12345",
+            "controller : N12345, stop, you're turning the wrong direction",
+            "pilot : Stopping, you're turning the wrong direction, N12345",
+            "controller : N12345, return to the hold short area, reorient, and I'll clear you for takeoff again",
+            "pilot : Returning to the hold short area, reorient, and awaiting clearance for takeoff, N12345",
+            "controller : N12345, cleared for takeoff, runway 9, wind two seven zero at one zero knots",
+            "pilot : Cleared for takeoff, runway 9, wind two seven zero at one zero knots, N12345",
+            "controller : N12345, contact departure on one two three point four, good luck",
+            "pilot : Contact departure on one two three point four, N12345"
+        ]
+    },
+    {
+        "ACN": 2249142,
+        "event": "runway incursion",
+        "conversation": [
+            "controller : American Airlines One Seven Five Niner, taxi via Lima Alpha, cross Runway 32",
+            "pilot : American Airlines One Seven Five Niner, taxi via Lima Alpha, cross Runway 32, American Airlines One Seven Five Niner",
+            "controller : American Airlines One Seven Five Niner, hold short of Hotel, you are on the active runway",
+            "pilot : American Airlines One Seven Five Niner, say again, American Airlines One Seven Five Niner",
+            "controller : American Airlines One Seven Five Niner, you have entered the active runway, hold position, do not proceed",
+            "pilot : American Airlines One Seven Five Niner, holding short of Hotel, American Airlines One Seven Five Niner",
+            "controller : American Airlines One Seven Five Niner, contact ground on one two one point seven, American Airlines One Seven Five Niner",
+            "pilot : American Airlines One Seven Five Niner, contact ground on one two one point seven, American Airlines One Seven Five Niner"
+        ]
+    },
+    {
+        "ACN": 2062889,
+        "event": "NMAC",
+        "conversation": [
+            "controller : N12345, Atlanta approach, 10 miles east southeast of PDK, do you have the field in sight?",
+            "pilot : Affirmative, we have the field in sight, N12345",
+            "controller : N12345, cleared for the visual approach runway 3R, contact Tower on 119.1",
+            "pilot : Cleared for the visual approach runway 3R, contact Tower on 119.1, N12345",
+            "pilot : Atlanta approach, N12345, we have a target on TCAS, 4 miles ahead, constant bearing, decreasing range, indicating 300 feet below us",
+            "controller : N12345, negative contact with that traffic, do you want to stay with me?",
+            "pilot : We'll maintain three thousand feet and stay with you until we pass over the traffic, N12345",
+            "pilot : Atlanta approach, N12345, traffic is now 5.4 miles from PDK, we're about to cross over, and the target is climbing towards us",
+            "controller : N12345, traffic is not responding, be advised, use caution",
+            "pilot : N12345, responding to TCAS RA, climbing, N12345",
+            "pilot : Atlanta approach, N12345, clear of conflict, we responded to RA, and are clear, switching to Tower and descending for visual, N12345",
+            "controller : N12345, roger, contact Tower on 119.1, good luck",
+            "pilot : Wilco, N12345"
+        ]
+    },
+    {
+        "ACN": 2244248,
+        "event": "engine issue",
+        "conversation": [
+            "controller : Delta 345, taxi to runway two eight right via Alpha, hold short of runway two eight right.",
+            "pilot : Taxi to runway two eight right via Alpha, hold short of runway two eight right, Delta 345.",
+            "controller : Delta 345, cleared for takeoff runway two eight right, wind two zero at ten knots, runway visual range twenty thousand, after departure climb via runway heading, maintain two five zero knots.",
+            "pilot : Cleared for takeoff runway two eight right, wind two zero at ten knots, maintain two five zero knots, Delta 345.",
+            "controller : Delta 345, climb to six thousand feet, then maintain eight thousand feet, expect runway two eight right for return.",
+            "pilot : Climb to six thousand feet, then maintain eight thousand feet, expect runway two eight right, Delta 345.",
+            "controller : Delta 345, traffic Cessna one two three alpha, level six thousand, ten o'clock, five miles, same direction.",
+            "pilot : Roger, Delta 345.",
+            "pilot : Delta 345, emergency, left engine failure, request immediate return to airport.",
+            "controller : Delta 345, roger, turn left heading two zero zero, descend and maintain four thousand feet, report when established.",
+            "pilot : Turn left heading two zero zero, descend and maintain four thousand feet, will report when established, Delta 345.",
+            "pilot : Delta 345 established on heading two zero zero, four thousand feet.",
+            "controller : Delta 345, continue turn to heading one eight zero, expect runway two eight right, advise when ready for approach.",
+            "pilot : Will turn to heading one eight zero, advise when ready, Delta 345.",
+            "pilot : Delta 345 ready for approach runway two eight right.",
+            "controller : Delta 345, cleared for approach runway two eight right, wind two zero at ten knots, runway visual range twenty thousand, descend via the ILS, maintain three thousand until intercept.",
+            "pilot : Cleared for approach runway two eight right, descend via ILS, maintain three thousand, Delta 345.",
+            "controller : Delta 345, runway two eight right, cleared to land.",
+            "pilot : Cleared to land runway two eight right, Delta 345.",
+            "controller : Delta 345, taxi to the apron via taxiway Bravo, fire trucks standing by.",
+            "pilot : Taxi to apron via Bravo, thank you, Delta 345."
+        ]
+    },
+    {
+        "ACN": 2034534,
+        "event": "engine issue",
+        "conversation": [
+            "pilot : Mayday Mayday Mayday, Skywest two one zero, declaring emergency, right engine fail, two thousand feet, one eight zero knots, request priority handling to return to ZZZ, Skywest two one zero",
+            "controller : Skywest two one zero, ZZZ Tower, roger, Mayday, say intentions, what's your current heading",
+            "pilot : Skywest two one zero, heading one two zero, request vector for visual approach to ZZZ, Skywest two one zero",
+            "controller : Skywest two one zero, ZZZ Tower, vector heading one one zero, descend and maintain one thousand feet, report established on downwind for runway two seven, wind two seven zero at one zero knots",
+            "pilot : Vector heading one one zero, descend and maintain one thousand feet, report established on downwind for runway two seven, wind two seven zero at one zero knots, roger, Skywest two one zero",
+            "controller : Skywest two one zero, ZZZ Tower, runway two seven, cleared for visual approach, report landing",
+            "pilot : Cleared for visual approach, runway two seven, report landing, wilco, Skywest two one zero",
+            "controller : Skywest two one zero, ZZZ Tower, be advised, emergency equipment standing by, good luck",
+            "pilot : Roger, Skywest two one zero",
+            "controller : Skywest two one zero, ZZZ Tower, after landing, taxi to taxiway one, hold short of taxiway one, and shut down, emergency equipment will meet you there",
+            "pilot : Taxi to taxiway one, hold short of taxiway one, and shut down, roger, Skywest two one zero",
+            "controller : Skywest two one zero, ZZZ Tower, report shut down",
+            "pilot : Shut down, Skywest two one zero"
+        ]
+    },
+    {
+        "ACN": 2225802,
+        "event": "flap issue",
+        "conversation": [
+            "pilot : Houston Center, United three four five, on final approach runway two seven, experiencing flap indicator problem, request assistance, United three four five",
+            "controller : United three four five, Houston Center, roger, continue approach runway two seven, advise when you have the flaps configured, Houston three four five",
+            "pilot : Continuing approach runway two seven, will advise when flaps configured, United three four five",
+            "controller : United three four five, wind two zero knots gusting to three zero knots from two three, report when you have visual, Houston three four five",
+            "pilot : Wilco, wind two zero gusting three zero, will report visual, United three four five",
+            "pilot : Houston Tower, United three four five, descending through one thousand feet, flaps fifteen, request flaps twenty five, United three four five",
+            "controller : United three four five, roger, flaps twenty five approved, maintain approach speed, Houston three four five",
+            "pilot : Flaps twenty five approved, maintain approach speed, United three four five",
+            "pilot : Houston Tower, United three four five, descending through six hundred feet, airspeed stable, request flaps thirty, United three four five",
+            "controller : United three four five, roger, flaps thirty approved, you are cleared to land runway two seven, Houston three four five",
+            "pilot : Flaps thirty cleared to land runway two seven, United three four five",
+            "pilot : Houston Tower, United three four five, we have a flap indication anomaly, the flap lever is in the thirty position but the indicator is stuck at the edge of the white band, request continue approach, United three four five",
+            "controller : United three four five, roger, continue approach, advise if you need further assistance, Houston three four five",
+            "pilot : Will advise if further assistance required, United three four five",
+            "pilot : Houston Tower, United three four five, terrain warning aural, too low, altitude two hundred feet, proceeding with landing, United three four five",
+            "controller : United three four five, roger, runway two seven clear, wind two zero gusting three zero, good luck, Houston three four five",
+            "pilot : Runway two seven clear, wind two zero gusting three zero, thank you, United three four five",
+            "pilot : Houston Tower, United three four five, we have landed safely, request taxi to gate, United three four five",
+            "controller : United three four five, taxi to gate via taxiway sierra, hold short of runway one eight, Houston three four five",
+            "pilot : Taxi to gate via sierra, hold short runway one eight, United three four five"
+        ]
+    }
+]

@@ -1,0 +1,1172 @@
+[
+  {
+    "ACN": 1715405,
+    "aircraft_make": "EMB-505 / Phenom 300",
+    "operating_under": "Part 91",
+    "flight_plan": "IFR",
+    "flight_phase": "Initial Approach",
+    "event": "altitude_deviation",
+    "narrative_1": "Approaching ZZZ at about XA:55. ATIS indicated wind 190/3 light rain; vis 1+ 3/4 miles. At approximately 14 miles out I spotted the two runways and the airport was clearly visible. We were vectored to an intercept heading of about 190 degrees and cleared to 3;000 ft. to maintain until established; 'Cleared for the ILS XXL approach.' We descended to 2;000 ft. I reported the airport in sight twice and also mentioned that I picked it up visually 14 miles out. At approximately XA:57; ZZZ Approach called [us]; Low altitude alert; climb immediately to 2;900. I responded with something like; We are in the clear. His response was Climb now to 2;900; ZZZ is reported as IFR. Controller apologized for the confusion and essentially said the mistake was on 'our end.' I played back the recording and discovered that the mistake was indeed mine. We were issued 3;000 ft. not 2;000 ft. The biggest mistake I made was shifting my attention outside the airplane. I could clearly see the airport and the fact we were visually clear of all obstacles. The approach plate was reviewed and displayed in front of me. I was essentially operating visually despite the fact we were on an actual instrument approach. Procedurally incorrect. We were never in any danger.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "EMB-505 flight crew received a low altitude alert from ATC while on an IFR clearance in VMC when the flight descended below the assigned altitude.",
+    "dialogue": [
+      "approach : Delta One Two Three, turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach.",
+      "pilot : Turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach, Delta One Two Three",
+      "pilot : Approach, Delta One Two Three, airport in sight, fourteen miles out, Delta One Two Three",
+      "approach : Delta One Two Three, roger, report established on the localizer.",
+      "pilot : Wilco, Delta One Two Three",
+      "pilot : Approach, Delta One Two Three, airport in sight, twelve miles out, Delta One Two Three",
+      "approach : Delta One Two Three, Low altitude alert, climb immediately to two thousand nine hundred feet.",
+      "pilot : We are in the clear, Delta One Two Three",
+      "approach : Delta One Two Three, Climb now to two thousand nine hundred feet, ZZZ is reported as IFR.",
+      "pilot : Climbing to two thousand nine hundred feet, Delta One Two Three",
+      "approach : Delta One Two Three, apologies for the confusion, it seems there was a mistake on our end.",
+      "pilot : Roger, Delta One Two Three"
+    ],
+    "score": 8,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach.",
+          "pilot : Turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, roger, report established on the localizer.",
+          "pilot : Wilco, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "TYPE-I",
+          "missing/incorrect entities": "report established on the localizer"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, Low altitude alert, climb immediately to two thousand nine hundred feet.",
+          "pilot : We are in the clear, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "OTHER",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "TYPE-I",
+          "missing/incorrect entities": "climb immediately to two thousand nine hundred feet"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, Climb now to two thousand nine hundred feet, ZZZ is reported as IFR.",
+          "pilot : Climbing to two thousand nine hundred feet, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, apologies for the confusion, it seems there was a mistake on our end.",
+          "pilot : Roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "OTHER",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1721120,
+    "aircraft_make": "SR22",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Cruise",
+    "event": "altitude_deviation",
+    "narrative_1": "Aircraft X departed PHL on an IFR flight plan for a nearby satellite airport. The aircraft was given runway heading and 3;000 feet by the Tower. When the pilot checked in; he asked to maintain VFR on course. At that point I falsely assumed the aircraft was a VFR departure and began handling him as such. I cleared the aircraft out of the Bravo at or below 2;500 feet; and verified they were familiar with an antenna north of the airport. The pilot leveled at 2;000 feet and flew through the 2;500 feet MVA associated with the antenna. When the aircraft got close to the destination airport; they asked to cancel IFR. The issue didn't even immediately register until I heard it later on the playback.I should check every departure strip more closely. The aircraft's data tag was properly displaying as IFR - I believe that seeing the weight category displayed; and not looking at it closely; made me assume the aircraft was VFR (just because there was some character in the lower right of the tag).",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "PHL TRACON Controller reported mistakenly handling an IFR aircraft as if it were VFR; leading to an MVA violation.",
+    "dialogue": [
+      "pilot : Good morning, PHL Departure, SR22 Delta One Two Three, leveling at three thousand feet, requesting to maintain VFR on course, Delta One Two Three",
+      "departure : Delta One Two Three, descend and maintain two thousand five hundred feet, cleared out of the Bravo airspace, verify familiar with the antenna north of the airport",
+      "pilot : Descend and maintain two thousand five hundred feet, cleared out of the Bravo airspace, familiar with the antenna, roger, Delta One Two Three",
+      "departure : Delta One Two Three, report passing the antenna",
+      "pilot : Passing the antenna, currently at two thousand feet, Delta One Two Three",
+      "departure : Delta One Two Three, that's below the MVA, say intentions",
+      "pilot : Mayday, Mayday, SR22 Delta One Two Three, experiencing altitude deviation, climbing to two thousand five hundred feet, Delta One Two Three",
+      "departure : Delta One Two Three, roger, maintain two thousand five hundred feet, turn right heading two seven zero, vector for the destination airport",
+      "pilot : Maintain two thousand five hundred feet, turn right heading two seven zero, vector for the destination airport, wilco, Delta One Two Three",
+      "departure : Delta One Two Three, contact destination approach on one two zero point five",
+      "pilot : Contact destination approach on one two zero point five, roger, Delta One Two Three",
+      "approach : Delta One Two Three, this is destination approach, say altitude and heading",
+      "pilot : Currently at two thousand five hundred feet, heading two seven zero, requesting to cancel IFR, Delta One Two Three",
+      "approach : Delta One Two Three, cancel IFR approved, descend and maintain one thousand five hundred feet, vector for the visual approach",
+      "pilot : Descend and maintain one thousand five hundred feet, vector for the visual approach, wilco, Delta One Two Three"
+    ],
+    "score": 8,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "departure : Delta One Two Three, descend and maintain two thousand five hundred feet, cleared out of the Bravo airspace, verify familiar with the antenna north of the airport",
+          "pilot : Descend and maintain two thousand five hundred feet, cleared out of the Bravo airspace, familiar with the antenna, roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "TYPE-II",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "departure : Delta One Two Three, report passing the antenna",
+          "pilot : Passing the antenna, currently at two thousand feet, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "departure : Delta One Two Three, that's below the MVA, say intentions",
+          "pilot : Mayday, Mayday, SR22 Delta One Two Three, experiencing altitude deviation, climbing to two thousand five hundred feet, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "EMERGENCY_DECLARATION",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "departure : Delta One Two Three, roger, maintain two thousand five hundred feet, turn right heading two seven zero, vector for the destination airport",
+          "pilot : Maintain two thousand five hundred feet, turn right heading two seven zero, vector for the destination airport, wilco, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "departure : Delta One Two Three, contact destination approach on one two zero point five",
+          "pilot : Contact destination approach on one two zero point five, roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, this is destination approach, say altitude and heading",
+          "pilot : Currently at two thousand five hundred feet, heading two seven zero, requesting to cancel IFR, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "OTHER",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, cancel IFR approved, descend and maintain one thousand five hundred feet, vector for the visual approach",
+          "pilot : Descend and maintain one thousand five hundred feet, vector for the visual approach, wilco, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1721357,
+    "aircraft_make": "Medium Transport; Low Wing; 2 Turbojet Eng",
+    "operating_under": "Part 91",
+    "flight_plan": "IFR",
+    "flight_phase": "Descent",
+    "event": "altitude_deviation",
+    "narrative_1": "We were flying the BAYYY3 arrival into HOU. We were cleared to descend VIA the arrival; but to maintain FL220. We read back the altitude. We were then cleared to now maintain FL230 and we read that altitude clearance back to ATC. Shortly after leveling off we were then cleared to maintain FL200. We the PNF [Pilot not Flying] read back the new altitude clearance; PF [Pilot Flying] set the altitude in the selector and proper call outs were made. Passing FL215 the Controller asked us where are you going? The PNF replied FL200 as cleared. The Controller stated he only cleared us to FL230. (Not correct). We momentarily stopped the descent and shortly thereafter he re-cleared us to continue the descent. The Controller said it was 'not an issue and he had taken care of it.' We have tried and tried again to stress the use of full call signs; but ATC continues to use only the last 3 digits. Multiple times we have had to query ATC when multiple call signs are on the same frequency with the exact same last 3 digits in the tail number. My recommendation: quit using former company call signs and use current company call sign with the full tail number.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Medium Transport aircraft Captain reported an altitude deviation occurred while on the BAYYY3 arrival into HOU airport. It was also reported that ATC's use of incomplete call signs may have contributed to the clearance deviation.",
+    "dialogue": [
+      "approach : Delta123, descend via the BAYYY3 arrival, maintain FL220",
+      "pilot : Descend via the BAYYY3 arrival, maintain FL220, Delta123",
+      "approach : Delta123, maintain FL230",
+      "pilot : Maintain FL230, Delta123",
+      "approach : Delta123, maintain FL200",
+      "pilot : Maintain FL200, Delta123",
+      "approach : Delta123, where are you going?",
+      "pilot : FL200 as cleared, Delta123",
+      "approach : Delta123, I only cleared you to FL230",
+      "pilot : We read back FL200, say again, Delta123",
+      "approach : Delta123, disregard, continue descent to FL200",
+      "pilot : Continuing descent to FL200, Delta123",
+      "approach : Delta123, not an issue, I've taken care of it"
+    ],
+    "score": 8,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "approach : Delta123, descend via the BAYYY3 arrival, maintain FL220",
+          "pilot : Descend via the BAYYY3 arrival, maintain FL220, Delta123"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "TYPE-I",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta123, maintain FL230",
+          "pilot : Maintain FL230, Delta123"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta123, maintain FL200",
+          "pilot : Maintain FL200, Delta123"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta123, where are you going?",
+          "pilot : FL200 as cleared, Delta123"
+        ],
+        "analysis": {
+          "controller utterance type": "OTHER",
+          "pilot utterance type": "OTHER",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta123, I only cleared you to FL230",
+          "pilot : We read back FL200, say again, Delta123"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "TYPE-I",
+          "missing/incorrect entities": "Flight Level 230"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta123, disregard, continue descent to FL200",
+          "pilot : Continuing descent to FL200, Delta123"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1718453,
+    "aircraft_make": "Commercial Fixed Wing",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Climb",
+    "event": "heading_deviation",
+    "narrative_1": "We departed. ATC first gave us a left turn to a waypoint which we understood as a different waypoint that is on the border. ATC corrected himself and said right turn to SURNAM which again we all heard as SULOM. As we maid our turn to the right and then proceeded LNAV to SULOM ATC asked where we were going. We phonetically replied SULOM. We were given new heading and clearance to SURNAM.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Air Carrier Captain reported a course deviation due mistaking similar sounding fix names SURNAM and SULOM.",
+    "dialogue": [
+      "departure: Delta One Two Three, turn left heading two seven zero, descend and maintain five thousand, Delta One Two Three",
+      "pilot: Turn left heading two seven zero, descend and maintain five thousand, Delta One Two Three",
+      "departure: Delta One Two Three, correction, turn right heading two eight zero to SURNAM, Delta One Two Three",
+      "pilot: Turn right heading two eight zero to SULOM, Delta One Two Three",
+      "departure: Delta One Two Three, say again your destination, Delta One Two Three",
+      "pilot: Destination is SULOM, you hear that as Sierra Uniform Lima Oscar Mike, Delta One Two Three",
+      "departure: Delta One Two Three, roger, you are cleared to SURNAM, Sierra Uniform Romeo November Alpha Mike, turn right heading two nine zero, Delta One Two Three",
+      "pilot: Cleared to SURNAM, turn right heading two nine zero, Delta One Two Three"
+    ],
+    "score": 8,
+    "dialogue_analysis": []
+  },
+  {
+    "ACN": 1725481,
+    "aircraft_make": "Small Transport; Low Wing; 2 Turbojet Eng",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Descent",
+    "event": "heading_deviation",
+    "narrative_1": "On the WAPPL4 arrival; we were told to stay at FL290 because of traffic below us; approximately at WAPPL we were told to descend via the WAPPL4; we began our descent and were fairly quickly told to descend via the WAPPL4 except maintain 7;000 at 'HUDZY.' It was a steep descent at that point but we were able to accomplish it. As we leveled at 7;000 at HUDZY we were told that we were supposed to descend via the WAPPL4; 7;000 at 'BUGZY.'HUDZY and BUGZY are too similar sounding and may need to be changed. Since we were significantly high at WAPPL due to traffic; would have been helpful to be given a simple clear altitude restriction for the next fix; like cross WLMOR at FL210 or HUDZY at FL180. It is difficult to configure the airplane for a descend via when you begin too high; then since everything was out of wack we did not think to question the altitude restriction of 7;000 at HUDZY. We should have questioned that restriction since it created a very steep descent rate.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Small Transport Captain reported similar sounding waypoint/intersection names HUDZY and BUGZY contributed to a track deviation.",
+    "dialogue": [
+      "approach: Delta One Two Three, descend via the WAPPL4 arrival, maintain FL290 due to traffic below, over",
+      "pilot: Descend via the WAPPL4 arrival, maintain FL290, Delta One Two Three",
+      "approach: Delta One Two Three, descend via the WAPPL4 arrival except maintain seven thousand at HUDZY, over",
+      "pilot: Descend via the WAPPL4 arrival except maintain seven thousand at HUDZY, Delta One Two Three",
+      "approach: Delta One Two Three, report level seven thousand, over",
+      "pilot: Level seven thousand, Delta One Two Three",
+      "approach: Delta One Two Three, you were supposed to descend via the WAPPL4 arrival, seven thousand at BUGZY, over",
+      "pilot: Say again, approach, Delta One Two Three",
+      "approach: Delta One Two Three, descend via the WAPPL4 arrival, seven thousand at BUGZY, HUDZY and BUGZY are different waypoints, over",
+      "pilot: Roger, understand now, significant deviation due to similar sounding waypoints, requesting clearance to continue, Delta One Two Three",
+      "approach: Delta One Two Three, cleared to continue, vector heading two seven zero, descend and maintain five thousand, over",
+      "pilot: Cleared to continue, vector heading two seven zero, descend and maintain five thousand, Delta One Two Three"
+    ],
+    "score": 9,
+    "dialogue_analysis": []
+  },
+  {
+    "ACN": 1724859,
+    "aircraft_make": "Medium Transport",
+    "operating_under": "Part 91",
+    "flight_plan": "IFR",
+    "flight_phase": "Final Approach; Initial Approach",
+    "event": "speed_deviation",
+    "narrative_1": "While being radar vectored for ILS 6 at Teterboro at assigned altitude 3;000 feet operating at the base of Class B airspace. Assigned speed 250 kts. Approximately 10 NM SSW of VINGS Intersection. Approach assigned altitude 2;000. I responded we were slowing to 200 kts for the Class B; the Controller instructed to maintain 250 kts. I stated we would be in excess of maximum speed. The Controller stated my authority supersedes that restriction and to maintain 250 or the Controller would take us out of sequence and vector us for a new sequence. My First Officer stated the Controller did not have authority to do that. I assessed the safety of the speed assigned and based on the proximity to the field no intervening traffic in front; behind or in proximity; I decided that without Class B being present the speed would be appropriate. As the Controller has authority over Class B. I elected to comply with the instruction and directed my First Officer to maintain speed and continue. The Controller asked again what speed we were maintaining and I responded 250 kts.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Corporate Jet Captain reported being instructed by ATC to maintain 250 kts below NYC Class B airspace while on the ILS Runway 6 approach to TEB.",
+    "dialogue": [
+      "approach: Delta One Two Three, descend and maintain two thousand, reduce speed to two five zero knots.",
+      "pilot: Descend and maintain two thousand, reduce speed to two five zero knots, Delta One Two Three",
+      "pilot: Approach, we're slowing to two zero zero knots for the Class B airspace, Delta One Two Three",
+      "approach: Delta One Two Three, maintain two five zero knots.",
+      "pilot: But, Approach, that would put us in excess of maximum speed, Delta One Two Three",
+      "approach: Delta One Two Three, my authority supersedes that restriction, maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence.",
+      "pilot: Approach, we understand, but our First Officer notes that you don't have authority to waive that restriction, Delta One Two Three",
+      "approach: Delta One Two Three, I repeat, maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence.",
+      "pilot: Wilco, maintaining two five zero knots, Delta One Two Three",
+      "approach: Delta One Two Three, what speed are you maintaining?",
+      "pilot: Maintaining two five zero knots, Delta One Two Three"
+    ],
+    "score": 9,
+    "dialogue_analysis": []
+  },
+  {
+    "ACN": 1728661,
+    "aircraft_make": "Medium Transport",
+    "operating_under": "Part 91",
+    "flight_plan": "IFR",
+    "flight_phase": "Descent",
+    "event": "speed_deviation",
+    "narrative_1": "New York (N90) TRACON consistently asks for aircraft to maintain above 200 knots below the shelf of the New York Class B. In this case we were asked to maintain 250 knots. I have also been asked to maintain 210 knots or greater below the Class B. This creates a conflict between violating 14 CFR 91.117 or telling ATC you are unable; which will most likely upset the controller; jam up the frequency; and create bigger issues.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Corporate Captain reported that New York (N90) TRACON instructed the crew to maintain 250 knots below the shelf of New York Class B airspace. The reporter stated N90 controllers consistently ask aircraft to maintain greater than 200 knots below the shelf.",
+    "dialogue": [
+      "approach : Delta One Two Three, descend and maintain eight thousand, reduce speed to two five zero knots",
+      "pilot : Descend and maintain eight thousand, reduce speed to two five zero knots, Delta One Two Three",
+      "approach : Delta One Two Three, report established on the localizer, good luck",
+      "pilot : Wilco, Delta One Two Three",
+      "approach : Delta One Two Three, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+      "pilot : Roger, Delta One Two Three",
+      "approach : Delta One Two Three, maintain two five zero knots or greater below the New York Class B shelf",
+      "pilot : Unable to maintain two five zero knots, Delta One Two Three",
+      "approach : Delta One Two Three, say reason for unable",
+      "pilot : Due to speed restriction conflict with 14 CFR 91.117, Delta One Two Three",
+      "approach : Delta One Two Three, reduce speed to two one zero knots, descend and maintain five thousand",
+      "pilot : Reduce speed to two one zero knots, descend and maintain five thousand, Delta One Two Three",
+      "approach : Delta One Two Three, contact New York Tower on one one niner point seven five",
+      "pilot : Contact New York Tower on one one niner point seven five, Delta One Two Three"
+    ],
+    "score": 10,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, descend and maintain eight thousand, reduce speed to two five zero knots",
+          "pilot : Descend and maintain eight thousand, reduce speed to two five zero knots, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, report established on the localizer, good luck",
+          "pilot : Wilco, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+          "pilot : Roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, maintain two five zero knots or greater below the New York Class B shelf",
+          "pilot : Unable to maintain two five zero knots, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "REFUSAL",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, say reason for unable",
+          "pilot : Due to speed restriction conflict with 14 CFR 91.117, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "OTHER",
+          "pilot utterance type": "OTHER",
+          "controller callsign error": "TYPE-I",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, reduce speed to two one zero knots, descend and maintain five thousand",
+          "pilot : Reduce speed to two one zero knots, descend and maintain five thousand, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "none"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, contact New York Tower on one one niner point seven five",
+          "pilot : Contact New York Tower on one one niner point seven five, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1740720,
+    "aircraft_make": "A321",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Descent",
+    "event": "speed_deviation",
+    "narrative_1": "The Captain and I received notification from the cabin crew of a medical emergency onboard. Passenger had become unconscious and unresponsive in the forward lavatory and CPR/AED efforts were being administered. Between ZZZ2 & ZZZ airports; medical personnel onboard advised us to land as soon as possible in the hopes of resuscitating the passenger. We therefore expedited to ZZZ airport from our cruising altitude of 36;000' to include exceeding the 250 knot below 10;000' FAR airspeed restriction in the descent to the airport area. This was done under Captain's emergency authority due to the medical emergency onboard. The conditions were VFR and with minimal traffic in the airspace; the risk was deemed to be very low.",
+    "callback_1": "",
+    "narrative_2": "Exceeded speed limit below 10;000 ft. Attempting to get a passenger to help. Passenger having a heart attack . Flight attendant and [a] nurse were doing CPR. Defibrillator was connected. No pulse. Delete speed limit below 10;000.",
+    "callback_2": "",
+    "synopsis": "A321 pilot crew reported using pilot emergency authority below 10;000 feet; increased speed; for critically ill passenger.",
+    "dialogue": [
+      "pilot : Pan-Pan, Pan-Pan, Pan-Pan, Delta One Two Three, we have a medical emergency onboard, requesting priority handling to the nearest airport, Delta One Two Three",
+      "approach : Delta One Two Three, roger, what's the nature of the emergency",
+      "pilot : We have a passenger unconscious and unresponsive, medical personnel onboard are administering CPR, we need to land as soon as possible, Delta One Two Three",
+      "approach : Delta One Two Three, descend and maintain five thousand, turn left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots",
+      "pilot : Descend and maintain five thousand, left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots, Delta One Two Three",
+      "approach : Delta One Two Three, be advised, you're cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite your descent to ZZZ airport, report established on the localizer",
+      "pilot : Cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite descent to ZZZ airport, wilco, Delta One Two Three",
+      "approach : Delta One Two Three, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+      "pilot : Roger, Delta One Two Three",
+      "tower : Delta One Two Three, cleared to land runway two seven right, wind two six zero at one zero knots",
+      "pilot : Cleared to land runway two seven right, wind two six zero at one zero knots, Delta One Two Three"
+    ],
+    "score": 8,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, roger, what's the nature of the emergency",
+          "pilot : We have a passenger unconscious and unresponsive, medical personnel onboard are administering CPR, we need to land as soon as possible, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "EMERGENCY_DECLARATION",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, descend and maintain five thousand, turn left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots",
+          "pilot : Descend and maintain five thousand, left heading two seven zero, expect clearance to land at ZZZ airport, wind two six zero at one zero knots, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, be advised, you're cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite your descent to ZZZ airport, report established on the localizer",
+          "pilot : Cleared to exceed the 250 knot speed restriction below 10,000 feet, expedite descent to ZZZ airport, wilco, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "TYPE-I",
+          "missing/incorrect entities": "report established on the localizer"
+        }
+      },
+      {
+        "utterance_pair": [
+          "approach : Delta One Two Three, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+          "pilot : Roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "tower : Delta One Two Three, cleared to land runway two seven right, wind two six zero at one zero knots",
+          "pilot : Cleared to land runway two seven right, wind two six zero at one zero knots, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1743683,
+    "aircraft_make": "B747-400",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Descent",
+    "event": "speed_deviation",
+    "narrative_1": "While descending on NEELL 6 RNAV Arrival into ILS 07R at ANC with Auto Pilot engaged; ATC asked us to maintain 310 kts. or greater transition airspeed for spacing. When aircraft just passing below 11;000 ft. it began to slow to 240 kts. Then; ATC asked us to keep up the speed. Then I asked ATC more than 3 times to confirm to descend below 10;000 ft. with more than 250 kts. high speed. 310 kts. ATC's response was 'Affirmative!' Shortly afterward; ATC told us to maintain 280 kts. or greater until further advised.",
+    "callback_1": "",
+    "narrative_2": "While in cruise just before we started our descent; ATC instructed us to increase speed for separation into ANC. During the descent approaching 10;500 ft. ATC instructed us to maintain 280 kts. or better as long as practical. I don't remember the exact wording of the ATC clearance at this point; but it was obvious that ATC wanted a high speed descent because we were #1 for ANC. As we approached 10;000 ft. I realized that we were not slowing to 250 kts. I looked over to the 3rd middle observer and mentioned that our speed was too high.The issue was not brought to the operating crew's attention. As we continued our high speed descent through 9;960 ft.; I raised my voice to bring the speed to the crews attention. At this point the two operating crew-members recognized that I was advising them to slow down but claimed that ATC had given them high speed below 10;000 ft. I replied 'ATC can't instruct you to do that'. We continued a high speed descent. I did not press the issue because there were no immediate safety concerns. From the 4th observer seat; I was at a disadvantage because I had no direct link to the intercoms and raising my voice could have caused a CRM issue that was worse than the initial issue. We eventually slowed to 250 kts. at 4;500 ft. Afterwards; the flight continued normally. After we blocked in; we talked about the issue but the entire crew maintained the position that ATC had instructed them to exceed 250 kts.; therefore it was allowed. The decision for a high speed decent seemed to be from a confusion between the regulations vs. the ATC clearance. Additional confusion seemed to arise from the regulations in foreign countries; and which countries allow us to exceed the limitation.",
+    "callback_2": "",
+    "synopsis": "B747 flight crew reported that ATC instructed them to maintain greater than 250 kts. airspeed below 10;000 ft.",
+    "dialogue": [
+      "approach: Delta One Two Three, descend and maintain eight thousand, reduce speed to two eight zero knots",
+      "pilot: Descend and maintain eight thousand, reduce speed to two eight zero knots, Delta One Two Three",
+      "approach: Delta One Two Three, maintain three one zero knots or greater transition airspeed for spacing",
+      "pilot: Maintain three one zero knots or greater, Delta One Two Three",
+      "approach: Delta One Two Three, report passing one one thousand feet",
+      "pilot: Passing one one thousand feet, Delta One Two Three",
+      "approach: Delta One Two Three, keep up your speed",
+      "pilot: Roger, Delta One Two Three",
+      "pilot: Approach, Delta One Two Three, can we descend below one zero thousand feet with more than two five zero knots?",
+      "approach: Delta One Two Three, affirmative",
+      "pilot: Descend below one zero thousand feet with more than two five zero knots, Delta One Two Three",
+      "approach: Delta One Two Three, maintain two eight zero knots or greater until further advised",
+      "pilot: Maintain two eight zero knots or greater, Delta One Two Three"
+    ],
+    "score": 8,
+    "dialogue_analysis": []
+  },
+  {
+    "ACN": 1717023,
+    "aircraft_make": "Large Transport; Low Wing; 2 Turbojet Eng",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Taxi",
+    "event": "incursions",
+    "narrative_1": "We were given the taxi instructions taxi to Runway 31C via [Taxiways] Y; P; G; cross [Runway] 31R. When we arrived at [Runway] 31C there was an aircraft holding short of [Runway] 31C on [Taxiway] E1 and one on E3. The Captain went around the aircraft on E1 and pulled into E2 holding short of [Runway] 31C. ATC then gave us a phone number to call.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "An Air Carrier First Officer reported incomplete taxi instructions which caused a taxiway incursion.",
+    "dialogue": [
+      "ground : Delta One Two Three, taxi to Runway 31C via Y; P; G; cross Runway 31R",
+      "pilot : Taxi to Runway 31C via Y; P; G; cross Runway 31R, Delta One Two Three",
+      "pilot : Ground, Delta One Two Three, we have an aircraft holding short on Taxiway E1, request clarification",
+      "ground : Delta One Two Three, say again",
+      "pilot : We have an aircraft holding short on Taxiway E1 and another on E3, Delta One Two Three",
+      "ground : Delta One Two Three, hold short of Taxiway E2",
+      "pilot : Hold short of Taxiway E2, Delta One Two Three",
+      "pilot : Ground, Delta One Two Three, we are going around the aircraft on E1, Delta One Two Three",
+      "ground : Delta One Two Three, contact tower on phone number 123-456-7890",
+      "pilot : Wilco, Delta One Two Three"
+    ],
+    "score": 9,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, taxi to Runway 31C via Y; P; G; cross Runway 31R",
+          "pilot : Taxi to Runway 31C via Y; P; G; cross Runway 31R, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, say again",
+          "pilot : We have an aircraft holding short on Taxiway E1 and another on E3, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "OTHER",
+          "controller callsign error": "None",
+          "pilot callsign error": "TYPE-II",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, hold short of Taxiway E2",
+          "pilot : Hold short of Taxiway E2, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "TYPE-I",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, contact tower on phone number 123-456-7890",
+          "pilot : Wilco, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1718444,
+    "aircraft_make": "Heavy Transport",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Taxi",
+    "event": "incursions",
+    "narrative_1": "Landed on Runway 24R at LAX. As we were exiting left on taxiway AA ATC instructed us to cross Runway 24L. As we were proceeding onto AA suddenly the red runway status lights lit up. We were able to stop in time and then saw an aircraft taking off on Runway 24L fly right over us. Subsequently ATC cleared us to cross Runway 24L once again and taxied to gate uneventfully.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Heavy Transport aircraft Captain reported ATC clearance error resulted in a runway conflict.",
+    "dialogue": [
+      "ground : Delta One Two Three, taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left.",
+      "pilot : Taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left, Delta One Two Three",
+      "ground : Delta One Two Three, cross runway two four left at taxiway alpha.",
+      "pilot : Cross runway two four left at taxiway alpha, Delta One Two Three",
+      "pilot : Mayday Mayday, Delta One Two Three, we have a runway incursion, red lights are illuminated on runway two four left.",
+      "tower : Delta One Two Three, hold position, say intentions.",
+      "pilot : We are holding short of runway two four left, Delta One Two Three",
+      "tower : Delta One Two Three, be advised aircraft is departing runway two four left, you are to hold short until further instructions.",
+      "pilot : Roger, holding short of runway two four left, Delta One Two Three",
+      "tower : Delta One Two Three, cleared to cross runway two four left at taxiway alpha.",
+      "pilot : Cleared to cross runway two four left at taxiway alpha, Delta One Two Three",
+      "ground : Delta One Two Three, taxi to gate via taxiway bravo, charlie.",
+      "pilot : Taxi to gate via taxiway bravo, charlie, Delta One Two Three"
+    ],
+    "score": 9,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left.",
+          "pilot : Taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "none"
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, cross runway two four left at taxiway alpha.",
+          "pilot : Cross runway two four left at taxiway alpha, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "tower : Delta One Two Three, hold position, say intentions.",
+          "pilot : We are holding short of runway two four left, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "TYPE-I",
+          "missing/incorrect entities": "The instruction \"hold position\" was not read back"
+        }
+      },
+      {
+        "utterance_pair": [
+          "tower : Delta One Two Three, be advised aircraft is departing runway two four left, you are to hold short until further instructions.",
+          "pilot : Roger, holding short of runway two four left, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "tower : Delta One Two Three, cleared to cross runway two four left at taxiway alpha.",
+          "pilot : Cleared to cross runway two four left at taxiway alpha, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, taxi to gate via taxiway bravo, charlie.",
+          "pilot : Taxi to gate via taxiway bravo, charlie, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1721320,
+    "aircraft_make": "EMB ERJ 170/175 ER/LR",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Taxi",
+    "event": "incursions",
+    "narrative_1": "The morning started very normal with the boarding process and preflight checks. I performed the departure review and briefed that we were at [Gate XX] and an advisory pushback call was only necessary and no clearance was required; the gate next to us did require it due to its proximity to a taxiway. As boarding was finishing up the Captain gave dispatch a call and inquired about the GPS interference testing. He noticed that we were going to depart right as the testing began and most of the flight would be in the affected area. There were no NOTAMS in the release and the [company] memo didn't give any guidance on what the interference would look like or how to handle it if it occurred during our flight. Dispatch was not aware of anything so the Captain hung up and we finished our checks and began to pushback. During the push we began to discuss what we should do; what it may look like and if this was something we should look more into. As the ramp crew was finishing the push I heard ground say 'Aircraft pushing off [Gate XY] acknowledge'. I replied with our call sign and told them were pushing off [Gate XX]. Ground notified us that we had just been pushed onto an active taxiway and that we should have called to request pushback clearance. The Captain set the brake; waved off the ramp crew; and then let Ground know that we had read in our company notes it wasn't required from XX but that it was still our responsibility and apologized. Ground told us that the ramp crew should have known and then we carried on with the rest of the flight. Taxi out and takeoff resumed as normal. I believe the two main factors that lead to this was the distraction caused by the GPS interference and the fact that I became a little relaxed on being alert to pushing on taxiway after reading the note on the 10-7. After I briefed that clearance was not required from our gate I became complacent and just assumed the ramp crew would push us were we needed to go. On top of this; we got distracted during the push talking about the GPS interference which caused us to not make a courtesy call like we both would do normally and not to pay attention to where ramp was pushing us. I recommend the 10-7 page for ZZZ to be changed to include [Gate XX] as another gate that requires a call before push since it is so close to the active taxiway and if there are planes pushing to the left of it; the ramp crew is likely to push the aircraft in the taxiway.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Flight Crew reported that the aircraft was pushed back without a clearance and onto an active taxiway.",
+    "dialogue": [
+      "pilot : Ground, Delta One Two Three, pushing off Gate XX, Delta One Two Three",
+      "ground : Delta One Two Three, you have been pushed onto an active taxiway, you should have called for pushback clearance",
+      "pilot : Apologize for the mistake, Ground, we read in our company notes that clearance was not required from Gate XX, but we understand it's still our responsibility, Delta One Two Three",
+      "ground : Delta One Two Three, roger, the ramp crew should have known, taxi to runway two seven via alpha bravo, hold short runway two seven",
+      "pilot : Taxi to runway two seven via alpha bravo, hold short runway two seven, Delta One Two Three",
+      "ground : Delta One Two Three, wind two six zero at one zero knots, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+      "pilot : Roger, Delta One Two Three"
+    ],
+    "score": 9,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, you have been pushed onto an active taxiway, you should have called for pushback clearance",
+          "pilot : Apologize for the mistake, Ground, we read in our company notes that clearance was not required from Gate XX, but we understand it's still our responsibility, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "TYPE-II",
+          "pilot callsign error": "TYPE-II",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, roger, the ramp crew should have known, taxi to runway two seven via alpha bravo, hold short runway two seven",
+          "pilot : Taxi to runway two seven via alpha bravo, hold short runway two seven, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, wind two six zero at one zero knots, traffic twelve o'clock, five miles, opposite direction, Boeing seven three seven",
+          "pilot : Roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1725227,
+    "aircraft_make": "Commercial Fixed Wing",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Taxi",
+    "event": "incursions",
+    "narrative_1": "Flight ABC was told by Ramp Control to hold short of N3.  We kept looking for N3 but never saw it.  Was told by the Ramp Control that we passed it.  We advised Ramp we never saw it.  It no longer exists.  We were told most pilots know about where it was.  How can you be told to hold short of something that doesn't exist?  Neither pilot had taxied north of the north satellite in many months.  SEA Ramp Control gave a clearance to hold short of N3 which no longer exist. ATC should not tell aircraft to hold short of something that does not exist.  With the construction on the airport; pilots have enough to focus on and ATC should not assume all pilots are aware of how things used to be!",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "Air carrier Captain reported being issued instructions to hold short of a taxiway that no longer exists at SEA airport and that they could not visually locate. ATC subsequently advised that the aircraft had passed the taxiway.",
+    "dialogue": [
+      "ground : Delta ABC, taxi to runway via alpha bravo, hold short of N3.",
+      "pilot : Taxi to runway via alpha bravo, hold short of N3, Delta ABC",
+      "pilot : Ground, Delta ABC, we're looking for N3 but can't seem to find it, Delta ABC",
+      "ground : Delta ABC, you've passed N3, check your position.",
+      "pilot : Roger, Ground, but we never saw N3, can you confirm its location, Delta ABC",
+      "ground : Delta ABC, most pilots know where N3 was, it's not marked but you should be aware of its location.",
+      "pilot : Understand, Ground, but we've not taxied in this area for months and can't see any signs of N3, Delta ABC",
+      "ground : Delta ABC, I apologize for the confusion, please proceed with caution and follow taxiway signs.",
+      "pilot : Wilco, Ground, proceeding with caution, Delta ABC"
+    ],
+    "score": 9,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "ground : Delta ABC, taxi to runway via alpha bravo, hold short of N3.",
+          "pilot : Taxi to runway via alpha bravo, hold short of N3, Delta ABC"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta ABC, you've passed N3, check your position.",
+          "pilot : Roger, Ground, but we never saw N3, can you confirm its location, Delta ABC"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta ABC, most pilots know where N3 was, it's not marked but you should be aware of its location.",
+          "pilot : Understand, Ground, but we've not taxied in this area for months and can't see any signs of N3, Delta ABC"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": ""
+        }
+      },
+      {
+        "utterance_pair": [
+          "ground : Delta ABC, I apologize for the confusion, please proceed with caution and follow taxiway signs.",
+          "pilot : Wilco, Ground, proceeding with caution, Delta ABC"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "TYPE-I",
+          "missing/incorrect entities": "follow taxiway signs"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 1728976,
+    "aircraft_make": "PA-32 Cherokee Six/Lance/Saratoga/6X",
+    "operating_under": "Part 135",
+    "flight_plan": "IFR",
+    "flight_phase": "Taxi",
+    "event": "incursions",
+    "narrative_1": "Aircraft was being taxied for intersection departure. After making taxi and departure intersection calls; Pilot in Command looked to ensure there was no traffic on short final prior to departing. Another aircraft called the callsign of the taxiing aircraft just as they were about to pass on landing. Taxiing aircraft stopped just as landing aircraft passed during rotation.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "An Air Taxi pilot about to enter the runway from an intersection at a non towered airport reported a landing aircraft notified them just as they were passing the intersection.",
+    "dialogue": [
+      "pilot : Taxiing to runway two seven at intersection alpha, Delta One Two Three",
+      "ground : Delta One Two Three, taxi to runway two seven at intersection alpha, hold short runway two seven",
+      "pilot : Taxi to runway two seven at intersection alpha, hold short runway two seven, Delta One Two Three",
+      "pilot : Departing from intersection alpha, runway two seven, Delta One Two Three",
+      "pilot : Looking for traffic on short final, Delta One Two Three",
+      "tower : Delta One Two Three, landing aircraft on short final, be advised, Delta Four Five Six on final",
+      "pilot : Roger, Delta One Two Three",
+      "pilot : Stopping at intersection alpha, runway two seven, Delta One Two Three",
+      "tower : Delta One Two Three, landing aircraft passing over intersection alpha, runway two seven, Delta Four Five Six",
+      "pilot : Roger, Delta One Two Three"
+    ],
+    "score": 9,
+    "dialogue_analysis": [
+      {
+        "utterance_pair": [
+          "ground : Delta One Two Three, taxi to runway two seven at intersection alpha, hold short runway two seven",
+          "pilot : Taxi to runway two seven at intersection alpha, hold short runway two seven, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "READBACK",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "tower : Delta One Two Three, landing aircraft on short final, be advised, Delta Four Five Six on final",
+          "pilot : Roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "ADVISORY",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "None",
+          "missing/incorrect entities": "None"
+        }
+      },
+      {
+        "utterance_pair": [
+          "tower : Delta One Two Three, landing aircraft passing over intersection alpha, runway two seven, Delta Four Five Six",
+          "pilot : Roger, Delta One Two Three"
+        ],
+        "analysis": {
+          "controller utterance type": "INSTRUCTION",
+          "pilot utterance type": "ACKNOWLEDGEMENT",
+          "controller callsign error": "None",
+          "pilot callsign error": "None",
+          "readback error": "TYPE-I",
+          "missing/incorrect entities": "runway assignment two seven, landing clearance"
+        }
+      }
+    ]
+  },
+  {
+    "ACN": 450024,
+    "aircraft_make": "EMB ERJ 145 ER/LR",
+    "operating_under": "Part 121",
+    "flight_plan": "IFR",
+    "flight_phase": "Taxi",
+    "event": "birdstrikes",
+    "narrative_1": "WE WERE CLRED INTO POS AND HOLD ON RWY 9L AT ORD AS AN ACR XXX JET STARTED ITS TKOF ROLL. AFTER LIFTOFF, THEY RPTED BIRDS -- A LOT OF BIRDS -- ON THE RWY MIDFIELD. ORD TWR ANSWERED THEM AND IN THE SAME BREATH CLRED US FOR TKOF. WE TOLD TWR THAT THERE WERE BIRDS RPTED ON THE RWY. TWR GOT UPSET AND CLRED US OFF THE RWY AND TOLD US THAT THERE WOULD BE A VERY LONG DELAY TO GET A CITY VEHICLE OUT TO THE RWY. WE SAID OK. BY NOW, ANOTHER ACR JET HAD TAXIED UP TO THE RWY AND TWR TOLD THEM OF A RPT OF BIRDS IN THE VICINITY OF RWY 9L. I ASKED, 'ARE YOU GOING TO TAKE OFF OR WAIT FOR CITY VEHICLE -- LONG DELAY?' TWR LIED ABOUT BIRD RPT AND BEFORE I COULD GET ON THE RADIO TO INFORM THE ACR CREW THEY ACCEPTED THE TKOF CLRNC AND WERE ROLLING ON RWY 9L. THEY RPTED NO BIRDS. WE TOOK OFF BEHIND THEM. ORD TWR IS TOO MUCH IN A RUSH -- SAFETY IS BEING COMPROMISED. O'HARE CTLRS GIVE SMART REMARKS AND EDITORIALS ON FREQ --UNSAFE AND UNCALLED-FOR. THEY ARE EFFICIENT, BUT FOR WHAT PRICE?",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "EMB145 CREW UPSETS ORD TWR CTLR BY QUERY OF RPTED BIRDS ON THE ACTIVE RWY WHILE #1 FOR TKOF.",
+    "dialogue": [
+      "tower: American One Two Three, cleared into position and hold on runway 9L, wind two seven zero at one zero knots",
+      "pilot: Cleared into position and hold on runway 9L, wind two seven zero at one zero knots, American One Two Three",
+      "tower: American One Two Three, another aircraft is starting its takeoff roll, be advised",
+      "pilot: Roger, American One Two Three",
+      "pilot: Tower, American One Two Three, we're holding short of runway 9L, another aircraft just reported birds on the runway midfield",
+      "tower: American One Two Three, cleared for takeoff runway 9L",
+      "pilot: Tower, we can't take off with birds reported on the runway, American One Two Three",
+      "tower: American One Two Three, exit the runway, we'll have a city vehicle come out to inspect, it'll be a long delay",
+      "pilot: Okay, exiting runway 9L, American One Two Three",
+      "tower: United Four Five Six, be advised of reported birds in the vicinity of runway 9L",
+      "pilot: Tower, are you going to let them take off or wait for the city vehicle, American One Two Three",
+      "tower: United Four Five Six, cleared for takeoff runway 9L",
+      "pilot: Tower, you just told us there were birds on the runway, American One Two Three",
+      "tower: United Four Five Six, roger, takeoff clearance acknowledged",
+      "pilot: American One Two Three, we're going to take off behind them, American One Two Three",
+      "tower: American One Two Three, cleared for takeoff runway 9L, wind two seven zero at one zero knots",
+      "pilot: Cleared for takeoff runway 9L, wind two seven zero at one zero knots, American One Two Three"
+    ],
+    "score": 9,
+    "dialogue_analysis": []
+  },
+  {
+    "ACN": 1729988,
+    "aircraft_make": "Beech 1900",
+    "operating_under": "Part 91",
+    "flight_plan": "VFR",
+    "flight_phase": "Other Traffic Pattern",
+    "event": "NMAC",
+    "narrative_1": "I had been contacted by a gentleman who recently had purchased a Beechcraft BE19 Sport. He was interested in finding a CFI to help out with some flight training. Since I have flying hours in comparable types; but not the BE19; I wished to fly with him in his airplane to get a feel for it and build some experience. He was in the left seat and I was in the right seat. We were granted takeoff clearance off right closed traffic was approved.The departure and crosswind legs were normal; as was the initial downwind turn. While we were midfield downwind; another aircraft made a radio call along the lines of 'I sure hope that airplane in front of me isn't landing here'. I immediately felt something wasn't right and looked to my 5 o' clock position. Sure enough; a Piper Cherokee was also flying the downwind with us. He was a little lower and overtaking. It appeared he had taken evasive action to the right of course; and we elected the safest option was to proceed straight ahead and do not alter course.Tower then said; 'Oh yeah; that guy is definitely not supposed to be there.' It appeared the Controller had forgotten talking to us shortly beforehand. I called up and said '...we were cleared for right closed traffic.' Tower gave us a left 360 and had the Cherokee land first. Our landing was uneventful. Once we landed; I called Tower on the phone. I spoke to the Local Controller and told the Controller that I wished to file an NMAC. I am awaiting the supervisor's call.The Controller admitted making the mistake; but this was a great learning experience for all involved. Contributing to this was how this was my first flight in this airplane. Because of this; I was concentrating more on flying tasks and system operations; and if this was a more familiar airplane; my eyes would have been outside more and perhaps I would've spotted the Cherokee on an extended downwind. This event was a reminder that pilots must remain vigilant at all times and always clear every single turn - even with a control tower or ARTCC/Tracon - especially in the traffic pattern.",
+    "callback_1": "",
+    "narrative_2": "",
+    "callback_2": "",
+    "synopsis": "An instructor pilot reported a NMAC with another aircraft on the downwind leg.",
+    "dialogue": [
+      "tower: Beech One Nine Zero, cleared for takeoff runway two seven right, wind two six zero at one zero knots",
+      "pilot: Cleared for takeoff runway two seven right, Beech One Nine Zero",
+      "tower: Beech One Nine Zero, right closed traffic approved",
+      "pilot: Right closed traffic approved, Beech One Nine Zero",
+      "pilot: Tower, Beech One Nine Zero, we have another aircraft on the downwind, Beech One Nine Zero",
+      "tower: Oh yeah, that guy is definitely not supposed to be there",
+      "pilot: We were cleared for right closed traffic, Beech One Nine Zero",
+      "tower: Beech One Nine Zero, left three sixty, Piper Cherokee will land first",
+      "pilot: Left three sixty, Piper Cherokee will land first, Beech One Nine Zero",
+      "tower: Beech One Nine Zero, report downwind",
+      "pilot: Downwind, Beech One Nine Zero",
+      "tower: Beech One Nine Zero, clear to land runway two seven right, wind two six zero at one zero knots",
+      "pilot: Cleared to land runway two seven right, Beech One Nine Zero"
+    ],
+    "score": 8,
+    "dialogue_analysis": []
+  }
+]

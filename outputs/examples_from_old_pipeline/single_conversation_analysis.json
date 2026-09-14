@@ -1,0 +1,143 @@
+{
+  "success": true,
+  "report": {
+    "acn": 2231630,
+    "analysis_timestamp": "2024-01-15T10:30:00Z",
+    "model_version": "llama-3.3-70b-unsupervised-cer",
+    "conversation_summary": "United 2053 was cleared for takeoff from runway 31 with a right turn to heading 280. Shortly after departure, the crew reported a bird strike with evidence of bird ingestion in engine number 2 and a burning smell detected by the flight attendant. The pilot declined the controller's heading instruction to return to the field, executed a left downwind turn, and landed safely with emergency trucks standing by. The aircraft taxied to the gate for inspection by ARFF personnel.",
+    "context": {
+      "primary_callsign": "united 2053",
+      "callsign_variations": [
+        "united 2052",
+        "united 2053",
+        "united 2054"
+      ],
+      "conversation_phase": "emergency",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "heading",
+          "controller_instruction": "on departure turn right heading 280",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 0,
+          "instruction_type": "runway",
+          "controller_instruction": "runway 31 cleared for takeoff",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "heading",
+          "controller_instruction": "turn to a 340 degree heading",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "frequency",
+          "controller_instruction": "contact departure",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 11,
+          "instruction_type": "altitude",
+          "controller_instruction": "descend to maintain 3000",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 13,
+          "instruction_type": "runway",
+          "controller_instruction": "cleared visual approach to runway 31",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 15,
+          "instruction_type": "frequency",
+          "controller_instruction": "contact the tower 118.7",
+          "requires_readback": true
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for": "heading",
+          "pilot_readback": "right turn heading 280",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 1,
+          "readback_for": "runway",
+          "pilot_readback": "runway 31 clear for takeoff",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 8,
+          "readback_for": "heading",
+          "pilot_readback": "we decline and stated we are staying with you and flying runway heading we are turning left downwind and coming back to the field",
+          "matches_instruction": false
+        },
+        {
+          "turn_index": 12,
+          "readback_for": "altitude",
+          "pilot_readback": "descend to maintain 3000",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 14,
+          "readback_for": "runway",
+          "pilot_readback": "cleared visual approach runway 31",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 16,
+          "readback_for": "frequency",
+          "pilot_readback": "1187",
+          "matches_instruction": true
+        }
+      ],
+      "total_turns": 19,
+      "controller_turns": 9,
+      "pilot_turns": 10,
+      "emergency_declared": false,
+      "key_events": [
+        "bird strike reported",
+        "bird ingested through engine number 2",
+        "loud thud felt by crew",
+        "burning smell reported by flight attendant at 500-1000ft",
+        "specific systems shut off",
+        "pilot declined heading instruction to return to field",
+        "emergency trucks rolled",
+        "ARFF requested to check plane and follow to gate"
+      ]
+    },
+    "errors_detected": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "error_type": "callsign_format_error",
+        "severity": "high",
+        "expected_behavior": "Controller should address aircraft as 'united 2053'",
+        "actual_behavior": "Controller addressed aircraft as 'united 2052'",
+        "context": "The primary callsign established is 'united 2053', but controller used 'united 2052' in the initial clearance",
+        "explanation": "Controller used incorrect callsign 'united 2052' instead of 'united 2053'. This could cause confusion about which aircraft is being addressed, especially in busy airspace where similar callsigns may exist.",
+        "related_turns": [
+          1,
+          2,
+          3
+        ],
+        "safety_impact": ""
+      }
+    ]
+  },
+  "timing": {
+    "stage1_context_extraction": 8.838199138641357,
+    "stage2_error_detection": 17.01797604560852,
+    "stage3_synthesis": 15.680725812911987,
+    "total_time": 41.53725218772888
+  },
+  "metadata": {
+    "acn": 2231630,
+    "conversation_length": 19,
+    "errors_found": 4
+  }
+}

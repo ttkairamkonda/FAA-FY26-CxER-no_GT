@@ -1,0 +1,341 @@
+{
+  "success": true,
+  "report": {
+    "analysis_timestamp": "2024-04-15T14:30:00",
+    "model_version": "llama-3.3-70b-unsupervised-cer",
+    "conversation_summary": "Delta 2139 was cleared for takeoff on runway 22L and later declared an emergency due to a bird strike on the leading edge of the right wing. The pilot maintained control and followed instructions from the controller, including turns and altitude changes, and was eventually cleared for a visual approach to runway 22L. The aircraft had 5 souls on board and approximately 2 hours of fuel remaining. The pilot read back all critical instructions correctly, but there was an initial callsign variation.",
+    "context": {
+      "primary_callsign": "delta 2139",
+      "callsign_variations": [
+        "delta 2138",
+        "delta 2139"
+      ],
+      "conversation_phase": "emergency",
+      "critical_instructions": [
+        {
+          "turn_index": 0,
+          "instruction_type": "runway",
+          "controller_instruction": "cleared for takeoff runway 22L",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 2,
+          "instruction_type": "frequency",
+          "controller_instruction": "contact departure",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "other",
+          "controller_instruction": "what is your altitude",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "heading",
+          "controller_instruction": "turn right heading 270",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 9,
+          "instruction_type": "altitude",
+          "controller_instruction": "descend to 1500",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 11,
+          "instruction_type": "other",
+          "controller_instruction": "are you declaring an emergency",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 13,
+          "instruction_type": "other",
+          "controller_instruction": "what is your souls on board and fuel remaining",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 15,
+          "instruction_type": "heading",
+          "controller_instruction": "turn left heading 090",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 17,
+          "instruction_type": "runway",
+          "controller_instruction": "cleared for the visual approach to runway 22L",
+          "requires_readback": true
+        },
+        {
+          "turn_index": 19,
+          "instruction_type": "frequency",
+          "controller_instruction": "contact tower on 119.1",
+          "requires_readback": true
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 1,
+          "readback_for": "runway",
+          "pilot_readback": "cleared for takeoff runway 22L",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 3,
+          "readback_for": "frequency",
+          "pilot_readback": "contact departure",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 6,
+          "readback_for": "other",
+          "pilot_readback": "we are at 2000 feet",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 8,
+          "readback_for": "heading",
+          "pilot_readback": "right turn heading 270",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 10,
+          "readback_for": "altitude",
+          "pilot_readback": "descend to 1500",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 12,
+          "readback_for": "other",
+          "pilot_readback": "affirmative we are declaring an emergency",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 14,
+          "readback_for": "other",
+          "pilot_readback": "we have 5 souls on board and approximately 2 hours of fuel",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 16,
+          "readback_for": "heading",
+          "pilot_readback": "left turn heading 090",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 18,
+          "readback_for": "runway",
+          "pilot_readback": "cleared for the visual approach to runway 22L",
+          "matches_instruction": true
+        },
+        {
+          "turn_index": 20,
+          "readback_for": "frequency",
+          "pilot_readback": "contact tower on 119.1",
+          "matches_instruction": true
+        }
+      ],
+      "total_turns": 20,
+      "controller_turns": 10,
+      "pilot_turns": 10,
+      "emergency_declared": true,
+      "key_events": [
+        "bird strike on the leading edge of the right wing"
+      ]
+    },
+    "errors_detected": [
+      {
+        "turn_index": 0,
+        "speaker": "pilot",
+        "error_type": "callsign_drift",
+        "severity": "critical",
+        "expected_behavior": "Pilot should use consistent callsign 'delta 2139'",
+        "actual_behavior": "Pilot initially used 'delta 2138'",
+        "context": "Controller established callsign as 'delta 2139' but pilot used 'delta 2138' in Turn 1",
+        "explanation": "The pilot incorrectly used a different callsign initially, which could lead to confusion and safety issues.",
+        "related_turns": [
+          0,
+          1
+        ],
+        "safety_impact": "Callsign confusion could lead to wrong aircraft receiving clearance"
+      }
+    ],
+    "total_errors": 1,
+    "critical_errors": [
+      "callsign_drift"
+    ],
+    "safety_risk_level": "high",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "controller",
+        "text": "delta 2138 cleared for takeoff runway 22L",
+        "errors_in_turn": [
+          "callsign_drift"
+        ],
+        "notes": "Initial callsign variation"
+      },
+      {
+        "turn_index": 1,
+        "speaker": "pilot",
+        "text": "cleared for takeoff runway 22L delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 2,
+        "speaker": "controller",
+        "text": "delta 2139 contact departure",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 3,
+        "speaker": "pilot",
+        "text": "contact departure delta 2138",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "we have had a bird strike on the leading edge of the right wing delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "delta 2139 roger what is your altitude",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "we are at 2000 feet delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "delta 2139 turn right heading 270",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "right turn heading 270 delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "delta 2139 descend to 1500",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "descend to 1500 delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "text": "delta 2139 are you declaring an emergency",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "text": "affirmative we are declaring an emergency delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 13,
+        "speaker": "controller",
+        "text": "delta 2139 roger what is your souls on board and fuel remaining",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 14,
+        "speaker": "pilot",
+        "text": "we have 5 souls on board and approximately 2 hours of fuel delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 15,
+        "speaker": "controller",
+        "text": "delta 2139 roger turn left heading 090",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 16,
+        "speaker": "pilot",
+        "text": "left turn heading 090 delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 17,
+        "speaker": "controller",
+        "text": "delta 2139 cleared for the visual approach to runway 22L",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 18,
+        "speaker": "pilot",
+        "text": "cleared for the visual approach to runway 22L delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 19,
+        "speaker": "controller",
+        "text": "delta 2139 contact tower on 119.1",
+        "errors_in_turn": [],
+        "notes": ""
+      },
+      {
+        "turn_index": 20,
+        "speaker": "pilot",
+        "text": "contact tower on 119.1 delta 2139",
+        "errors_in_turn": [],
+        "notes": ""
+      }
+    ],
+    "executive_summary": "This conversation involved Delta 2139 experiencing a bird strike during takeoff and subsequently declaring an emergency. The pilot followed all instructions correctly, but there was an initial callsign variation. The safety risk level is high due to the potential for callsign confusion, which could lead to wrong aircraft receiving clearance. Recommendations include ensuring consistent callsign usage and verifying all critical instructions receive explicit readback.",
+    "recommendations": [
+      "Ensure consistent callsign usage throughout all communications",
+      "Verify all altitude instructions receive explicit pilot readback",
+      "Provide additional training on emergency communication procedures"
+    ],
+    "error_statistics": {
+      "callsign_drift": 1
+    }
+  },
+  "timing": {
+    "stage1_context_extraction": 72.13132858276367,
+    "stage2_error_detection": 297.685165643692,
+    "stage3_synthesis": 186.30402255058289,
+    "total_time": 556.1207818984985
+  },
+  "metadata": {
+    "acn": 2235439,
+    "conversation_length": 21,
+    "errors_found": 1
+  }
+}

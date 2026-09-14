@@ -1,0 +1,757 @@
+[
+  {
+    "acn": 2235439,
+    "event": "bird strike",
+    "analysis_timestamp": "2026-09-13T15:48:43.661759",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "Cessna one two three declared an emergency after a bird strike damaged its right wing tip and aileron, and landed safely on Runway 9R with two souls on board. The pilot followed Aircraft Y to landing as instructed. Despite the emergency, the conversation had notable errors. The aircraft was cleared to land and followed the given instructions to land safely.",
+    "context": {
+      "primary_callsign": "Cessna one two three",
+      "callsign_variations": [
+        "Cessna one two three"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "pilot",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "controller",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "Cessna one two three"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "Cessna one two three"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": "Cessna",
+      "conversation_phase": "emergency",
+      "facility_type": "unknown",
+      "critical_instructions": [
+        {
+          "turn_index": 1,
+          "instruction_type": "report_nature_of_emergency",
+          "raw_instruction": "report nature of emergency and souls on board",
+          "key_values": {},
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 3,
+          "instruction_type": "continue_approach",
+          "raw_instruction": "continue approach, report established on final",
+          "key_values": {},
+          "requires_readback": true,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "clearance_to_land",
+          "raw_instruction": "cleared to land Runway 9R",
+          "key_values": {
+            "runway": "9R"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway"
+          ]
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "follow_aircraft",
+          "raw_instruction": "be advised Aircraft Y is on short final, one mile ahead, follow him to landing",
+          "key_values": {
+            "aircraft": "Aircraft Y"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "aircraft"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 2,
+          "readback_for_turn": 1,
+          "readback_for_type": "report_nature_of_emergency",
+          "pilot_text": "We've had a vulture strike the right wing tip, it's torn off and damaged the aileron, two souls on board, Cessna one two three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 4,
+          "readback_for_turn": 3,
+          "readback_for_type": "continue_approach",
+          "pilot_text": "Roger, established on final, Cessna one two three",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 6,
+          "readback_for_turn": 5,
+          "readback_for_type": "clearance_to_land",
+          "pilot_text": "Cleared to land Runway 9R, wind two seven zero at one zero knots, Cessna one two three",
+          "values_extracted": {
+            "runway": "9R"
+          }
+        },
+        {
+          "turn_index": 8,
+          "readback_for_turn": 7,
+          "readback_for_type": "follow_aircraft",
+          "pilot_text": "Following Aircraft Y to landing, Cessna one two three",
+          "values_extracted": {
+            "aircraft": "Aircraft Y"
+          }
+        }
+      ],
+      "total_turns": 9,
+      "controller_turns": 4,
+      "pilot_turns": 5,
+      "unknown_turns": 0,
+      "emergency_declared": true,
+      "emergency_type": "bird strike",
+      "key_events": [
+        "bird strike"
+      ],
+      "traffic_mentioned": [
+        "Aircraft Y"
+      ],
+      "runway_in_use": "9R",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 8,
+        "speaker": "unknown",
+        "error_type": "wrong_emergency_squawk",
+        "severity": "high",
+        "expected_behavior": "Squawk 7700 mentioned during a declared emergency",
+        "actual_behavior": "No mention of squawk 7700 found anywhere in the conversation.",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "error_type": "emergency_nits_incomplete",
+        "severity": "medium",
+        "expected_behavior": "Nature / Intentions / Souls on board / Time-or-fuel remaining, all communicated",
+        "actual_behavior": "No mention found for: ['time_or_fuel_remaining']",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {
+          "missing_nits_elements": "time_or_fuel_remaining"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 2,
+    "errors_by_source": {
+      "rule": 2,
+      "llm": 0
+    },
+    "critical_errors": [],
+    "safety_risk_level": "high",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "pilot",
+        "text": "Mayday Mayday Mayday, this is Cessna one two three, we've had a bird strike, request emergency assistance, Cessna one two three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "controller",
+        "text": "Cessna one two three, report nature of emergency and souls on board",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "We've had a vulture strike the right wing tip, it's torn off and damaged the aileron, two souls on board, Cessna one two three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "Cessna one two three, roger, emergency services alerted, continue approach, report established on final",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "Roger, established on final, Cessna one two three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "Cessna one two three, wind two seven zero at one zero knots, cleared to land Runway 9R",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Cleared to land Runway 9R, wind two seven zero at one zero knots, Cessna one two three",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "Cessna one two three, be advised Aircraft Y is on short final, one mile ahead, follow him to landing",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Following Aircraft Y to landing, Cessna one two three",
+        "errors_in_turn": [
+          "wrong_emergency_squawk",
+          "emergency_nits_incomplete"
+        ]
+      }
+    ],
+    "executive_summary": "Cessna one two three experienced a bird strike emergency that damaged its right wing tip and aileron, requiring an emergency landing on Runway 9R. Despite the successful landing, the conversation revealed significant safety concerns, including the failure to squawk 7700 during the emergency and incomplete emergency information provided by the pilot. These errors highlight the need for improved emergency procedures and communication. The pilot followed Aircraft Y to landing as instructed, but the absence of critical information and proper emergency protocols raises concerns about the safety of the operation. It is essential to address these issues to prevent potential accidents in the future.",
+    "recommendations": [
+      "Pilots should be reminded to squawk 7700 immediately after declaring an emergency to ensure proper alerting of air traffic control and emergency services.",
+      "Controllers should verify that pilots provide complete emergency information, including nature, intentions, souls on board, and time or fuel remaining.",
+      "Emergency procedures should be reviewed and updated to ensure that all critical steps are followed, including the use of emergency squawks and the provision of complete emergency information."
+    ],
+    "error_statistics": {
+      "wrong_emergency_squawk": 1,
+      "emergency_nits_incomplete": 1
+    }
+  },
+  {
+    "acn": 2231630,
+    "event": "bird strike",
+    "analysis_timestamp": "2026-09-13T15:48:43.662915",
+    "pipeline_version": "faa_cxer_ng-v1",
+    "conversation_summary": "United One Seven Two declared an emergency after a bird strike on takeoff from Runway 31, experiencing a burning smell, and landed safely after following emergency procedures. The aircraft was inspected by ARFF before taxiing to the gate. Despite the successful outcome, several safety concerns were identified during the emergency response. The pilot and controller made multiple errors, including failure to follow instructions and incomplete readbacks.",
+    "context": {
+      "primary_callsign": "United One Seven Two",
+      "callsign_variations": [
+        "United One Seven Two"
+      ],
+      "callsign_mentions": [
+        {
+          "turn_index": 0,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 1,
+          "speaker": "controller",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 2,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 3,
+          "speaker": "controller",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 4,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 5,
+          "speaker": "controller",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 6,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 7,
+          "speaker": "controller",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 8,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 9,
+          "speaker": "controller",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 10,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 11,
+          "speaker": "controller",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 12,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 13,
+          "speaker": "controller",
+          "callsign_text": "United One Seven Two"
+        },
+        {
+          "turn_index": 14,
+          "speaker": "pilot",
+          "callsign_text": "United One Seven Two"
+        }
+      ],
+      "abbreviated_callsign_valid_from_turn": null,
+      "aircraft_type": null,
+      "conversation_phase": "emergency",
+      "facility_type": "tower",
+      "critical_instructions": [
+        {
+          "turn_index": 1,
+          "instruction_type": "heading",
+          "raw_instruction": "turn heading three four zero, contact Departure on one two one point five, report any further issues",
+          "key_values": {
+            "heading": "three four zero",
+            "frequency": "one two one point five"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "heading",
+            "frequency"
+          ]
+        },
+        {
+          "turn_index": 3,
+          "instruction_type": "report",
+          "raw_instruction": "report your intentions",
+          "key_values": {},
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 5,
+          "instruction_type": "altitude",
+          "raw_instruction": "descend and maintain one thousand feet, heading one eight zero, report established on the downwind",
+          "key_values": {
+            "altitude": "one thousand feet",
+            "heading": "one eight zero"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "altitude",
+            "heading"
+          ]
+        },
+        {
+          "turn_index": 7,
+          "instruction_type": "wind",
+          "raw_instruction": "wind two seven zero at one zero knots, report turning base",
+          "key_values": {
+            "wind_direction": "two seven zero",
+            "wind_speed": "one zero knots"
+          },
+          "requires_readback": false,
+          "readback_must_include": []
+        },
+        {
+          "turn_index": 9,
+          "instruction_type": "clearance_to_land",
+          "raw_instruction": "cleared to land Runway 31, report touchdown",
+          "key_values": {
+            "runway": "31"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "runway"
+          ]
+        },
+        {
+          "turn_index": 11,
+          "instruction_type": "exit_taxiway",
+          "raw_instruction": "exit taxiway bravo, contact ground point eight",
+          "key_values": {
+            "taxiway": "bravo",
+            "frequency": "point eight"
+          },
+          "requires_readback": true,
+          "readback_must_include": [
+            "taxiway",
+            "frequency"
+          ]
+        }
+      ],
+      "actual_readbacks": [
+        {
+          "turn_index": 2,
+          "readback_for_turn": 1,
+          "readback_for_type": "heading",
+          "pilot_text": "Negative, United One Seven Two, we're staying with you, flying runway heading, request ARFF to be on standby United One Seven Two",
+          "values_extracted": {}
+        },
+        {
+          "turn_index": 6,
+          "readback_for_turn": 5,
+          "readback_for_type": "altitude",
+          "pilot_text": "Descend and maintain one thousand feet, heading one eight zero, wilco United One Seven Two",
+          "values_extracted": {
+            "altitude": "one thousand feet",
+            "heading": "one eight zero"
+          }
+        },
+        {
+          "turn_index": 10,
+          "readback_for_turn": 9,
+          "readback_for_type": "clearance_to_land",
+          "pilot_text": "Cleared to land Runway 31, United One Seven Two",
+          "values_extracted": {
+            "runway": "31"
+          }
+        },
+        {
+          "turn_index": 12,
+          "readback_for_turn": 11,
+          "readback_for_type": "exit_taxiway",
+          "pilot_text": "Exit taxiway bravo, contact ground point eight, United One Seven Two",
+          "values_extracted": {
+            "taxiway": "bravo",
+            "frequency": "point eight"
+          }
+        }
+      ],
+      "total_turns": 15,
+      "controller_turns": 7,
+      "pilot_turns": 8,
+      "unknown_turns": 0,
+      "emergency_declared": true,
+      "emergency_type": "bird strike",
+      "key_events": [
+        "bird strike",
+        "burning smell"
+      ],
+      "traffic_mentioned": [],
+      "runway_in_use": "31",
+      "void_time": null
+    },
+    "errors_detected": [
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "error_type": "partial_readback",
+        "severity": "medium",
+        "expected_behavior": "Readback should include: ['frequency', 'heading']",
+        "actual_behavior": "These elements were not found in the readback's extracted values.",
+        "explanation": "",
+        "related_turns": [
+          1,
+          2
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "missing": "frequency,heading"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 14,
+        "speaker": "unknown",
+        "error_type": "wrong_emergency_squawk",
+        "severity": "high",
+        "expected_behavior": "Squawk 7700 mentioned during a declared emergency",
+        "actual_behavior": "No mention of squawk 7700 found anywhere in the conversation.",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 14,
+        "speaker": "pilot",
+        "error_type": "emergency_nits_incomplete",
+        "severity": "medium",
+        "expected_behavior": "Nature / Intentions / Souls on board / Time-or-fuel remaining, all communicated",
+        "actual_behavior": "No mention found for: ['souls_on_board', 'time_or_fuel_remaining']",
+        "explanation": "",
+        "related_turns": [],
+        "safety_impact": "",
+        "values_involved": {
+          "missing_nits_elements": "souls_on_board,time_or_fuel_remaining"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 14,
+        "speaker": "pilot",
+        "error_type": "non_standard_phraseology",
+        "severity": "low",
+        "expected_behavior": "Standard ICAO phraseology (no filler acknowledgements)",
+        "actual_behavior": "Used non-standard phrase: 'thanks'",
+        "explanation": "",
+        "related_turns": [
+          14
+        ],
+        "safety_impact": "",
+        "values_involved": {
+          "phrase": "thanks"
+        },
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 5,
+        "speaker": "pilot",
+        "error_type": "missed_position_report",
+        "severity": "medium",
+        "expected_behavior": "Pilot reports 'established' as requested",
+        "actual_behavior": "No matching position report found in any pilot turn.",
+        "explanation": "",
+        "related_turns": [
+          5
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 7,
+        "speaker": "pilot",
+        "error_type": "missed_position_report",
+        "severity": "medium",
+        "expected_behavior": "Pilot reports 'base' as requested",
+        "actual_behavior": "No matching position report found in any pilot turn.",
+        "explanation": "",
+        "related_turns": [
+          7
+        ],
+        "safety_impact": "",
+        "values_involved": {},
+        "source": "rule",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "error_type": "instruction_not_followed",
+        "severity": "critical",
+        "expected_behavior": "Pilot should follow the heading instruction given by the controller",
+        "actual_behavior": "Pilot states they are flying runway heading instead of the instructed heading",
+        "explanation": "The pilot was instructed to turn heading 340 but responded that they are staying with the current heading, indicating a failure to follow the instruction.",
+        "related_turns": [
+          1,
+          2
+        ],
+        "safety_impact": "Failure to follow instructions can lead to loss of separation or other safety issues.",
+        "values_involved": {
+          "instructed_heading": "340",
+          "actual_heading": "runway heading"
+        },
+        "source": "llm",
+        "confidence": "confirmed"
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "error_type": "hearback_failure",
+        "severity": "critical",
+        "expected_behavior": "Controller should notice and correct the pilot's failure to follow the instruction",
+        "actual_behavior": "Controller responds with 'roger' without addressing the pilot's non-compliance",
+        "explanation": "The controller failed to address the pilot's statement that they are not following the heading instruction, which could lead to further safety issues.",
+        "related_turns": [
+          1,
+          2,
+          3
+        ],
+        "safety_impact": "Failure to correct non-compliance can lead to continued deviation from safe procedures.",
+        "values_involved": {},
+        "source": "llm",
+        "confidence": "confirmed"
+      }
+    ],
+    "total_errors": 8,
+    "errors_by_source": {
+      "rule": 6,
+      "llm": 2
+    },
+    "critical_errors": [
+      "hearback_failure",
+      "instruction_not_followed"
+    ],
+    "safety_risk_level": "critical",
+    "operational_status": "significant_concerns",
+    "turn_analysis": [
+      {
+        "turn_index": 0,
+        "speaker": "pilot",
+        "text": "Mayday Mayday Mayday, United One Seven Two, we've had a bird strike on takeoff from Runway 31, experiencing a burning smell, requesting emergency assistance United One Seven Two",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 1,
+        "speaker": "controller",
+        "text": "United One Seven Two, turn heading three four zero, contact Departure on one two one point five, report any further issues",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 2,
+        "speaker": "pilot",
+        "text": "Negative, United One Seven Two, we're staying with you, flying runway heading, request ARFF to be on standby United One Seven Two",
+        "errors_in_turn": [
+          "partial_readback",
+          "instruction_not_followed"
+        ]
+      },
+      {
+        "turn_index": 3,
+        "speaker": "controller",
+        "text": "United One Seven Two, roger, ARFF is rolling, report your intentions",
+        "errors_in_turn": [
+          "hearback_failure"
+        ]
+      },
+      {
+        "turn_index": 4,
+        "speaker": "pilot",
+        "text": "We're turning left downwind, coming back to the field, will run checklists and assess systems, request priority handling United One Seven Two",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 5,
+        "speaker": "controller",
+        "text": "United One Seven Two, descend and maintain one thousand feet, heading one eight zero, report established on the downwind",
+        "errors_in_turn": [
+          "missed_position_report"
+        ]
+      },
+      {
+        "turn_index": 6,
+        "speaker": "pilot",
+        "text": "Descend and maintain one thousand feet, heading one eight zero, wilco United One Seven Two",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 7,
+        "speaker": "controller",
+        "text": "United One Seven Two, wind two seven zero at one zero knots, report turning base",
+        "errors_in_turn": [
+          "missed_position_report"
+        ]
+      },
+      {
+        "turn_index": 8,
+        "speaker": "pilot",
+        "text": "Roger, United One Seven Two",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 9,
+        "speaker": "controller",
+        "text": "United One Seven Two, cleared to land Runway 31, report touchdown",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 10,
+        "speaker": "pilot",
+        "text": "Cleared to land Runway 31, United One Seven Two",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 11,
+        "speaker": "controller",
+        "text": "United One Seven Two, exit taxiway bravo, contact ground point eight",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 12,
+        "speaker": "pilot",
+        "text": "Exit taxiway bravo, contact ground point eight, United One Seven Two",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 13,
+        "speaker": "controller",
+        "text": "United One Seven Two, good job, ARFF will inspect the aircraft before you taxi to the gate",
+        "errors_in_turn": []
+      },
+      {
+        "turn_index": 14,
+        "speaker": "pilot",
+        "text": "Roger, thanks, United One Seven Two",
+        "errors_in_turn": [
+          "wrong_emergency_squawk",
+          "emergency_nits_incomplete",
+          "non_standard_phraseology"
+        ]
+      }
+    ],
+    "executive_summary": "United One Seven Two experienced a bird strike on takeoff, declared an emergency, and landed safely after following emergency procedures. However, the pilot and controller made multiple errors, including failure to follow instructions, incomplete readbacks, and non-standard phraseology. The most critical errors were the pilot's failure to follow the heading instruction and the controller's failure to correct this non-compliance. These errors highlight the need for improved communication and adherence to standard procedures during emergency situations. The successful outcome of this incident was likely due to the pilot's ability to manage the emergency and the controller's overall guidance, despite the errors made.",
+    "recommendations": [
+      "Pilots and controllers should receive additional training on emergency procedures and the importance of following instructions and using standard phraseology.",
+      "Controllers should verify that pilots have understood and will comply with instructions, especially during emergency situations.",
+      "Pilots should ensure that they provide complete and accurate readbacks, including all required elements, to confirm their understanding of instructions.",
+      "The use of non-standard phraseology, such as 'thanks', should be avoided in radio communications to prevent confusion and ensure clarity.",
+      "A review of the emergency response procedures should be conducted to identify areas for improvement and ensure that all personnel are familiar with the correct protocols."
+    ],
+    "error_statistics": {
+      "partial_readback": 1,
+      "wrong_emergency_squawk": 1,
+      "emergency_nits_incomplete": 1,
+      "non_standard_phraseology": 1,
+      "missed_position_report": 2,
+      "instruction_not_followed": 1,
+      "hearback_failure": 1
+    }
+  }
+]
