@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATC Error Detection — No Ground Truth — Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e14;
+  --surface: #111720;
+  --border: #1e2d3d;
+  --border2: #243447;
+  --text: #cdd9e5;
+  --text2: #8b9ab0;
+  --text3: #4a5a6e;
+  --accent: #58a6ff;
+  --accent2: #1f6feb;
+  --green: #3fb950;
+  --green-bg: #0f2a17;
+  --green-border: #1a4a28;
+  --red: #f85149;
+  --red-bg: #2a0f0f;
+  --red-border: #4a1a1a;
+  --amber: #e3b341;
+  --amber-bg: #2a1f0a;
+  --amber-border: #4a3a12;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(88,166,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88,166,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none; z-index: 0;
+}
+.wrap { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 36px 24px 80px; }
+
+/* ── header ── */
+.tag {
+  display: inline-block;
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; color: var(--accent);
+  background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.2);
+  padding: 3px 10px; border-radius: 3px; margin-bottom: 14px;
+}
+h1 {
+  font-family: var(--mono); font-size: clamp(17px, 3.5vw, 24px);
+  font-weight: 600; color: #e6edf3; line-height: 1.3; margin-bottom: 8px;
+}
+h1 span { color: var(--accent); }
+.subtitle { font-size: 13px; color: var(--text2); max-width: 620px; line-height: 1.7; margin-bottom: 20px; }
+
+.metric-legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.mb { font-family: var(--mono); font-size: 11px; padding: 3px 10px; border-radius: 3px; border: 1px solid; }
+.mb-rule   { color: var(--green); background: rgba(63,185,80,0.08); border-color: rgba(63,185,80,0.3); }
+.mb-hybrid { color: var(--amber); background: rgba(227,179,65,0.08); border-color: rgba(227,179,65,0.3); }
+.mb-llm    { color: #79c0ff; background: rgba(121,192,255,0.08); border-color: rgba(121,192,255,0.3); }
+
+/* ── pipeline strip ── */
+.pipeline { display: flex; align-items: stretch; gap: 6px; margin-bottom: 28px; flex-wrap: wrap; }
+.pstep { flex: 1; min-width: 130px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.pstep-tag { font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: 0.08em; color: var(--text3); text-transform: uppercase; margin-bottom: 4px; }
+.pstep-desc { font-size: 11px; color: var(--text2); line-height: 1.5; }
+.pstep.rule { border-top: 2px solid var(--green); }
+.pstep.llm { border-top: 2px solid #79c0ff; }
+.pstep.out { border-top: 2px solid var(--accent); }
+.parrow { display: flex; align-items: center; justify-content: center; color: var(--text3); font-size: 16px; padding: 0 2px; }
+
+/* ── selector ── */
+.selector-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--text3); text-transform: uppercase; margin-bottom: 7px; }
+select {
+  width: 100%; background: var(--surface); color: var(--text);
+  border: 1px solid var(--border2); border-radius: 6px;
+  padding: 10px 14px; font-family: var(--mono); font-size: 13px;
+  appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238b9ab0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+  margin-bottom: 18px;
+}
+select:focus { outline: none; border-color: var(--accent2); }
+
+/* ── conversation meta ── */
+.conv-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.meta-chip { font-family: var(--mono); font-size: 11px; color: var(--text2); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; }
+.meta-chip b { color: var(--text); font-weight: 500; }
+
+/* ── transcript ── */
+.transcript { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px; margin-bottom: 16px; max-height: 480px; overflow-y: auto; }
+.turn { display: grid; grid-template-columns: 28px 96px 1fr; gap: 10px; align-items: start; padding: 8px 10px; border-radius: 6px; font-size: 13px; }
+.turn + .turn { margin-top: 2px; }
+.turn-idx { font-family: var(--mono); font-size: 10px; color: var(--text3); padding-top: 2px; text-align: right; }
+.turn-speaker { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 3px; height: fit-content; text-transform: uppercase; }
+.spk-controller { color: #79c0ff; background: rgba(121,192,255,0.1); border: 1px solid rgba(121,192,255,0.25); }
+.spk-pilot { color: var(--text2); background: rgba(139,154,176,0.1); border: 1px solid rgba(139,154,176,0.25); }
+.spk-unknown { color: var(--text3); background: rgba(74,90,110,0.1); border: 1px solid var(--border2); }
+.turn-text { font-family: var(--mono); font-size: 12.5px; line-height: 1.7; color: var(--text); padding-top: 2px; }
+.turn.flagged { background: var(--red-bg); border: 1px solid var(--red-border); }
+.turn.flagged .turn-text { color: #ffb4ae; }
+.flag-mark { font-family: var(--mono); font-size: 10px; font-weight: 600; color: var(--red); margin-left: 8px; white-space: nowrap; }
+
+/* ── error detail card ── */
+.error-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+.error-card-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.error-type-name { font-family: var(--mono); font-size: 13px; font-weight: 600; color: #e6edf3; }
+.badge { font-family: var(--mono); font-size: 9px; font-weight: 600; padding: 3px 8px; border-radius: 3px; display: inline-block; text-transform: uppercase; letter-spacing: 0.04em; }
+.b-crit  { background: var(--red-bg);   color: var(--red);   border: 1px solid var(--red-border); }
+.b-high  { background: rgba(255,166,77,0.1); color: #ffa64d; border: 1px solid rgba(255,166,77,0.3); }
+.b-med   { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.b-low   { background: rgba(139,154,176,0.1); color: var(--text2); border: 1px solid var(--border2); }
+.b-rule  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.b-llm   { background: rgba(121,192,255,0.1); color: #79c0ff; border: 1px solid rgba(121,192,255,0.3); }
+.b-hybrid{ background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.error-card-body { padding: 14px 16px; }
+.eb-row { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; font-size: 12.5px; }
+.eb-row:last-child { margin-bottom: 0; }
+.eb-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text3); padding-top: 2px; }
+.eb-expected { color: var(--text2); }
+.eb-actual { color: var(--red); }
+.eb-explain, .eb-impact { color: var(--text2); line-height: 1.65; }
+.vi-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.vi-chip { font-family: var(--mono); font-size: 11px; color: var(--text2); background: rgba(139,154,176,0.08); border: 1px solid var(--border2); border-radius: 3px; padding: 2px 8px; }
+
+/* ── insight ── */
+.insight {
+  border: 1px solid rgba(88,166,255,0.2); background: rgba(88,166,255,0.04);
+  border-radius: 8px; padding: 13px 16px; margin-bottom: 20px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.insight-icon { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--accent); flex-shrink: 0; padding-top: 1px; }
+.insight-text { font-size: 13px; color: var(--text2); line-height: 1.65; }
+.insight-text strong { color: var(--text); font-weight: 500; }
+
+/* ── metric cards ── */
+.metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 8px; }
+.metric-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 14px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.metric-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; }
+.mc-risk::after { background: var(--red); }
+.mc-status::after { background: var(--amber); }
+.mc-total::after { background: var(--accent); }
+.mc-split::after { background: var(--green); }
+.metric-name { font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; color: var(--text3); text-transform: uppercase; margin-bottom: 6px; }
+.metric-value { font-family: var(--mono); font-size: 16px; font-weight: 600; line-height: 1.3; color: var(--text); }
+.metric-value.small { font-size: 13px; text-transform: capitalize; }
+
+/* ── divider ── */
+.div { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+/* ── footer ── */
+.footer { margin-top: 60px; padding-top: 18px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer span { font-family: var(--mono); font-size: 11px; color: var(--text3); }
+
+/* ── fade transition ── */
+.fadeable { transition: opacity 0.18s ease; }
+.fadeable.fading { opacity: 0; }
+
+@media (max-width: 600px) {
+  .metrics-row { grid-template-columns: 1fr 1fr; }
+  .turn { grid-template-columns: 22px 78px 1fr; }
+  .turn-text { font-size: 12px; }
+  .pipeline { flex-direction: column; }
+  .parrow { transform: rotate(90deg); padding: 2px 0; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="tag">INTERACTIVE DEMO</div>
+  <h1>Catching ATC Errors <span>Without a Reference Transcript</span></h1>
+  <p class="subtitle">
+    The demo above showed CxER judging an ASR transcription against a known-correct reference. Here there's no reference at all — these are full pilot/controller conversations reconstructed by an LLM from real ASRS incident reports, and the system has to decide on its own whether the communication was correct.
+  </p>
+
+  <div class="pipeline">
+    <div class="pstep">
+      <div class="pstep-tag">Stage 1 — LLM</div>
+      <div class="pstep-desc">Extract structured facts only: callsigns, instructions, readbacks. No judgment yet.</div>
+    </div>
+    <div class="parrow">&rarr;</div>
+    <div class="pstep rule">
+      <div class="pstep-tag">Stage 2a — Rule-based</div>
+      <div class="pstep-desc">Deterministic checks over the extracted data. Zero LLM calls, zero hallucination risk.</div>
+    </div>
+    <div class="parrow">&rarr;</div>
+    <div class="pstep llm">
+      <div class="pstep-tag">Stage 2b — LLM judgment</div>
+      <div class="pstep-desc">Only the errors that genuinely need understanding meaning or cross-turn context.</div>
+    </div>
+    <div class="parrow">&rarr;</div>
+    <div class="pstep out">
+      <div class="pstep-tag">Stage 3 — Report</div>
+      <div class="pstep-desc">Narrates the merged findings — risk level, recommendations.</div>
+    </div>
+  </div>
+
+  <div class="metric-legend">
+    <span class="mb mb-rule">RULE — deterministic, 0 LLM calls</span>
+    <span class="mb mb-hybrid">HYBRID — rule first, escalates if uncertain</span>
+    <span class="mb mb-llm">LLM — semantic judgment</span>
+  </div>
+
+  <!-- Error type selector -->
+  <div class="selector-label">Select an error type to see a real example</div>
+  <select id="errorSelect" onchange="loadCase(this.value)"></select>
+
+  <!-- Conversation meta -->
+  <div class="conv-meta fadeable" id="convMeta"></div>
+
+  <!-- Transcript -->
+  <div class="transcript fadeable" id="transcript"></div>
+
+  <!-- Error detail card -->
+  <div class="error-card fadeable" id="errorCard">
+    <div class="error-card-header" id="errorCardHeader"></div>
+    <div class="error-card-body" id="errorCardBody"></div>
+  </div>
+
+  <!-- Insight -->
+  <div class="insight fadeable" id="insightBox">
+    <div class="insight-icon">!</div>
+    <div class="insight-text" id="insightText"></div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Conversation-level metrics -->
+  <div class="metrics-row fadeable" id="metricsRow">
+    <div class="metric-card mc-risk">
+      <div class="metric-name">Safety Risk</div>
+      <div class="metric-value small" id="mRisk">—</div>
+    </div>
+    <div class="metric-card mc-status">
+      <div class="metric-name">Operational Status</div>
+      <div class="metric-value small" id="mStatus">—</div>
+    </div>
+    <div class="metric-card mc-total">
+      <div class="metric-name">Total Errors (this conv.)</div>
+      <div class="metric-value" id="mTotal">—</div>
+    </div>
+    <div class="metric-card mc-split">
+      <div class="metric-name">Rule / LLM Split</div>
+      <div class="metric-value" id="mSplit">—</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Data: 18 real &amp; synthetic ATC incident conversations · Judge: Llama-3.3-70B-Instruct</span>
+    <span>[Tarun T. Kairamkonda] · [Rowan University] · [2026]</span>
+  </div>
+
+</div><!-- /wrap -->
+
+<script id="demoData" type="application/json">
+[{"errorType":"callsign_format_error","category":"callsign","checkMode":"rule","description":"A single turn's callsign digits/letters don't match the established primary callsign.","acn":450024,"event":"birdstrikes","primaryCallsign":"American One Two Three","safetyRiskLevel":"critical","operationalStatus":"unsafe_operation","totalErrors":10,"errorsBySource":{"rule":7,"llm":3},"turns":[{"turn_index":0,"speaker":"controller","text":"American One Two Three, cleared into position and hold on runway 9L, wind two seven zero at one zero knots"},{"turn_index":1,"speaker":"pilot","text":"Cleared into position and hold on runway 9L, wind two seven zero at one zero knots, American One Two Three"},{"turn_index":2,"speaker":"controller","text":"American One Two Three, another aircraft is starting its takeoff roll, be advised"},{"turn_index":3,"speaker":"pilot","text":"Roger, American One Two Three"},{"turn_index":4,"speaker":"pilot","text":"Tower, American One Two Three, we're holding short of runway 9L, another aircraft just reported birds on the runway midfield"},{"turn_index":5,"speaker":"controller","text":"American One Two Three, cleared for takeoff runway 9L"},{"turn_index":6,"speaker":"pilot","text":"Tower, we can't take off with birds reported on the runway, American One Two Three"},{"turn_index":7,"speaker":"controller","text":"American One Two Three, exit the runway, we'll have a city vehicle come out to inspect, it'll be a long delay"},{"turn_index":8,"speaker":"pilot","text":"Okay, exiting runway 9L, American One Two Three"},{"turn_index":9,"speaker":"controller","text":"United Four Five Six, be advised of reported birds in the vicinity of runway 9L"},{"turn_index":10,"speaker":"pilot","text":"Tower, are you going to let them take off or wait for the city vehicle, American One Two Three"},{"turn_index":11,"speaker":"controller","text":"United Four Five Six, cleared for takeoff runway 9L"},{"turn_index":12,"speaker":"pilot","text":"Tower, you just told us there were birds on the runway, American One Two Three"},{"turn_index":13,"speaker":"controller","text":"United Four Five Six, roger, takeoff clearance acknowledged"},{"turn_index":14,"speaker":"pilot","text":"American One Two Three, we're going to take off behind them, American One Two Three"},{"turn_index":15,"speaker":"controller","text":"American One Two Three, cleared for takeoff runway 9L, wind two seven zero at one zero knots"},{"turn_index":16,"speaker":"pilot","text":"Cleared for takeoff runway 9L, wind two seven zero at one zero knots, American One Two Three"}],"highlightTurns":[9],"error":{"turn_index":9,"speaker":"unknown","severity":"high","expected_behavior":"Use established callsign 'American One Two Three'","actual_behavior":"Callsign digits/format did not match the established callsign","explanation":"","safety_impact":"","values_involved":{"expected":"American One Two Three"},"source":"rule","confidence":"confirmed"}},{"errorType":"emergency_nits_incomplete","category":"emergency","checkMode":"rule","description":"Nature/Intentions/Time-or-fuel/Souls-on-board elements are not all present during a declared emergency.","acn":1718444,"event":"incursions","primaryCallsign":"Delta One Two Three","safetyRiskLevel":"critical","operationalStatus":"unsafe_operation","totalErrors":3,"errorsBySource":{"rule":2,"llm":1},"turns":[{"turn_index":0,"speaker":"controller","text":"Delta One Two Three, taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left."},{"turn_index":1,"speaker":"pilot","text":"Taxi to gate via taxiway alpha, alpha bravo, hold short runway two four left, Delta One Two Three"},{"turn_index":2,"speaker":"controller","text":"Delta One Two Three, cross runway two four left at taxiway alpha."},{"turn_index":3,"speaker":"pilot","text":"Cross runway two four left at taxiway alpha, Delta One Two Three"},{"turn_index":4,"speaker":"pilot","text":"Mayday Mayday, Delta One Two Three, we have a runway incursion, red lights are illuminated on runway two four left."},{"turn_index":5,"speaker":"controller","text":"Delta One Two Three, hold position, say intentions."},{"turn_index":6,"speaker":"pilot","text":"We are holding short of runway two four left, Delta One Two Three"},{"turn_index":7,"speaker":"controller","text":"Delta One Two Three, be advised aircraft is departing runway two four left, you are to hold short until further instructions."},{"turn_index":8,"speaker":"pilot","text":"Roger, holding short of runway two four left, Delta One Two Three"},{"turn_index":9,"speaker":"controller","text":"Delta One Two Three, cleared to cross runway two four left at taxiway alpha."},{"turn_index":10,"speaker":"pilot","text":"Cleared to cross runway two four left at taxiway alpha, Delta One Two Three"},{"turn_index":11,"speaker":"controller","text":"Delta One Two Three, taxi to gate via taxiway bravo, charlie."},{"turn_index":12,"speaker":"pilot","text":"Taxi to gate via taxiway bravo, charlie, Delta One Two Three"}],"highlightTurns":[12],"error":{"turn_index":12,"speaker":"pilot","severity":"medium","expected_behavior":"Nature / Intentions / Souls on board / Time-or-fuel remaining, all communicated","actual_behavior":"No mention found for: ['nature_of_emergency', 'intentions', 'souls_on_board', 'time_or_fuel_remaining']","explanation":"","safety_impact":"","values_involved":{"missing_nits_elements":"nature_of_emergency,intentions,souls_on_board,time_or_fuel_remaining"},"source":"rule","confidence":"confirmed"}},{"errorType":"hearback_failure","category":"hearback","checkMode":"llm","description":"Controller fails to notice/correct a wrong or incomplete pilot readback.","acn":2231630,"event":"bird strike","primaryCallsign":"United One Seven Two","safetyRiskLevel":"critical","operationalStatus":"significant_concerns","totalErrors":8,"errorsBySource":{"rule":6,"llm":2},"turns":[{"turn_index":0,"speaker":"pilot","text":"Mayday Mayday Mayday, United One Seven Two, we've had a bird strike on takeoff from Runway 31, experiencing a burning smell, requesting emergency assistance United One Seven Two"},{"turn_index":1,"speaker":"controller","text":"United One Seven Two, turn heading three four zero, contact Departure on one two one point five, report any further issues"},{"turn_index":2,"speaker":"pilot","text":"Negative, United One Seven Two, we're staying with you, flying runway heading, request ARFF to be on standby United One Seven Two"},{"turn_index":3,"speaker":"controller","text":"United One Seven Two, roger, ARFF is rolling, report your intentions"},{"turn_index":4,"speaker":"pilot","text":"We're turning left downwind, coming back to the field, will run checklists and assess systems, request priority handling United One Seven Two"},{"turn_index":5,"speaker":"controller","text":"United One Seven Two, descend and maintain one thousand feet, heading one eight zero, report established on the downwind"},{"turn_index":6,"speaker":"pilot","text":"Descend and maintain one thousand feet, heading one eight zero, wilco United One Seven Two"},{"turn_index":7,"speaker":"controller","text":"United One Seven Two, wind two seven zero at one zero knots, report turning base"},{"turn_index":8,"speaker":"pilot","text":"Roger, United One Seven Two"},{"turn_index":9,"speaker":"controller","text":"United One Seven Two, cleared to land Runway 31, report touchdown"},{"turn_index":10,"speaker":"pilot","text":"Cleared to land Runway 31, United One Seven Two"},{"turn_index":11,"speaker":"controller","text":"United One Seven Two, exit taxiway bravo, contact ground point eight"},{"turn_index":12,"speaker":"pilot","text":"Exit taxiway bravo, contact ground point eight, United One Seven Two"},{"turn_index":13,"speaker":"controller","text":"United One Seven Two, good job, ARFF will inspect the aircraft before you taxi to the gate"},{"turn_index":14,"speaker":"pilot","text":"Roger, thanks, United One Seven Two"}],"highlightTurns":[1,2,3],"error":{"turn_index":3,"speaker":"controller","severity":"critical","expected_behavior":"Controller should notice and correct the pilot's failure to follow the instruction","actual_behavior":"Controller responds with 'roger' without addressing the pilot's non-compliance","explanation":"The controller failed to address the pilot's statement that they are not following the heading instruction, which could lead to further safety issues.","safety_impact":"Failure to correct non-compliance can lead to continued deviation from safe procedures.","values_involved":{},"source":"llm","confidence":"confirmed"}},{"errorType":"hold_short_violation","category":"clearance","checkMode":"llm","description":"Aircraft appears to proceed past a hold-short point without clearance.","acn":1728976,"event":"incursions","primaryCallsign":"Delta One Two Three","safetyRiskLevel":"critical","operationalStatus":"unsafe_operation","totalErrors":3,"errorsBySource":{"rule":2,"llm":1},"turns":[{"turn_index":0,"speaker":"pilot","text":"Taxiing to runway two seven at intersection alpha, Delta One Two Three"},{"turn_index":1,"speaker":"controller","text":"Delta One Two Three, taxi to runway two seven at intersection alpha, hold short runway two seven"},{"turn_index":2,"speaker":"pilot","text":"Taxi to runway two seven at intersection alpha, hold short runway two seven, Delta One Two Three"},{"turn_index":3,"speaker":"pilot","text":"Departing from intersection alpha, runway two seven, Delta One Two Three"},{"turn_index":4,"speaker":"pilot","text":"Looking for traffic on short final, Delta One Two Three"},{"turn_index":5,"speaker":"controller","text":"Delta One Two Three, landing aircraft on short final, be advised, Delta Four Five Six on final"},{"turn_index":6,"speaker":"pilot","text":"Roger, Delta One Two Three"},{"turn_index":7,"speaker":"pilot","text":"Stopping at intersection alpha, runway two seven, Delta One Two Three"},{"turn_index":8,"speaker":"controller","text":"Delta One Two Three, landing aircraft passing over intersection alpha, runway two seven, Delta Four Five Six"},{"turn_index":9,"speaker":"pilot","text":"Roger, Delta One Two Three"}],"highlightTurns":[1,2,3],"error":{"turn_index":3,"speaker":"pilot","severity":"critical","expected_behavior":"Aircraft should hold short of runway two seven at intersection alpha","actual_behavior":"Aircraft departs from intersection alpha, indicating it proceeded past the hold-short point","explanation":"The pilot read back the hold-short instruction correctly but then proceeded as if cleared for departure, violating the hold-short clearance.","safety_impact":"Risk of collision with other aircraft or vehicles on the runway","values_involved":{},"source":"llm","confidence":"confirmed"}},{"errorType":"incomplete_clearance","category":"clearance","checkMode":"hybrid","description":"Controller's clearance omits an element required for its instruction type (checked against a per-type checklist).","acn":1717023,"event":"incursions","primaryCallsign":"Delta One Two Three","safetyRiskLevel":"critical","operationalStatus":"unsafe_operation","totalErrors":3,"errorsBySource":{"rule":2,"llm":1},"turns":[{"turn_index":0,"speaker":"controller","text":"Delta One Two Three, taxi to Runway 31C via Y; P; G; cross Runway 31R"},{"turn_index":1,"speaker":"pilot","text":"Taxi to Runway 31C via Y; P; G; cross Runway 31R, Delta One Two Three"},{"turn_index":2,"speaker":"pilot","text":"Ground, Delta One Two Three, we have an aircraft holding short on Taxiway E1, request clarification"},{"turn_index":3,"speaker":"controller","text":"Delta One Two Three, say again"},{"turn_index":4,"speaker":"pilot","text":"We have an aircraft holding short on Taxiway E1 and another on E3, Delta One Two Three"},{"turn_index":5,"speaker":"controller","text":"Delta One Two Three, hold short of Taxiway E2"},{"turn_index":6,"speaker":"pilot","text":"Hold short of Taxiway E2, Delta One Two Three"},{"turn_index":7,"speaker":"pilot","text":"Ground, Delta One Two Three, we are going around the aircraft on E1, Delta One Two Three"},{"turn_index":8,"speaker":"controller","text":"Delta One Two Three, contact tower on phone number 123-456-7890"},{"turn_index":9,"speaker":"pilot","text":"Wilco, Delta One Two Three"}],"highlightTurns":[5],"error":{"turn_index":5,"speaker":"controller","severity":"high","expected_behavior":"Instruction should specify: ['runway']","actual_behavior":"Not found in the instruction as extracted.","explanation":"","safety_impact":"","values_involved":{"missing":"runway"},"source":"rule","confidence":"confirmed"}},{"errorType":"instruction_not_followed","category":"semantic","checkMode":"llm","description":"Described subsequent action contradicts an issued instruction.","acn":450024,"event":"birdstrikes","primaryCallsign":"American One Two Three","safetyRiskLevel":"critical","operationalStatus":"unsafe_operation","totalErrors":10,"errorsBySource":{"rule":7,"llm":3},"turns":[{"turn_index":0,"speaker":"controller","text":"American One Two Three, cleared into position and hold on runway 9L, wind two seven zero at one zero knots"},{"turn_index":1,"speaker":"pilot","text":"Cleared into position and hold on runway 9L, wind two seven zero at one zero knots, American One Two Three"},{"turn_index":2,"speaker":"controller","text":"American One Two Three, another aircraft is starting its takeoff roll, be advised"},{"turn_index":3,"speaker":"pilot","text":"Roger, American One Two Three"},{"turn_index":4,"speaker":"pilot","text":"Tower, American One Two Three, we're holding short of runway 9L, another aircraft just reported birds on the runway midfield"},{"turn_index":5,"speaker":"controller","text":"American One Two Three, cleared for takeoff runway 9L"},{"turn_index":6,"speaker":"pilot","text":"Tower, we can't take off with birds reported on the runway, American One Two Three"},{"turn_index":7,"speaker":"controller","text":"American One Two Three, exit the runway, we'll have a city vehicle come out to inspect, it'll be a long delay"},{"turn_index":8,"speaker":"pilot","text":"Okay, exiting runway 9L, American One Two Three"},{"turn_index":9,"speaker":"controller","text":"United Four Five Six, be advised of reported birds in the vicinity of runway 9L"},{"turn_index":10,"speaker":"pilot","text":"Tower, are you going to let them take off or wait for the city vehicle, American One Two Three"},{"turn_index":11,"speaker":"controller","text":"United Four Five Six, cleared for takeoff runway 9L"},{"turn_index":12,"speaker":"pilot","text":"Tower, you just told us there were birds on the runway, American One Two Three"},{"turn_index":13,"speaker":"controller","text":"United Four Five Six, roger, takeoff clearance acknowledged"},{"turn_index":14,"speaker":"pilot","text":"American One Two Three, we're going to take off behind them, American One Two Three"},{"turn_index":15,"speaker":"controller","text":"American One Two Three, cleared for takeoff runway 9L, wind two seven zero at one zero knots"},{"turn_index":16,"speaker":"pilot","text":"Cleared for takeoff runway 9L, wind two seven zero at one zero knots, American One Two Three"}],"highlightTurns":[4,5],"error":{"turn_index":5,"speaker":"controller","severity":"critical","expected_behavior":"Controller should not clear an aircraft for takeoff with reported birds on the runway.","actual_behavior":"Controller clears American One Two Three for takeoff despite reported birds on the runway.","explanation":"The controller issued a takeoff clearance despite the pilot's earlier report of birds on the runway, which poses a safety risk.","safety_impact":"Risk of bird strike and potential accident.","values_involved":{},"source":"llm","confidence":"confirmed"}},{"errorType":"missed_position_report","category":"sequencing","checkMode":"rule","description":"Controller requested a position report ('report downwind', 'report established') that never came.","acn":2231630,"event":"bird strike","primaryCallsign":"United One Seven Two","safetyRiskLevel":"critical","operationalStatus":"significant_concerns","totalErrors":8,"errorsBySource":{"rule":6,"llm":2},"turns":[{"turn_index":0,"speaker":"pilot","text":"Mayday Mayday Mayday, United One Seven Two, we've had a bird strike on takeoff from Runway 31, experiencing a burning smell, requesting emergency assistance United One Seven Two"},{"turn_index":1,"speaker":"controller","text":"United One Seven Two, turn heading three four zero, contact Departure on one two one point five, report any further issues"},{"turn_index":2,"speaker":"pilot","text":"Negative, United One Seven Two, we're staying with you, flying runway heading, request ARFF to be on standby United One Seven Two"},{"turn_index":3,"speaker":"controller","text":"United One Seven Two, roger, ARFF is rolling, report your intentions"},{"turn_index":4,"speaker":"pilot","text":"We're turning left downwind, coming back to the field, will run checklists and assess systems, request priority handling United One Seven Two"},{"turn_index":5,"speaker":"controller","text":"United One Seven Two, descend and maintain one thousand feet, heading one eight zero, report established on the downwind"},{"turn_index":6,"speaker":"pilot","text":"Descend and maintain one thousand feet, heading one eight zero, wilco United One Seven Two"},{"turn_index":7,"speaker":"controller","text":"United One Seven Two, wind two seven zero at one zero knots, report turning base"},{"turn_index":8,"speaker":"pilot","text":"Roger, United One Seven Two"},{"turn_index":9,"speaker":"controller","text":"United One Seven Two, cleared to land Runway 31, report touchdown"},{"turn_index":10,"speaker":"pilot","text":"Cleared to land Runway 31, United One Seven Two"},{"turn_index":11,"speaker":"controller","text":"United One Seven Two, exit taxiway bravo, contact ground point eight"},{"turn_index":12,"speaker":"pilot","text":"Exit taxiway bravo, contact ground point eight, United One Seven Two"},{"turn_index":13,"speaker":"controller","text":"United One Seven Two, good job, ARFF will inspect the aircraft before you taxi to the gate"},{"turn_index":14,"speaker":"pilot","text":"Roger, thanks, United One Seven Two"}],"highlightTurns":[5],"error":{"turn_index":5,"speaker":"pilot","severity":"medium","expected_behavior":"Pilot reports 'established' as requested","actual_behavior":"No matching position report found in any pilot turn.","explanation":"","safety_impact":"","values_involved":{},"source":"rule","confidence":"confirmed"}},{"errorType":"missing_readback","category":"readback","checkMode":"rule","description":"A critical instruction requiring readback has no corresponding pilot readback at all.","acn":1724859,"event":"speed_deviation","primaryCallsign":"Delta One Two Three","safetyRiskLevel":"high","operationalStatus":"significant_concerns","totalErrors":2,"errorsBySource":{"rule":2,"llm":0},"turns":[{"turn_index":0,"speaker":"controller","text":"Delta One Two Three, descend and maintain two thousand, reduce speed to two five zero knots."},{"turn_index":1,"speaker":"pilot","text":"Descend and maintain two thousand, reduce speed to two five zero knots, Delta One Two Three"},{"turn_index":2,"speaker":"pilot","text":"Approach, we're slowing to two zero zero knots for the Class B airspace, Delta One Two Three"},{"turn_index":3,"speaker":"controller","text":"Delta One Two Three, maintain two five zero knots."},{"turn_index":4,"speaker":"pilot","text":"But, Approach, that would put us in excess of maximum speed, Delta One Two Three"},{"turn_index":5,"speaker":"controller","text":"Delta One Two Three, my authority supersedes that restriction, maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence."},{"turn_index":6,"speaker":"pilot","text":"Approach, we understand, but our First Officer notes that you don't have authority to waive that restriction, Delta One Two Three"},{"turn_index":7,"speaker":"controller","text":"Delta One Two Three, I repeat, maintain two five zero knots or I'll take you out of sequence and vector you for a new sequence."},{"turn_index":8,"speaker":"pilot","text":"Wilco, maintaining two five zero knots, Delta One Two Three"},{"turn_index":9,"speaker":"controller","text":"Delta One Two Three, what speed are you maintaining?"},{"turn_index":10,"speaker":"pilot","text":"Maintaining two five zero knots, Delta One Two Three"}],"highlightTurns":[3],"error":{"turn_index":3,"speaker":"controller","severity":"high","expected_behavior":"Pilot readback of speed","actual_behavior":"No matching readback found for this instruction.","explanation":"","safety_impact":"","values_involved":{},"source":"rule","confidence":"confirmed"}},{"errorType":"missing_wind_in_clearance","category":"clearance","checkMode":"rule","description":"Takeoff/landing clearance omits wind information (FAA AIM 4-3-9).","acn":450024,"event":"birdstrikes","primaryCallsign":"American One Two Three","safetyRiskLevel":"critical","operationalStatus":"unsafe_operation","totalErrors":10,"errorsBySource":{"rule":7,"llm":3},"turns":[{"turn_index":0,"speaker":"controller","text":"American One Two Three, cleared into position and hold on runway 9L, wind two seven zero at one zero knots"},{"turn_index":1,"speaker":"pilot","text":"Cleared into position and hold on runway 9L, wind two seven zero at one zero knots, American One Two Three"},{"turn_index":2,"speaker":"controller","text":"American One Two Three, another aircraft is starting its takeoff roll, be advised"},{"turn_index":3,"speaker":"pilot","text":"Roger, American One Two Three"},{"turn_index":4,"speaker":"pilot","text":"Tower, American One Two Three, we're holding short of runway 9L, another aircraft just reported birds on the runway midfield"},{"turn_index":5,"speaker":"controller","text":"American One Two Three, cleared for takeoff runway 9L"},{"turn_index":6,"speaker":"pilot","text":"Tower, we can't take off with birds reported on the runway, American One Two Three"},{"turn_index":7,"speaker":"controller","text":"American One Two Three, exit the runway, we'll have a city vehicle come out to inspect, it'll be a long delay"},{"turn_index":8,"speaker":"pilot","text":"Okay, exiting runway 9L, American One Two Three"},{"turn_index":9,"speaker":"controller","text":"United Four Five Six, be advised of reported birds in the vicinity of runway 9L"},{"turn_index":10,"speaker":"pilot","text":"Tower, are you going to let them take off or wait for the city vehicle, American One Two Three"},{"turn_index":11,"speaker":"controller","text":"United Four Five Six, cleared for takeoff runway 9L"},{"turn_index":12,"speaker":"pilot","text":"Tower, you just told us there were birds on the runway, American One Two Three"},{"turn_index":13,"speaker":"controller","text":"United Four Five Six, roger, takeoff clearance acknowledged"},{"turn_index":14,"speaker":"pilot","text":"American One Two Three, we're going to take off behind them, American One Two Three"},{"turn_index":15,"speaker":"controller","text":"American One Two Three, cleared for takeoff runway 9L, wind two seven zero at one zero knots"},{"turn_index":16,"speaker":"pilot","text":"Cleared for takeoff runway 9L, wind two seven zero at one zero knots, American One Two Three"}],"highlightTurns":[5],"error":{"turn_index":5,"speaker":"controller","severity":"low","expected_behavior":"Wind information included per FAA AIM 4-3-9","actual_behavior":"No wind information found in this clearance.","explanation":"","safety_impact":"","values_involved":{},"source":"rule","confidence":"confirmed"}},{"errorType":"non_standard_phraseology","category":"phraseology","checkMode":"hybrid","description":"Non-ICAO phrasing (filler words, wrong clearance word order) \u2014 checked against known bad patterns, novel cases go to the LLM.","acn":2231630,"event":"bird strike","primaryCallsign":"United One Seven Two","safetyRiskLevel":"critical","operationalStatus":"significant_concerns","totalErrors":8,"errorsBySource":{"rule":6,"llm":2},"turns":[{"turn_index":0,"speaker":"pilot","text":"Mayday Mayday Mayday, United One Seven Two, we've had a bird strike on takeoff from Runway 31, experiencing a burning smell, requesting emergency assistance United One Seven Two"},{"turn_index":1,"speaker":"controller","text":"United One Seven Two, turn heading three four zero, contact Departure on one two one point five, report any further issues"},{"turn_index":2,"speaker":"pilot","text":"Negative, United One Seven Two, we're staying with you, flying runway heading, request ARFF to be on standby United One Seven Two"},{"turn_index":3,"speaker":"controller","text":"United One Seven Two, roger, ARFF is rolling, report your intentions"},{"turn_index":4,"speaker":"pilot","text":"We're turning left downwind, coming back to the field, will run checklists and assess systems, request priority handling United One Seven Two"},{"turn_index":5,"speaker":"controller","text":"United One Seven Two, descend and maintain one thousand feet, heading one eight zero, report established on the downwind"},{"turn_index":6,"speaker":"pilot","text":"Descend and maintain one thousand feet, heading one eight zero, wilco United One Seven Two"},{"turn_index":7,"speaker":"controller","text":"United One Seven Two, wind two seven zero at one zero knots, report turning base"},{"turn_index":8,"speaker":"pilot","text":"Roger, United One Seven Two"},{"turn_index":9,"speaker":"controller","text":"United One Seven Two, cleared to land Runway 31, report touchdown"},{"turn_index":10,"speaker":"pilot","text":"Cleared to land Runway 31, United One Seven Two"},{"turn_index":11,"speaker":"controller","text":"United One Seven Two, exit taxiway bravo, contact ground point eight"},{"turn_index":12,"speaker":"pilot","text":"Exit taxiway bravo, contact ground point eight, United One Seven Two"},{"turn_index":13,"speaker":"controller","text":"United One Seven Two, good job, ARFF will inspect the aircraft before you taxi to the gate"},{"turn_index":14,"speaker":"pilot","text":"Roger, thanks, United One Seven Two"}],"highlightTurns":[14],"error":{"turn_index":14,"speaker":"pilot","severity":"low","expected_behavior":"Standard ICAO phraseology (no filler acknowledgements)","actual_behavior":"Used non-standard phrase: 'thanks'","explanation":"","safety_impact":"","values_involved":{"phrase":"thanks"},"source":"rule","confidence":"confirmed"}},{"errorType":"partial_readback","category":"readback","checkMode":"rule","description":"The readback omits one or more required elements (per the instruction's readback_must_include list).","acn":1729988,"event":"NMAC","primaryCallsign":"Beech One Nine Zero","safetyRiskLevel":"high","operationalStatus":"significant_concerns","totalErrors":4,"errorsBySource":{"rule":4,"llm":0},"turns":[{"turn_index":0,"speaker":"controller","text":"Beech One Nine Zero, cleared for takeoff runway two seven right, wind two six zero at one zero knots"},{"turn_index":1,"speaker":"pilot","text":"Cleared for takeoff runway two seven right, Beech One Nine Zero"},{"turn_index":2,"speaker":"controller","text":"Beech One Nine Zero, right closed traffic approved"},{"turn_index":3,"speaker":"pilot","text":"Right closed traffic approved, Beech One Nine Zero"},{"turn_index":4,"speaker":"pilot","text":"Tower, Beech One Nine Zero, we have another aircraft on the downwind, Beech One Nine Zero"},{"turn_index":5,"speaker":"controller","text":"Oh yeah, that guy is definitely not supposed to be there"},{"turn_index":6,"speaker":"pilot","text":"We were cleared for right closed traffic, Beech One Nine Zero"},{"turn_index":7,"speaker":"controller","text":"Beech One Nine Zero, left three sixty, Piper Cherokee will land first"},{"turn_index":8,"speaker":"pilot","text":"Left three sixty, Piper Cherokee will land first, Beech One Nine Zero"},{"turn_index":9,"speaker":"controller","text":"Beech One Nine Zero, report downwind"},{"turn_index":10,"speaker":"pilot","text":"Downwind, Beech One Nine Zero"},{"turn_index":11,"speaker":"controller","text":"Beech One Nine Zero, clear to land runway two seven right, wind two six zero at one zero knots"},{"turn_index":12,"speaker":"pilot","text":"Cleared to land runway two seven right, Beech One Nine Zero"}],"highlightTurns":[0,1],"error":{"turn_index":1,"speaker":"pilot","severity":"medium","expected_behavior":"Readback should include: ['wind_direction', 'wind_speed']","actual_behavior":"These elements were not found in the readback's extracted values.","explanation":"","safety_impact":"","values_involved":{"missing":"wind_direction,wind_speed"},"source":"rule","confidence":"confirmed"}},{"errorType":"semantic_misunderstanding","category":"semantic","checkMode":"llm","description":"Pilot's response indicates a different understanding of the instruction than what was said.","acn":1715405,"event":"altitude_deviation","primaryCallsign":"Delta One Two Three","safetyRiskLevel":"critical","operationalStatus":"significant_concerns","totalErrors":3,"errorsBySource":{"rule":2,"llm":1},"turns":[{"turn_index":0,"speaker":"controller","text":"Delta One Two Three, turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach."},{"turn_index":1,"speaker":"pilot","text":"Turn left heading one nine zero, descend and maintain three thousand feet, cleared for the ILS XXL approach, Delta One Two Three"},{"turn_index":2,"speaker":"pilot","text":"Approach, Delta One Two Three, airport in sight, fourteen miles out, Delta One Two Three"},{"turn_index":3,"speaker":"controller","text":"Delta One Two Three, roger, report established on the localizer."},{"turn_index":4,"speaker":"pilot","text":"Wilco, Delta One Two Three"},{"turn_index":5,"speaker":"pilot","text":"Approach, Delta One Two Three, airport in sight, twelve miles out, Delta One Two Three"},{"turn_index":6,"speaker":"controller","text":"Delta One Two Three, Low altitude alert, climb immediately to two thousand nine hundred feet."},{"turn_index":7,"speaker":"pilot","text":"We are in the clear, Delta One Two Three"},{"turn_index":8,"speaker":"controller","text":"Delta One Two Three, Climb now to two thousand nine hundred feet, ZZZ is reported as IFR."},{"turn_index":9,"speaker":"pilot","text":"Climbing to two thousand nine hundred feet, Delta One Two Three"},{"turn_index":10,"speaker":"controller","text":"Delta One Two Three, apologies for the confusion, it seems there was a mistake on our end."},{"turn_index":11,"speaker":"pilot","text":"Roger, Delta One Two Three"}],"highlightTurns":[6,7,8],"error":{"turn_index":7,"speaker":"pilot","severity":"critical","expected_behavior":"Pilot should acknowledge and follow the low altitude alert instruction","actual_behavior":"Pilot responds with 'We are in the clear', indicating a misunderstanding of the instruction","explanation":"The pilot's response suggests they do not understand the urgency of the low altitude alert and the need to climb immediately.","safety_impact":"Failure to respond to a low altitude alert can result in controlled flight into terrain.","values_involved":{},"source":"llm","confidence":"confirmed"}},{"errorType":"wrong_emergency_squawk","category":"emergency","checkMode":"rule","description":"Emergency declared but squawk 7700 is never mentioned.","acn":2235439,"event":"bird strike","primaryCallsign":"Cessna one two three","safetyRiskLevel":"high","operationalStatus":"significant_concerns","totalErrors":2,"errorsBySource":{"rule":2,"llm":0},"turns":[{"turn_index":0,"speaker":"pilot","text":"Mayday Mayday Mayday, this is Cessna one two three, we've had a bird strike, request emergency assistance, Cessna one two three"},{"turn_index":1,"speaker":"controller","text":"Cessna one two three, report nature of emergency and souls on board"},{"turn_index":2,"speaker":"pilot","text":"We've had a vulture strike the right wing tip, it's torn off and damaged the aileron, two souls on board, Cessna one two three"},{"turn_index":3,"speaker":"controller","text":"Cessna one two three, roger, emergency services alerted, continue approach, report established on final"},{"turn_index":4,"speaker":"pilot","text":"Roger, established on final, Cessna one two three"},{"turn_index":5,"speaker":"controller","text":"Cessna one two three, wind two seven zero at one zero knots, cleared to land Runway 9R"},{"turn_index":6,"speaker":"pilot","text":"Cleared to land Runway 9R, wind two seven zero at one zero knots, Cessna one two three"},{"turn_index":7,"speaker":"controller","text":"Cessna one two three, be advised Aircraft Y is on short final, one mile ahead, follow him to landing"},{"turn_index":8,"speaker":"pilot","text":"Following Aircraft Y to landing, Cessna one two three"}],"highlightTurns":[8],"error":{"turn_index":8,"speaker":"unknown","severity":"high","expected_behavior":"Squawk 7700 mentioned during a declared emergency","actual_behavior":"No mention of squawk 7700 found anywhere in the conversation.","explanation":"","safety_impact":"","values_involved":{},"source":"rule","confidence":"confirmed"}}]
+</script>
+
+<script>
+const CASES = JSON.parse(document.getElementById('demoData').textContent);
+
+const SEVERITY_BADGE = { critical: 'b-crit', high: 'b-high', medium: 'b-med', low: 'b-low' };
+const SOURCE_BADGE = { rule: 'b-rule', llm: 'b-llm', hybrid: 'b-hybrid' };
+const SOURCE_LABEL = { rule: 'RULE-BASED', llm: 'LLM JUDGMENT', hybrid: 'HYBRID' };
+
+const TYPE_LABEL = t => t.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function buildInsight(c) {
+  const e = c.error;
+  if (e.source === 'rule') {
+    return `<strong>Caught with zero LLM calls.</strong> This is a deterministic check over stage 1's structured extraction — ${escapeHtml(c.description.toLowerCase())} No model judgment involved, so no hallucination risk on this specific check.`;
+  }
+  if (e.source === 'hybrid') {
+    return `<strong>Rule-checked, with an LLM safety net.</strong> ${escapeHtml(c.description)} The common case is resolved deterministically; only genuinely ambiguous instances get escalated to the LLM instead of being guessed at.`;
+  }
+  return `<strong>This one needed real judgment.</strong> ${escapeHtml(c.description)} No fixed rule could decide this — it requires understanding what was actually meant across turns, which is exactly the kind of question the semantic-detection stage is reserved for.`;
+}
+
+function populateSelect() {
+  const sel = document.getElementById('errorSelect');
+  sel.innerHTML = CASES.map((c, i) =>
+    `<option value="${i}">[${c.checkMode.toUpperCase()}] ${TYPE_LABEL(c.errorType)} — ACN ${c.acn} (${c.event})</option>`
+  ).join('');
+}
+
+function loadCase(idx) {
+  idx = parseInt(idx);
+  const c = CASES[idx];
+  const e = c.error;
+
+  document.querySelectorAll('.fadeable').forEach(el => el.classList.add('fading'));
+
+  setTimeout(() => {
+    // conversation meta
+    document.getElementById('convMeta').innerHTML = `
+      <span class="meta-chip">ACN <b>${c.acn}</b></span>
+      <span class="meta-chip">Event <b>${escapeHtml(c.event)}</b></span>
+      <span class="meta-chip">Callsign <b>${escapeHtml(c.primaryCallsign)}</b></span>
+    `;
+
+    // transcript
+    document.getElementById('transcript').innerHTML = c.turns.map(t => {
+      const flagged = c.highlightTurns.includes(t.turn_index);
+      const spkClass = t.speaker === 'controller' ? 'spk-controller' : t.speaker === 'pilot' ? 'spk-pilot' : 'spk-unknown';
+      return `<div class="turn ${flagged ? 'flagged' : ''}">
+        <span class="turn-idx">${t.turn_index}</span>
+        <span class="turn-speaker ${spkClass}">${escapeHtml(t.speaker)}</span>
+        <span class="turn-text">${escapeHtml(t.text)}${flagged ? '<span class="flag-mark">&larr; FLAGGED</span>' : ''}</span>
+      </div>`;
+    }).join('');
+
+    // error card
+    document.getElementById('errorCardHeader').innerHTML = `
+      <span class="error-type-name">${TYPE_LABEL(c.errorType)}</span>
+      <span class="badge ${SEVERITY_BADGE[e.severity] || 'b-low'}">${e.severity}</span>
+      <span class="badge ${SOURCE_BADGE[e.source] || 'b-llm'}">${SOURCE_LABEL[e.source] || e.source}</span>
+    `;
+    const viChips = Object.entries(e.values_involved || {})
+      .map(([k, v]) => `<span class="vi-chip">${escapeHtml(k)}: ${escapeHtml(v)}</span>`).join('');
+    document.getElementById('errorCardBody').innerHTML = `
+      <div class="eb-row"><span class="eb-label">Expected</span><span class="eb-expected">${escapeHtml(e.expected_behavior)}</span></div>
+      <div class="eb-row"><span class="eb-label">Actual</span><span class="eb-actual">${escapeHtml(e.actual_behavior)}</span></div>
+      ${e.explanation ? `<div class="eb-row"><span class="eb-label">Why</span><span class="eb-explain">${escapeHtml(e.explanation)}</span></div>` : ''}
+      ${e.safety_impact ? `<div class="eb-row"><span class="eb-label">Safety impact</span><span class="eb-impact">${escapeHtml(e.safety_impact)}</span></div>` : ''}
+      ${viChips ? `<div class="eb-row"><span class="eb-label">Values</span><div class="vi-chips">${viChips}</div></div>` : ''}
+    `;
+
+    // insight
+    document.getElementById('insightText').innerHTML = buildInsight(c);
+
+    // conversation-level metrics
+    document.getElementById('mRisk').textContent = c.safetyRiskLevel;
+    document.getElementById('mStatus').textContent = c.operationalStatus.replace(/_/g, ' ');
+    document.getElementById('mTotal').textContent = c.totalErrors;
+    document.getElementById('mSplit').textContent = `${c.errorsBySource.rule} / ${c.errorsBySource.llm}`;
+
+    document.querySelectorAll('.fadeable').forEach(el => el.classList.remove('fading'));
+  }, 180);
+}
+
+populateSelect();
+loadCase(0);
+</script>
+</body>
+</html>
